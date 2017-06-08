@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include
+END
+TArtMINOSPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtMINOSPara.hh
+END
+TArtAnalyzedDSSSDData.hh
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtAnalyzedDSSSDData.hh
+END
+parameterMINOS.dat
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/parameterMINOS.dat
+END
+TArtTrackMINOSData.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtTrackMINOSData.hh
+END
+TArtAnalyzedMINOSData.hh
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtAnalyzedMINOSData.hh
+END
+TArtAnalyzedDSSSD.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtAnalyzedDSSSD.hh
+END
+TArtMINOSParameters.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtMINOSParameters.hh
+END
+TArtTrackMINOS.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtTrackMINOS.hh
+END
+TArtCalibMINOSData.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtCalibMINOSData.hh
+END
+TArtAnalyzedTrackerData.hh
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtAnalyzedTrackerData.hh
+END
+TArtAnalyzedMINOS.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtAnalyzedMINOS.hh
+END
+TArtCalibMINOS.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtCalibMINOS.hh
+END
+TArtVertexMINOS.hh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtVertexMINOS.hh
+END
+TArtMINOSMap.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtMINOSMap.hh
+END
+TArtAnalyzedTracker.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/include/TArtAnalyzedTracker.hh
+END

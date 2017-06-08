@@ -1,0 +1,31 @@
+#include <Riostream.h>
+
+#include "TArtEasyGamma.hh"
+#include "TArtCalibCATANA.hh"
+#include "TArtCATANACsI.hh"
+#include "TArtCATANAParameters.hh"
+#include "TArtCore.hh"
+#include "TArtStoreManager.hh"
+
+#include <TROOT.h>
+#include <TMath.h>
+//________________________________________________________
+TArtEasyGamma::TArtEasyGamma(Double_t Brho0){
+  TArtCore::Info(__FILE__,"Creating CATANA detector objects...");
+  fcalibcatana = new TArtCalibCATANA();
+}
+
+TArtEasyGamma::~TArtEasyGamma(){
+  ClearData();
+}
+
+//________________________________________________________
+void TArtEasyGamma::ClearData(){
+  fcalibcatana->ClearData();
+}
+
+void TArtEasyGamma::ReconstructData(){
+  fcalibcatana->ReconstructData();
+}
+
+//_____________________________________________________________________________

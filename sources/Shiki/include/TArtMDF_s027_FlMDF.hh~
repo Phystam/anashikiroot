@@ -1,0 +1,12 @@
+#ifndef _TARTMDF_S027_FLMDF_H_
+#define _TARTMDF_S027_FLMDF_H_
+
+class TArtMDF_s027_FlMDF {
+public:
+  TArtMDF_s027_FlMDF(){;}
+  virtual ~TArtMDF_s027_FlMDF(){;}
+  double MDF(double* x);
+private:
+  ClassDef(TArtMDF_s027_FlMDF,1);
+};
+#endif

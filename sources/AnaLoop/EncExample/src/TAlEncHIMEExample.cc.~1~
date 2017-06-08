@@ -1,0 +1,220 @@
+
+#include "TAlEncHIMEExample.hh"
+
+#include <iostream>
+
+#include "TArtCore.hh"
+
+#include "TArtAnaLoop.hh"
+#include "TArtAnaLoopManager.hh"
+#include "TArtAnaFile.hh"
+#include "TArtAnaClock.hh"
+
+#include "TArtSAMURAIParameters.hh"
+#include "TArtCalibHIME.hh"
+#include "TArtHIMEPla.hh"
+#include "TArtHIMEPlaPara.hh"
+#include "TArtHIMEFilter.hh"
+
+#include "EAnalyser.hh"
+#include "EWNum.hh"
+
+int TAlEncHIMEExample::fFilterFlag = 0x0000;
+
+TAlEncHIMEExample::TAlEncHIMEExample()
+  : TAlEncSub(), samuraiparameters(0), calibHIME(0)
+{;}
+
+TAlEncHIMEExample::~TAlEncHIMEExample()
+{
+  Destruct();
+}
+
+void TAlEncHIMEExample::Construct()
+{
+  fStoreManager = TArtStoreManager::Instance();
+  samuraiparameters = TArtSAMURAIParameters::Instance();
+  samuraiparameters->LoadParameter((char*)"db/HIME.xml");
+  calibHIME = new TArtCalibHIME;
+  //  calibHIME->SetName("CalibHIME");
+  //  fStoreManager->AddCalibContainer(calibHIME);
+
+  std::string HIMEfiltermessage= "\n";
+  if(fFilterFlag & 0x0001){
+    HIMEfiltermessage += " TArtHIMEFilter::IHitMin: on\n";
+  }
+  if(fFilterFlag & 0x0002){
+    HIMEfiltermessage += " TArtHIMEFilter::Threshold: on\n";
+  }
+  if(fFilterFlag & 0x0020){  
+    HIMEfiltermessage += " TArtHIMEFilter::VETO(only front): on\n";
+  }
+  if(fFilterFlag & 0x0004){
+    HIMEfiltermessage += " TArtHIMEFilter::Veto: on\n";
+  }
+  if(fFilterFlag & 0x0008){  
+    HIMEfiltermessage += " TArtHIMEFilter::HitMinPos: on\n";
+  }
+  if(fFilterFlag & 0x0010){  
+    HIMEfiltermessage += " TArtHIMEFilter::HitMinPos2: on\n";
+  }
+  if(fFilterFlag & 0x0040){  
+    HIMEfiltermessage += " TArtHIMEFilter::HitMinTime: on\n";
+  }
+  if(HIMEfiltermessage.size() > 1){
+    std::cout << HIMEfiltermessage << std::endl;
+  }
+}
+
+void TAlEncHIMEExample::PreCalculate()
+{
+  calibHIME->ClearData();
+}
+
+bool TAlEncHIMEExample::Calculate()
+{
+  calibHIME->ReconstructData();
+
+  // 1n: flag=0x0063
+  // 2n: flag=0x0017
+
+  if(fFilterFlag & 0x0001){
+    TArtHIMEFilter::IHitMin(calibHIME, 4, 1); // neut>=4hit, veto>=1hit
+  }
+  if(fFilterFlag & 0x0002){
+    //    TArtHIMEFilter::Threshold(calibHIME, 6, -1);
+    TArtHIMEFilter::Threshold(calibHIME, 10, -1);
+  }
+  if(fFilterFlag & 0x0020){  
+    TArtHIMEFilter::Veto(calibHIME, 1); // only front
+  }
+  if(fFilterFlag & 0x0004){  
+    TArtHIMEFilter::Veto(calibHIME, 2); // two layer
+  }
+  if(fFilterFlag & 0x0008){  
+    TArtHIMEFilter::HitMinPos(calibHIME); // get front hit 
+  }
+  if(fFilterFlag & 0x0010){  
+    TArtHIMEFilter::HitMinPos2(calibHIME); // get front hit in each layer
+  }
+  if(fFilterFlag & 0x0040){  
+    TArtHIMEFilter::HitMinTime(calibHIME); // get front hit in each layer
+  }
+
+  calibHIME->CalMultiplicity();  
+
+  Fill();
+
+  return true;
+}
+
+void TAlEncHIMEExample::Destruct()
+{
+  delete calibHIME;
+  calibHIME = 0;
+  if(samuraiparameters) samuraiparameters->Delete();
+  samuraiparameters = 0;
+}
+
+void TAlEncHIMEExample::Fill()
+{
+  using namespace Analyser;
+  using namespace WNum::HIME;  
+
+  Int_t NumHIMEPla = calibHIME->GetNumHIMEPla();
+  for(int i=0; i<NumHIMEPla; ++i){
+    TArtHIMEPla* pla = calibHIME->GetHIMEPla(i);
+    if(pla->GetDataState() < 0) continue;
+
+    Int_t id    = pla->GetID();
+
+    if(!fAnaLoop->UsingAnaFile()){
+      /*nothing*/;
+    }else{
+      fAnaLoop->Add(HIME, ID,       id, id);
+      fAnaLoop->Add(HIME, Layer,    id, pla->GetLayer());
+      fAnaLoop->Add(HIME, SubLayer, id, pla->GetSubLayer());
+      fAnaLoop->Add(HIME, DetPosX,  id, pla->GetDetPos(0));
+      fAnaLoop->Add(HIME, DetPosY,  id, pla->GetDetPos(1));
+      fAnaLoop->Add(HIME, DetPosZ,  id, pla->GetDetPos(2));
+      fAnaLoop->Add(HIME, Hit,      id, pla->GetHit());
+
+      fAnaLoop->Add(HIME, QURaw,        id, pla->GetQURaw());
+      fAnaLoop->Add(HIME, QDRaw,        id, pla->GetQDRaw());
+      fAnaLoop->Add(HIME, QUPed,        id, pla->GetQUPed());
+      fAnaLoop->Add(HIME, QDPed,        id, pla->GetQDPed());
+      fAnaLoop->Add(HIME, QUCal,        id, pla->GetQUCal());
+      fAnaLoop->Add(HIME, QDCal,        id, pla->GetQDCal());
+      fAnaLoop->Add(HIME, QAvePed,      id, pla->GetQAvePed());
+      fAnaLoop->Add(HIME, QAveCal,      id, pla->GetQAveCal());
+      fAnaLoop->Add(HIME, LogQPed,      id, pla->GetLogQPed());
+      fAnaLoop->Add(HIME, LogQCal,      id, pla->GetLogQCal());
+      fAnaLoop->Add(HIME, IvSqrtQUPed,  id, pla->GetIvSqrtQUPed());
+      fAnaLoop->Add(HIME, IvSqrtQDPed,  id, pla->GetIvSqrtQDPed());
+      fAnaLoop->Add(HIME, IvSqrtQAvePed,id, pla->GetIvSqrtQAvePed());
+
+      fAnaLoop->Add(HIME, TURaw,       id, pla->GetTURaw());
+      fAnaLoop->Add(HIME, TDRaw,       id, pla->GetTDRaw());
+      fAnaLoop->Add(HIME, TUCal,       id, pla->GetTUCal());
+      fAnaLoop->Add(HIME, TDCal,       id, pla->GetTDCal());
+      fAnaLoop->Add(HIME, TUSlw,       id, pla->GetTUSlw());
+      fAnaLoop->Add(HIME, TDSlw,       id, pla->GetTDSlw());
+      fAnaLoop->Add(HIME, DTRaw,       id, pla->GetDTRaw());
+      fAnaLoop->Add(HIME, DTCal,       id, pla->GetDTCal());
+      fAnaLoop->Add(HIME, DTSlw,       id, pla->GetDTSlw());
+      fAnaLoop->Add(HIME, TAveRaw,     id, pla->GetTAveRaw());
+      fAnaLoop->Add(HIME, TAveCal,     id, pla->GetTAveCal());
+      fAnaLoop->Add(HIME, TAveSlw,     id, pla->GetTAveSlw());
+      fAnaLoop->Add(HIME, TUCalT0,     id, pla->GetTUCalT0());
+      fAnaLoop->Add(HIME, TDCalT0,     id, pla->GetTDCalT0());
+      fAnaLoop->Add(HIME, TUSlwT0,     id, pla->GetTUSlwT0());
+      fAnaLoop->Add(HIME, TDSlwT0,     id, pla->GetTDSlwT0());
+      fAnaLoop->Add(HIME, TAveCalT0,   id, pla->GetTAveCalT0());
+      fAnaLoop->Add(HIME, TAveSlwT0,   id, pla->GetTAveSlwT0());
+      fAnaLoop->Add(HIME, TTOFGamma,   id, pla->GetTTOFGamma());
+      fAnaLoop->Add(HIME, TTOFNeutron, id, pla->GetTTOFNeutron());
+
+      fAnaLoop->Add(HIME, PosCal,       id, pla->GetPosCal());
+      fAnaLoop->Add(HIME, PosSlw,       id, pla->GetPosSlw());
+      fAnaLoop->Add(HIME, PosX,         id, pla->GetPos(0));
+      fAnaLoop->Add(HIME, PosY,         id, pla->GetPos(1));
+      fAnaLoop->Add(HIME, PosZ,         id, pla->GetPos(2));
+      fAnaLoop->Add(HIME, FlightLength, id, pla->GetFlightLength());
+    }
+  }
+
+  if(!fAnaLoop->UsingAnaFile()){
+    /*nothing*/;
+  }else{
+    // fAnaLoop->Add(HIME, Multiplicity_N[0], 0, calibHIME->GetMultiplicity_N());
+    // fAnaLoop->Add(HIME, Multiplicity_N[1], 0, calibHIME->GetMultiplicity_N1());
+    // fAnaLoop->Add(HIME, Multiplicity_N[2], 0, calibHIME->GetMultiplicity_N2());
+    // fAnaLoop->Add(HIME, Multiplicity_N[3], 0, calibHIME->GetMultiplicity_N3());
+    // fAnaLoop->Add(HIME, Multiplicity_N[4], 0, calibHIME->GetMultiplicity_N4());
+    // fAnaLoop->Add(HIME, Multiplicity_N[5], 0, calibHIME->GetMultiplicity_N5());
+    // fAnaLoop->Add(HIME, Multiplicity_V,    0, calibHIME->GetMultiplicity_V());
+  }
+}
+
+void TAlEncHIMEExample::SetFilterFlag(int filterflag)
+{
+  fFilterFlag = filterflag;
+}
+
+const char* TAlEncHIMEExample::ClassName() const
+{
+  return "TAlEncHIMEExample";
+}
+
+TAlEncHIMEExampleFactory::TAlEncHIMEExampleFactory()
+ : TAlEncFactory()
+{;}
+
+TAlEncHIMEExampleFactory::~TAlEncHIMEExampleFactory()
+{;}
+
+TAlEncSub* TAlEncHIMEExampleFactory::CreateEnc()
+{
+  return new TAlEncHIMEExample;
+}
+

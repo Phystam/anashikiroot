@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src
+END
+TArtRecoTOF.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtRecoTOF.cc
+END
+TArtCalibSi.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibSi.cc
+END
+TArtCalibPID.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibPID.cc
+END
+TArtRecoBeam.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtRecoBeam.cc
+END
+TArtCalibTKE.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibTKE.cc
+END
+TArtCalibPPAC.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibPPAC.cc
+END
+TArtRIPSPara.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtRIPSPara.cc
+END
+TArtCalibCoin.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibCoin.cc
+END
+TArtBigRIPSParameters.cc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtBigRIPSParameters.cc
+END
+TArtRecoPID.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtRecoPID.cc
+END
+TArtRecoRIPS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtRecoRIPS.cc
+END
+TArtCalibIC.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibIC.cc
+END
+TArtCalibGe.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibGe.cc
+END
+TArtCalibPlastic.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibPlastic.cc
+END
+TArtCalibFocalPlane.cc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/BigRIPS/src/TArtCalibFocalPlane.cc
+END

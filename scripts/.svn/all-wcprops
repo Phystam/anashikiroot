@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/anaroot/!svn/ver/343/branches/2016SAMURAI.s027/scripts
+END
+setup.sh.org
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/scripts/setup.sh.org
+END
+getAnaLoop.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/scripts/getAnaLoop.sh
+END
+ultraclean.sh
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/anaroot/!svn/ver/343/branches/2016SAMURAI.s027/scripts/ultraclean.sh
+END
+anarootlogin.sh
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/scripts/anarootlogin.sh
+END
+csv2xml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/scripts/csv2xml.pl
+END
+xml2csv.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/scripts/xml2csv.pl
+END
+spk2xml.pl
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/scripts/spk2xml.pl
+END

@@ -1,0 +1,19 @@
+
+#ifdef __CINT__
+#pragma link off all globals;
+#pragma link off all classes;
+#pragma link off all functions;
+
+#pragma link C++ class TArtEasyTimer+;
+#pragma link C++ class TArtEasyPID+;
+#pragma link C++ class TArtEasyBeam+;
+#pragma link C++ class TArtEasySAMURAIPID+;
+#pragma link C++ class TArtEasyNeutrons+;
+#pragma link C++ class TArtEasyNeutron+;
+#pragma link C++ class TArtEasyGamma+;
+#pragma link C++ class TArtMDF_s027_BrhoMDF+;
+#pragma link C++ class TArtMDF_s027_TofMDF+;
+#pragma link C++ class TArtMDF_s027_FlMDF+;
+#pragma link C++ class TArtEasyScaler+;
+//#pragma link C++ class TArtEasyConvolution+;
+#endif

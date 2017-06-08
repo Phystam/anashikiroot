@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/configure.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/Makefile.am
+END
+ananadeko_linkdef.hh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/ananadeko_linkdef.hh
+END

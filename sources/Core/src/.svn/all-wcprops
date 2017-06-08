@@ -1,0 +1,293 @@
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src
+END
+TArtDecoderV7XX.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV7XX.cc
+END
+TArtDecoderCTM405.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderCTM405.cc
+END
+TArtDecoderAD413A.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderAD413A.cc
+END
+TArtDecoderBigEndianV7XX.cc
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderBigEndianV7XX.cc
+END
+TArtDecoderV1190.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV1190.cc
+END
+TArtDecoderV1740.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV1740.cc
+END
+TArtDecoderA3100.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderA3100.cc
+END
+TArtRawDataObject.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtRawDataObject.cc
+END
+TArtRawScalerObject.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtRawScalerObject.cc
+END
+TArtSharedMemoryDataSource.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtSharedMemoryDataSource.cc
+END
+TArtUtil.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtUtil.cc
+END
+TArtDecoderMTDC32.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderMTDC32.cc
+END
+TArtDecoderNeulandTS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderNeulandTS.cc
+END
+TArtParserFactory.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtParserFactory.cc
+END
+TArtDecoderV830.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV830.cc
+END
+TArtDecoderFeminos.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderFeminos.cc
+END
+TArtDecoderTacquila.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderTacquila.cc
+END
+TArtMath.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtMath.cc
+END
+TArtDataSource.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDataSource.cc
+END
+TArtDecoderFixed32.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderFixed32.cc
+END
+TArtFileDataSource.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtFileDataSource.cc
+END
+TArtDecoderFixed24.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderFixed24.cc
+END
+TArtDecoderFixed16.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderFixed16.cc
+END
+TArtParser.cc
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtParser.cc
+END
+TArtEventStore.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtEventStore.cc
+END
+TArtDecoderV767.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV767.cc
+END
+TArtDecoderMADC32.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderMADC32.cc
+END
+TArtSharedMemory.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtSharedMemory.cc
+END
+TArtParserRIDF.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtParserRIDF.cc
+END
+TArtDecoderAMTTDC.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderAMTTDC.cc
+END
+TArtDecoderVmeEasyroc.cc
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderVmeEasyroc.cc
+END
+TArtRawSegmentObject.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtRawSegmentObject.cc
+END
+TArtStreamingDataSource.cc
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtStreamingDataSource.cc
+END
+TArtDecoderP716XZ.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderP716XZ.cc
+END
+TArtDecoderLUPO.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderLUPO.cc
+END
+TArtDecoderV1290.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV1290.cc
+END
+TArtDecoderV1190C.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV1190C.cc
+END
+TArtDecoderL3377d.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderL3377d.cc
+END
+TArtDecoderP716X.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderP716X.cc
+END
+TArtDecoderDSP.cc
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderDSP.cc
+END
+TArtDecoderMQDC32.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderMQDC32.cc
+END
+TArtRawEventObject.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtRawEventObject.cc
+END
+TArtSemaphore.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtSemaphore.cc
+END
+TArtDecoderV550.cc
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderV550.cc
+END
+TArtStoreManager.cc
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtStoreManager.cc
+END
+TArtCore.cc
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtCore.cc
+END
+TArtParserRDF.cc
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtParserRDF.cc
+END
+TArtDecoderFactory.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Core/src/TArtDecoderFactory.cc
+END

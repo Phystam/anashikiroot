@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai
+END
+TArtAnalysis.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtAnalysis.cxx
+END
+setup.C
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/setup.C
+END
+TArtParam.h
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtParam.h
+END
+TArtEventSource.h
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtEventSource.h
+END
+TArtProc.h
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtProc.h
+END
+TArtRawEvent.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtRawEvent.cxx
+END
+Module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/Module.mk
+END
+TArtParam.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtParam.cxx
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/README
+END
+TArtEventSource.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtEventSource.cxx
+END
+TArtProc.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtProc.cxx
+END
+TArtAnalysis.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtAnalysis.h
+END
+ArtLinkDef.h
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/ArtLinkDef.h
+END
+TArtRawEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/TArtRawEvent.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/samples/samurai/Makefile
+END

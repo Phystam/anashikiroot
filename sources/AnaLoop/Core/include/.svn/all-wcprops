@@ -1,0 +1,83 @@
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include
+END
+TAlEncPrint.hh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncPrint.hh
+END
+TAlEncBranch.hh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncBranch.hh
+END
+TArtAnaLoop.hh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TArtAnaLoop.hh
+END
+TArtAnaClock.hh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TArtAnaClock.hh
+END
+TAlEncGate.hh
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncGate.hh
+END
+TArtAnaFile.hh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TArtAnaFile.hh
+END
+TAlEncStop.hh
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncStop.hh
+END
+TAlEncFillTree.hh
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncFillTree.hh
+END
+TAlEncFactory.hh
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncFactory.hh
+END
+TAlEncHist.hh
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncHist.hh
+END
+TArtAnaLoopManager.hh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TArtAnaLoopManager.hh
+END
+TAlEncSub.hh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlEncSub.hh
+END
+TAlRawDataExample.hh
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/include/TAlRawDataExample.hh
+END

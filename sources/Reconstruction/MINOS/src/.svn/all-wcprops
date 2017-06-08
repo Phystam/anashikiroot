@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src
+END
+TArtCalibMINOS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtCalibMINOS.cc
+END
+TArtAnalyzedTracker.cc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtAnalyzedTracker.cc
+END
+TArtVertexMINOS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtVertexMINOS.cc
+END
+TArtAnalyzedDSSSD.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtAnalyzedDSSSD.cc
+END
+TArtMINOSParameters.cc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtMINOSParameters.cc
+END
+TArtTrackMINOS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtTrackMINOS.cc
+END
+TArtAnalyzedMINOS.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/MINOS/src/TArtAnalyzedMINOS.cc
+END

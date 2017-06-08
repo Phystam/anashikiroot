@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/anaroot/!svn/ver/345/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI
+END
+configure.in
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/configure.in
+END
+Makefile.am
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/Makefile.am
+END
+anasamurai_linkdef.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/343/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/anasamurai_linkdef.hh
+END

@@ -1,0 +1,86 @@
+#ifndef _TARTPLASTIC_H_
+#define _TARTPLASTIC_H_
+
+#include "TMath.h"
+#include "TArtDataObject.hh"
+
+class TArtPlastic : public TArtDataObject {
+
+ public:
+  TArtPlastic(){Clear();zposition=-1;zoffset=0;}
+  virtual ~TArtPlastic(){}
+  virtual void Clear(){fTLRaw=0;fTRRaw=0;fQLRaw=0;fQRRaw=0;fTAveCal=-1;fTLCal=-1;fTRCal=-1;fTLSlw=-1;fTRSlw=-1;fTAveSlw=-1;fQLPed=0;fQAvePed=0;fQRPed=0;SetDataState(0);}
+
+  virtual void SetZoffset(Double_t val){zoffset = val;}
+  virtual void SetZposition(Double_t val){zposition = val;}
+
+  virtual Double_t GetZoffset(){return zoffset;}
+  virtual Double_t GetZposition(){return zposition;}
+
+  // function to set raw data
+  void  SetTLRaw(Int_t val){fTLRaw = val;}
+  void  SetTRRaw(Int_t val){fTRRaw = val;}
+  void  SetQLRaw(Int_t val){fQLRaw = val;}
+  void  SetQRRaw(Int_t val){fQRRaw = val;}
+  void  SetQLPed(Int_t val){fQLPed = val;}
+  void  SetQRPed(Int_t val){fQRPed = val;}
+  void  SetQAvePed(Int_t val){fQAvePed = val;}
+
+  // function to get raw data
+  Int_t GetTLRaw(){return fTLRaw;}
+  Int_t GetTRRaw(){return fTRRaw;}
+  Int_t GetQLRaw(){return fQLRaw;}
+  Int_t GetQRRaw(){return fQRRaw;}
+  Double_t GetQAveRaw(){return TMath::Sqrt((Double_t)fQRRaw*(Double_t)fQLRaw);}
+
+ 
+  // set reconstructed values
+  virtual void SetTAveCal(Double_t val){fTAveCal=val;}
+  virtual void SetTLCal(Double_t val){fTLCal=val;}
+  virtual void SetTRCal(Double_t val){fTRCal=val;}
+  virtual void SetTLSlw(Double_t val){fTLSlw=val;}
+  virtual void SetTRSlw(Double_t val){fTRSlw=val;}
+  virtual void SetTAveSlw (Double_t val){fTAveSlw=val;}
+  virtual void SetTAveSlwOff(Double_t val){fTAveSlwOff=val;}
+
+  // get reconstructed values
+  Double_t GetTAveCal(){return fTAveCal;}
+  Double_t GetTLCal(){return fTLCal;}
+  Double_t GetTRCal(){return fTRCal;}
+  Double_t GetTLSlw(){return fTLSlw;}
+  Double_t GetTRSlw(){return fTRSlw;}
+  Double_t GetTAveSlw(){return fTAveSlw;}
+  Double_t GetTAveSlwOff(){return fTAveSlwOff;}
+  //Alias for GetTAveSlwOff()
+  Double_t GetTime(){return fTAveSlwOff;}
+  Int_t GetQLPed(){return fQLPed;}
+  Int_t GetQRPed(){return fQRPed;}
+  Double_t GetQAvePed(){return fQAvePed;}
+ private:
+
+  Double_t     zposition; // global position
+  Double_t     zoffset; // offset in a fpl
+
+  // raw data
+  Int_t fTLRaw;  
+  Int_t fTRRaw;
+  Int_t fQLRaw;  
+  Int_t fQRRaw;
+
+  // reconstructed data
+  Double_t   fTAveCal;
+  Double_t   fTLCal;
+  Double_t   fTRCal;
+  Double_t   fTLSlw; // after slewing correction
+  Double_t   fTRSlw;
+  Double_t   fTAveSlw;
+  Double_t   fTAveSlwOff;
+  Double_t   fQLPed;  
+  Double_t   fQRPed;
+  Double_t   fQAvePed;
+
+  ClassDef(TArtPlastic,1);
+
+};
+#endif
+

@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include
+END
+TArtCalibFADC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibFADC.hh
+END
+TArtCalibDia.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibDia.hh
+END
+TArtBDC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtBDC.hh
+END
+TArtRNaI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtRNaI.hh
+END
+TArtCalibPlas.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibPlas.hh
+END
+TArtCalibBLD.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibBLD.hh
+END
+TArtFADC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtFADC.hh
+END
+TArtDia.hh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtDia.hh
+END
+TArtRNaIPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtRNaIPara.hh
+END
+TArtPlas.hh
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtPlas.hh
+END
+TArtFADCPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtFADCPara.hh
+END
+TArtBLD.hh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtBLD.hh
+END
+TArtUserParameters.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtUserParameters.hh
+END
+TArtPlasPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtPlasPara.hh
+END
+TArtCalibRDC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibRDC.hh
+END
+TArtESPRIParameters.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtESPRIParameters.hh
+END
+TArtRDC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtRDC.hh
+END
+TArtCalibTDCHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibTDCHit.hh
+END
+TArtTDCHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtTDCHit.hh
+END
+TArtCalibBDC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibBDC.hh
+END
+TArtTDCHitPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtTDCHitPara.hh
+END
+TArtCalibRNaI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/ESPRI/include/TArtCalibRNaI.hh
+END

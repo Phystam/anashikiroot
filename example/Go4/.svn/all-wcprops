@@ -1,0 +1,95 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4
+END
+TArtAnalysis.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtAnalysis.cxx
+END
+setup.C
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/setup.C
+END
+TArtParam.h
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtParam.h
+END
+TArtEventSource.h
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtEventSource.h
+END
+TArtProc.h
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtProc.h
+END
+TArtRawEvent.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtRawEvent.cxx
+END
+Module.mk
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/Module.mk
+END
+TArtParam.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtParam.cxx
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/README
+END
+TArtEventSource.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtEventSource.cxx
+END
+TArtProc.cxx
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtProc.cxx
+END
+TArtAnalysis.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtAnalysis.h
+END
+ArtLinkDef.h
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/ArtLinkDef.h
+END
+TArtRawEvent.h
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/TArtRawEvent.h
+END
+Makefile
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/example/Go4/Makefile
+END

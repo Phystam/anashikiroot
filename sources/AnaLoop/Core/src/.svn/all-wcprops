@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src
+END
+TAlEncStop.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncStop.cc
+END
+TAlEncFillTree.cc
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncFillTree.cc
+END
+TAlEncHist.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncHist.cc
+END
+TArtAnaLoopManager.cc
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TArtAnaLoopManager.cc
+END
+TAlEncSub.cc
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncSub.cc
+END
+TAlRawDataExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlRawDataExample.cc
+END
+TAlEncPrint.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncPrint.cc
+END
+TAlEncBranch.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncBranch.cc
+END
+TArtAnaLoop.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TArtAnaLoop.cc
+END
+TArtAnaClock.cc
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TArtAnaClock.cc
+END
+TAlEncGate.cc
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TAlEncGate.cc
+END
+TArtAnaFile.cc
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/Core/src/TArtAnaFile.cc
+END

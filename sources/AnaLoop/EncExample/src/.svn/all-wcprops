@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src
+END
+TAlEncRPDCExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncRPDCExample.cc
+END
+TAlEncRPTOFExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncRPTOFExample.cc
+END
+TAlEncICExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncICExample.cc
+END
+TAlEncSAMURAIHODExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAIHODExample.cc
+END
+TAlEncSAMURAITEDExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAITEDExample.cc
+END
+TAlEncSAMURAIPlaExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAIPlaExample.cc
+END
+TAlEncPlasticExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncPlasticExample.cc
+END
+TAlEncGlobalExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncGlobalExample.cc
+END
+listval.pl
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/listval.pl
+END
+TAlEncNEBULAHPCExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncNEBULAHPCExample.cc
+END
+TAlEncMatrixExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncMatrixExample.cc
+END
+TAlEncNEBULAExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncNEBULAExample.cc
+END
+TAlEncSAMURAIDCExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAIDCExample.cc
+END
+TAlEncDALIExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncDALIExample.cc
+END
+TAlEncPIDExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncPIDExample.cc
+END
+TAlEncSAMURAINeutronExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAINeutronExample.cc
+END
+TAlEncSAMURAIICExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAIICExample.cc
+END
+TAlEncExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/anaroot/!svn/ver/343/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncExample.cc
+END
+TAlEncHIMEExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncHIMEExample.cc
+END
+TAlEncRawDataExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncRawDataExample.cc
+END
+TAlEncPPACExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncPPACExample.cc
+END
+TAlEncSILICONSExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSILICONSExample.cc
+END
+TAlEncWINDSExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncWINDSExample.cc
+END
+TAlEncMINOSExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncMINOSExample.cc
+END
+TAlEncSAMURAIFrag.cc
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAIFrag.cc
+END
+TAlEncSAMURAITZeroExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncSAMURAITZeroExample.cc
+END
+TAlEncNeuLANDExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncNeuLANDExample.cc
+END
+TAlEncCATANAExample.cc
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/AnaLoop/EncExample/src/TAlEncCATANAExample.cc
+END

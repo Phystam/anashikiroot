@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/DALI/include
+END
+TArtDALIParameters.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/DALI/include/TArtDALIParameters.hh
+END
+TArtDALINaI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/DALI/include/TArtDALINaI.hh
+END
+TArtCalibDALI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/DALI/include/TArtCalibDALI.hh
+END
+TArtDALINaIPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/DALI/include/TArtDALINaIPara.hh
+END

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include
+END
+TArtCanvasManager.hh
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtCanvasManager.hh
+END
+TArtAlias.hh
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtAlias.hh
+END
+TArtTreeManager.hh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtTreeManager.hh
+END
+TArtSimpleFunction.hh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtSimpleFunction.hh
+END
+TArtGlobal.hh
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtGlobal.hh
+END
+TArtHistManager.hh
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtHistManager.hh
+END
+TArtObjLinkManager.hh
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtObjLinkManager.hh
+END
+TArtExec.hh
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Nadeko/include/TArtExec.hh
+END

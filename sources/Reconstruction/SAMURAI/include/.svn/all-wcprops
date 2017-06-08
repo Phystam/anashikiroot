@@ -1,0 +1,395 @@
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include
+END
+TArtNeuLANDPlaPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNeuLANDPlaPara.hh
+END
+TArtCalibRPDCHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibRPDCHit.hh
+END
+TArtCalibBDC1Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibBDC1Track.hh
+END
+TArtCalibBDC2Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibBDC2Track.hh
+END
+TArtCalibFDC0Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibFDC0Track.hh
+END
+TArtCalibFDC1Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibFDC1Track.hh
+END
+TArtCalibFDC2Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibFDC2Track.hh
+END
+TArtCalibNEBULA.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibNEBULA.hh
+END
+DCGeomRecord.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/DCGeomRecord.hh
+END
+TArtFragment.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtFragment.hh
+END
+TArtRecoSAMURAI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtRecoSAMURAI.hh
+END
+TArtCalibS1DC1Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibS1DC1Hit.hh
+END
+TArtCalibHIME.hh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibHIME.hh
+END
+TArtCalibSAMURAITZero.hh
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibSAMURAITZero.hh
+END
+TArtCalibRPTOFPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibRPTOFPla.hh
+END
+TArtCalibDCHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibDCHit.hh
+END
+RungeKuttaUtilities.hh
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/RungeKuttaUtilities.hh
+END
+TArtCalibS1DC1Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibS1DC1Track.hh
+END
+TArtCalibS1DC2Track.hh
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibS1DC2Track.hh
+END
+TArtNEBULAHPC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNEBULAHPC.hh
+END
+TArtTZero.hh
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtTZero.hh
+END
+TArtNEBULAPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNEBULAPla.hh
+END
+TArtCalibBPCHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibBPCHit.hh
+END
+TArtNEBULAHPCPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNEBULAHPCPara.hh
+END
+TArtNEBULAPlaPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNEBULAPlaPara.hh
+END
+TArtCalibBDC2Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibBDC2Hit.hh
+END
+TArtCalibFDC0Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibFDC0Hit.hh
+END
+TArtCalibFDC2Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibFDC2Hit.hh
+END
+TArtCalibNeuLANDVETO.hh
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibNeuLANDVETO.hh
+END
+TArtCalibNeuLAND.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibNeuLAND.hh
+END
+TArtRPTOFPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtRPTOFPla.hh
+END
+TArtHIMEFilter.hh
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtHIMEFilter.hh
+END
+TArtNeutron.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNeutron.hh
+END
+TArtRPTOFPlaPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtRPTOFPlaPara.hh
+END
+TArtHODPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtHODPla.hh
+END
+TArtCalibRPDCTrack.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibRPDCTrack.hh
+END
+TArtHODPlaPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtHODPlaPara.hh
+END
+TArtTEDCsI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtTEDCsI.hh
+END
+TArtCalibS1DC2Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibS1DC2Hit.hh
+END
+TArtRecoFragment.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtRecoFragment.hh
+END
+TArtTEDCsIPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtTEDCsIPara.hh
+END
+TArtSAMURAIParameters.hh
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/anaroot/!svn/ver/343/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtSAMURAIParameters.hh
+END
+TArtDCHit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtDCHit.hh
+END
+TArtCalibNEBULAHPC.hh
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibNEBULAHPC.hh
+END
+TArtCalibICF.hh
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibICF.hh
+END
+TArtCalibSAMURAI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibSAMURAI.hh
+END
+DCConfMan.hh
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/DCConfMan.hh
+END
+TArtDCHitPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtDCHitPara.hh
+END
+TArtICF.hh
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtICF.hh
+END
+TArtTacquilaMap.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtTacquilaMap.hh
+END
+TArtCalibHODPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibHODPla.hh
+END
+TArtRecoNeutron.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtRecoNeutron.hh
+END
+TArtCalibDCTrack.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibDCTrack.hh
+END
+TArtCalibTEDCsI.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibTEDCsI.hh
+END
+SAMURAIFieldMap.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/SAMURAIFieldMap.hh
+END
+TArtCalcGlobalTrack.hh
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalcGlobalTrack.hh
+END
+TArtCalibBDC1Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibBDC1Hit.hh
+END
+TArtDCTrack.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtDCTrack.hh
+END
+TArtNEBULAFilter.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNEBULAFilter.hh
+END
+TArtCalibFDC1Hit.hh
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtCalibFDC1Hit.hh
+END
+TArtHIMEPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtHIMEPla.hh
+END
+MathTools.hh
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/MathTools.hh
+END
+TArtNeuLANDPla.hh
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtNeuLANDPla.hh
+END
+TArtHIMEPlaPara.hh
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/anaroot/!svn/ver/344/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/TArtHIMEPlaPara.hh
+END
+FieldMan.hh
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/anaroot/!svn/ver/338/branches/2016SAMURAI.s027/sources/Reconstruction/SAMURAI/include/FieldMan.hh
+END

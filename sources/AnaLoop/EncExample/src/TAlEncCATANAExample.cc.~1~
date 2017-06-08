@@ -1,0 +1,124 @@
+#include "TAlEncCATANAExample.hh"
+
+#include <iostream>
+
+#include "TClonesArray.h"
+#include "TMath.h"
+
+#include "TArtAnaLoop.hh"
+#include "TArtAnaLoopManager.hh"
+#include "TArtAnaFile.hh"
+#include "TArtAnaClock.hh"
+
+#include "TArtCalibCATANA.hh"
+#include "TArtCATANACsI.hh"
+#include "TArtCATANAParameters.hh"
+
+#include "EAnalyser.hh"
+#include "EWNum.hh"
+
+#include "TArtStoreManager.hh"
+
+TAlEncCATANAExample::TAlEncCATANAExample()
+  : TAlEncSub(), catanaparameters(0), calibcatana(0)
+{;}
+
+TAlEncCATANAExample::~TAlEncCATANAExample()
+{
+  Destruct();
+}
+
+void TAlEncCATANAExample::Construct()
+{
+  catanaparameters = TArtCATANAParameters::Instance();
+  catanaparameters->LoadParameter((char*)"db/CATANA.xml");
+  //  catanaparameters->PrintListOfCsIPara();
+  calibcatana = new TArtCalibCATANA; //must be called after parameter is constructed
+
+  if(!fAnaLoop->UsingAnaFile()){
+    hnai_adc = new TH2F("nai_adc","nai_adc",1000,0,4000,140,0,140);
+    hnai_tdc = new TH2F("nai_tdc","nai_tdc",1000,0,4000,140,0,140);
+  }else{
+    /* nothing */;
+  }
+}
+
+void TAlEncCATANAExample::PreCalculate()
+{
+  calibcatana->ClearData();
+}
+
+bool TAlEncCATANAExample::Calculate()
+{
+  calibcatana->ReconstructData();
+  //  calibcatana->DopplerCorrect(0.616);
+  //calibcatana->DopplerCorrect(0.602);
+  //Done in the reconstructor;
+
+  using namespace Analyser;
+  using namespace WNum::CATANA;
+
+  TArtStoreManager * sman = TArtStoreManager::Instance();
+  TClonesArray *nais = (TClonesArray *)sman->FindDataContainer("CATANACsI");
+
+  int mult=0;
+  for(int i=0;i<nais->GetEntries();i++){
+    TArtCATANACsI *nai = (TArtCATANACsI *)nais->At(i);
+
+    Int_t id = nai->GetID();
+  if(!fAnaLoop->UsingAnaFile()){
+      hnai_adc->Fill(nai->GetRawADC(), id);
+      hnai_tdc->Fill(nai->GetRawTDC(), id);
+    }else{
+      fAnaLoop->Add(CATANA, ID,            id, id);
+//      fAnaLoop->Add(CATANA, Layer,         id, nai->GetLayer());
+//      fAnaLoop->Add(CATANA, Theta,         id, nai->GetTheta());
+//      fAnaLoop->Add(CATANA, CosTheta,      id, nai->GetCosTheta());
+
+      fAnaLoop->Add(CATANA, RawADC,         id, nai->GetRawADC());
+      fAnaLoop->Add(CATANA, Energy,         id, nai->GetEnergy());
+      fAnaLoop->Add(CATANA, DoppCorEnergy,  id, nai->GetDoppCorEnergy());
+      // fAnaLoop->Add(CATANA, EnergyWithoutT, id, nai->GetEnergyWithoutT());
+
+      fAnaLoop->Add(CATANA, RawTDC,        id, nai->GetRawTDC());
+      fAnaLoop->Add(CATANA, Time,          id, nai->GetTime());
+      fAnaLoop->Add(CATANA, TimeOffseted,  id, nai->GetTimeOffseted());
+
+      // fAnaLoop->Add(CATANA, TimeTrueEnergy,        id, nai->GetTimeTrueEnergy());
+      // fAnaLoop->Add(CATANA, TimeTrueDoppCorEnergy, id, nai->GetTimeTrueDoppCorEnergy());
+      // fAnaLoop->Add(CATANA, TimeTrueTime,          id, nai->GetTimeTrueTime());
+      // fAnaLoop->Add(CATANA, TimeTrueTimeOffseted,  id, nai->GetTimeTrueTimeOffseted());
+
+      if(nai->GetTime()>0) ++mult;
+    }      
+  }
+  fAnaLoop->Add(CATANA, Multiplicity, 0, mult);
+
+  return true;
+}
+
+void TAlEncCATANAExample::Destruct()
+{
+  delete calibcatana;
+  calibcatana = 0;
+  if(catanaparameters) catanaparameters->Delete();
+  catanaparameters = 0;
+}
+
+const char* TAlEncCATANAExample::ClassName() const
+{
+  return "TAlEncCATANAExample";
+}
+
+TAlEncCATANAExampleFactory::TAlEncCATANAExampleFactory()
+ : TAlEncFactory()
+{;}
+
+TAlEncCATANAExampleFactory::~TAlEncCATANAExampleFactory()
+{;}
+
+TAlEncSub* TAlEncCATANAExampleFactory::CreateEnc()
+{
+  return new TAlEncCATANAExample;
+}
+
