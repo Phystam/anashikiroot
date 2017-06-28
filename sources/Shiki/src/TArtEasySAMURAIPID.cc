@@ -26,6 +26,7 @@
 #include <TLorentzVector.h>
 #include <TVector3.h>
 #include <TMath.h>
+using namespace std;
 TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   TArtCore::Info(__FILE__,"Creating SAMURAI detector objects...");
   sman = TArtStoreManager::Instance();
@@ -203,11 +204,11 @@ void TArtEasySAMURAIPID::ReconstructData(){
 
   Int_t Z=GetZetInt();
   //Z(整数)とBrhoから運動量を求める
-  fMomentum = (Double_t)Z*fBrho*fclight*1.e-6;
+  fMomentum = (Double_t)Z*fBrho*fclight; //fclight:~300mm/ns
   //運動量とbetaからエネルギーを求める
   fEnergy = fMomentum/fBeta;
-  //フラグメントの不変質量(一応)
-  TVector3 vect=feasybeam->GetTgtPos()-fFDC1Pos;
+  //フラグメントの不変質量
+  TVector3 vect=fFDC1Pos-feasybeam->GetTgtPos();
   Double_t mag = vect.Mag();
   vect = vect*(fMomentum/mag);
   fMomentum4D.SetVect(vect);
@@ -234,20 +235,28 @@ Double_t TArtEasySAMURAIPID::GetTOFTgtHODSim(){
   return fFl/velosity;
 }
 
-TLorentzVector TArtEasySAMURAIPID::GetMomentum4DAtTgt(){
+//target中心での4元運動量の計算
+TLorentzVector TArtEasySAMURAIPID::GetMomentum4DAtTgt(Double_t mass_excess){
   TLorentzVector momentum;
   TVector3 pvects = fMomentum4D.Vect();
   Double_t m = fMomentum4D.M();
+  Int_t A = TMath::Nint(m/famu_MeV);
+  m=A*famu_MeV+mass_excess;
   Double_t Ts=fMomentum4D.E()-m;
   Double_t* para=feasytarget->GetFragE();
-  Double_t Tt=para[0]+para[1]*Ts+para[2]*pow(Ts,2.)+para[3]*pow(Ts,3.);
+  Ts = (Double_t)Ts/GetAInt();
+  Double_t Tt=para[0]+para[1]*Ts+para[2]*pow(Ts,2.)+para[3]*pow(Ts,3.);//parameter: for 31Ne or 32Ne
+  //  std::cout <<m<<" "<<Ts<<" "<<Tt<<" "<<para[0]<<" "<<para[1]<<" "<<para[2]<<" "<<para[3]<<std::endl;
+  Tt *= (Double_t)GetAInt();
+
   Double_t Et=Tt+m;
-  Double_t pt=sqrt(Tt*Tt+2.*Tt*m);
+  Double_t pt=sqrt(Et*Et-m*m);
   Double_t theta=pvects.Theta();
   Double_t phi=pvects.Phi();
   TVector3 pvectt;
   pvectt.SetMagThetaPhi(pt,theta,phi);
-  momentum.SetVectMag(pvectt,Et);
+  momentum.SetVect(pvectt);
+  momentum.SetE(Et);
   return momentum;
 }
 

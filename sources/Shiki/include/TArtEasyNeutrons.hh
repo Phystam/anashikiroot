@@ -37,8 +37,7 @@ class TArtEasyNeutrons : public TArtReconstruction{
   TArtCalibNEBULA* GetCalibNEBULA(){return fcalibnebula;}
   TArtCalibNeuLAND* GetCalibNeuLAND(){return fcalibneuland;}
   TArtCalibNeuLANDVETO* GetCalibNeuLANDVETO(){return fcalibneulandveto;}
-  
-
+  Bool_t IsVeto(){return fisveto;}
   Int_t GetNumNEBULAPla(){return fnumnebulapla;}
   Int_t GetNumHits(){return (Int_t)easyneuts.size();}
   TArtEasyNeutron* GetEasyNeutron(Int_t i){return easyneuts[i];}
@@ -74,7 +73,7 @@ private:
   TArtEasyBeam* feasybeam;
   TArtEasyPID* feasypid;
   Double_t ftgtz;
-
+  Bool_t fisveto;
   static const Double_t fclight=299.792458;// mm/ns
   //  static const Double_t fe=1.6021766208e-19;// C
   static const Double_t famu=1.660538921e-27;// kg

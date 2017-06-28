@@ -105,6 +105,8 @@ void TArtCalibCATANA::LoadData(TArtRawSegmentObject *seg)   {
       new ((*fCsIArray)[ncsi]) TArtCATANACsI();
       csi = (TArtCATANACsI *)fCsIArray->At(ncsi);
       csi->SetID(para->GetID());
+      csi->SetChannel(para->GetChannel());
+      csi->SetLayer(para->GetLayer());
       csi->SetFpl(para->GetFpl());
       csi->SetDetectorName(*(para->GetDetectorName()));
       csi->SetPositionX(para->GetDetPos(0));

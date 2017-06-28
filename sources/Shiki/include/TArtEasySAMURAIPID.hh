@@ -80,7 +80,7 @@ public:
   Double_t GetEnergy(){return fEnergy;}
   Double_t GetMomentum(){return fMomentum;}
   TLorentzVector GetMomentum4D(){return fMomentum4D;}
-  TLorentzVector GetMomentum4DAtTgt();
+  TLorentzVector GetMomentum4DAtTgt(Double_t mass_excess);
   Double_t GetMass(){return fMomentum4D.M();}
   Double_t GetHODQPed(){return fhodqped;}
   Double_t GetNumHODPla(){return fnumhodpla;}

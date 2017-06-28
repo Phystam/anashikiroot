@@ -24,6 +24,7 @@
 #include <TLorentzVector.h>
 #include <TVector3.h>
 #include <TString.h>
+using namespace std;
 
 TArtEasyBeam* feasybeam = 0;
 //________________________________________________________
@@ -81,17 +82,13 @@ void TArtEasyBeam::ClearData(){
     fcalibbdc1track->ClearData();
     fcalibbdc2track->ClearData();
   }
-  fBDC1X=-9999;
-  fBDC1Y=-9999;
-  fBDC2X=-9999;
-  fBDC2Y=-9999;
   fBDC1A=-9999;
   fBDC1B=-9999;
   fBDC2A=-9999;
   fBDC2B=-9999;
-  fTgtX =-9999;
-  fTgtY =-9999;
-  fTgtPos.SetXYZ(-9999,-9999,-9999);
+  fTgtPos.SetXYZ(-9999,-9999,fTgtZ);
+  fBDC1Pos.SetXYZ(-9999,-9999,fBDC1Z);
+  fBDC2Pos.SetXYZ(-9999,-9999,fBDC2Z);
   fTgtA =-9999;
   fTgtB =-9999;
   fintgt=true;
@@ -235,22 +232,22 @@ void TArtEasyBeam::ReconstructData(){
       fBDC2_reconstructed=true;
     }//end of bdc2
 
-    if(fBDC1X>-9999 && fBDC2X>-9999 && 
-       fBDC1Y>-9999 && fBDC2Y>-9999 
+    if(fBDC1Pos.X()>-9999 && fBDC2Pos.X()>-9999 && 
+       fBDC1Pos.Y()>-9999 && fBDC2Pos.Y()>-9999 
        ){//Global tracking; Target position
-      Double_t Xarr[]={GetBDC1X(),GetBDC2X()};
-      Double_t Yarr[]={GetBDC1Y(),GetBDC2Y()};
-      Double_t Zarr[]={GetBDC1Z(),GetBDC2Z()};
+      Double_t Xarr[]={fBDC1Pos.X(),fBDC2Pos.X()};
+      Double_t Yarr[]={fBDC1Pos.Y(),fBDC2Pos.Y()};
+      Double_t Zarr[]={fBDC1Pos.Z(),fBDC2Pos.Z()};
       Double_t ax = (Xarr[1]-Xarr[0])/(Zarr[1]-Zarr[0]);
       Double_t ay = (Yarr[1]-Yarr[0])/(Zarr[1]-Zarr[0]);
       Double_t bx = Xarr[0]-ax*Zarr[0];
       Double_t by = Yarr[0]-ay*Zarr[0];
       SetTgtX(ax*fTgtZ+bx);
       SetTgtY(ay*fTgtZ+by);
+      SetTgtZ(fTgtZ);
       SetTgtA(atan(ax)*1000.);
       SetTgtB(atan(ay)*1000.);
-      fTgtPos.SetXYZ(fTgtX,fTgtY,fTgtZ);
-      Double_t r=sqrt(pow(fTgtX,2.)+pow(fTgtY,2.));
+      Double_t r=sqrt(pow(fTgtPos.X(),2.)+pow(fTgtPos.Y(),2.));
       if(r>=40.){
 	fintgt=false;
       }
@@ -288,19 +285,13 @@ void TArtEasyBeam::SetTDCDistribution(TString filename){
 
 
 TLorentzVector TArtEasyBeam::GetMomentumVector(Double_t p,Double_t E){//p,E is "total" momentum/energy
-  Double_t A = ftrackX->GetParameter(1);
-  Double_t B = ftrackY->GetParameter(1);
-  Double_t vec_u = sqrt(1+A*A+B*B);
-  TLorentzVector P(A/vec_u * p,
-		   B/vec_u * p,
-		   1/vec_u * p,
-		   E);
+  TVector3 beam_direction = fBDC2Pos-fBDC1Pos;
+  Double_t length = beam_direction.Mag();
+  beam_direction = beam_direction*(p/length);
+  TLorentzVector P;
+  P.SetVect(beam_direction);
+  P.SetE(E);
   return P;
-}
-
-TVector3 TArtEasyBeam::GetTgtPosition(){
-  TVector3 pos(GetTgtX(),GetTgtY(),GetTgtZ());
-  return pos;
 }
 
 void TArtEasyBeam::SelectTarget(TString name){

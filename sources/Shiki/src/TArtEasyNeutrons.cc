@@ -55,6 +55,7 @@ void TArtEasyNeutrons::ClearData(){
   //  easyneuts.reserve(20);
   //  std::cout<<" after clear: "<<(int)easyneuts.capacity()<<" "<<(int)easyneuts.size()<<std::endl;
   fnumnebulapla=0;
+  fisveto=false;
   feasypid->ClearData();
   feasybeam->ClearData();
 }
@@ -72,7 +73,8 @@ void TArtEasyNeutrons::ReconstructData(){
   
   //target time/position
   Double_t tgttime = feasypid->GetSBTTime()+feasypid->GetTOFSBTTgt();
-  TVector3 targetpos = feasybeam->GetTgtPosition();
+  TVector3 targetpos = feasybeam->GetTgtPos();
+  //  cout << targetpos.X() <<" "<<targetpos.Y()<<endl;
   if(targetpos.X()<-1000){
     targetpos.SetX(0);
   }
@@ -136,9 +138,12 @@ void TArtEasyNeutrons::ReconstructData(){
     TLorentzVector momentum4d;
     TVector3 pvect_u = flvec*(1./fl);
     pvect_u = pvect_u*fMass*beta*gamma;
-    momentum4d.SetVectMag(pvect_u,fMass*gamma);
+    //    momentum4d.SetVectMag(pvect_u,fMass*gamma);
+    momentum4d.SetVectM(pvect_u,fMass);
     easyneut->SetMomentum4D(momentum4d);
-    easyneuts.push_back(easyneut);
+    if(!TMath::IsNaN(tof)){
+      easyneuts.push_back(easyneut);
+    }
   }
 
   //NeuLAND
@@ -186,16 +191,16 @@ void TArtEasyNeutrons::ReconstructData(){
     TLorentzVector momentum4d;
     TVector3 pvect_u = flvec*(1./fl);
     pvect_u = pvect_u*fMass*beta*gamma;
-    momentum4d.SetVectMag(pvect_u,fMass*gamma);
+    momentum4d.SetVectM(pvect_u,fMass);
     easyneut->SetMomentum4D(momentum4d);
-
-    easyneuts.push_back(easyneut);
+    if(!TMath::IsNaN(tof)){
+      easyneuts.push_back(easyneut);
+    }
   }
   
   fnumneulandvetopla = fcalibneulandveto->GetNumNeuLANDVETOPla();
   for(Int_t i=0;i<fnumneulandvetopla;i++){
     TArtNEBULAPla* pla=fcalibneulandveto->GetNeuLANDVETOPla(i);
-    //    cout << "NeuLANDVETO ID:"<<pla->GetID() << endl;
     if(pla->GetID()==9)continue;
     if(!(pla->GetTURaw()>0&&pla->GetTDRaw()>0))continue;
     TArtEasyNeutron* easyneut = new TArtEasyNeutron;
@@ -204,7 +209,7 @@ void TArtEasyNeutrons::ReconstructData(){
     easyneut->SetLayer(0);
     easyneut->SetSubLayer(0);
     easyneut->SetIsVeto(true);
-
+    fisveto=true;
     easyneut->SetT1Raw(pla->GetTURaw());
     easyneut->SetT2Raw(pla->GetTDRaw());
     easyneut->SetT1Cal(pla->GetTUCal());
@@ -239,19 +244,14 @@ void TArtEasyNeutrons::ReconstructData(){
     TLorentzVector momentum4d;
     TVector3 pvect_u = flvec*(1./fl);
     pvect_u = pvect_u*fMass*beta*gamma;
-    momentum4d.SetVectMag(pvect_u,fMass*gamma);
+    momentum4d.SetVectM(pvect_u,fMass);
     easyneut->SetMomentum4D(momentum4d);
-    easyneuts.push_back(easyneut);
+    if(!TMath::IsNaN(tof)){
+      easyneuts.push_back(easyneut);
+    }
   }
-  cout <<"before sort"<<endl;
-  for(int i=0;i<(int)easyneuts.size();i++){
-    cout << "i="<<i<<" TOF="<<easyneuts[i]->GetTOF()<<endl;
-  }
-  std::sort(easyneuts.begin(),easyneuts.end(),CompareForSort);
-
-  cout <<"after sort"<<endl;
-  for(int i=0;i<(int)easyneuts.size();i++){
-    cout << "i="<<i<<" TOF="<<easyneuts[i]->GetTOF()<<endl;
+  if((int)easyneuts.size()>1){
+    std::sort(easyneuts.begin(),easyneuts.end(),CompareForSort);
   }
 }
 

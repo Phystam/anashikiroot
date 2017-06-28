@@ -8,6 +8,7 @@
 
 #include <TNamed.h>
 #include <TClonesArray.h>
+#include <TMath.h>
 
 #include "TArtReconstruction.hh"
 
@@ -49,6 +50,8 @@ public:
   Double_t GetGamma(){return fGamma;}
   Double_t GetZet(){return fZ;}
   Double_t GetAoZ(){return fAoZ;}
+  Int_t GetZetInt(){return TMath::Nint(fZ);}
+  Int_t GetAInt(){return TMath::Nint(fAoZ*GetZetInt());}
   Double_t GetSBTTime(){return ff13Time;}
   //calculation of energy or momentum
   //From TOF

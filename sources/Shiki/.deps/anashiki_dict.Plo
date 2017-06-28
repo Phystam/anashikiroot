@@ -140,17 +140,24 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TDatime.h \
  /usr/local/src/root_v5.34.30/include/TUUID.h \
  /usr/local/src/root_v5.34.30/include/TString.h include/TArtEasyPID.hh \
+ /usr/local/src/root_v5.34.30/include/TMath.h \
+ /usr/local/src/root_v5.34.30/include/TError.h \
+ /usr/include/c++/4.8.2/algorithm /usr/include/c++/4.8.2/utility \
+ /usr/include/c++/4.8.2/bits/stl_relops.h \
+ /usr/include/c++/4.8.2/bits/stl_algo.h \
+ /usr/include/c++/4.8.2/bits/algorithmfwd.h \
+ /usr/include/c++/4.8.2/bits/stl_heap.h \
+ /usr/include/c++/4.8.2/bits/stl_tempbuf.h /usr/include/c++/4.8.2/limits \
+ /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/float.h \
  include/TArtEasyNeutron.hh ../../sources/Core/include/TArtDataObject.hh \
  ../../sources/Core/include/TArtCore.hh \
  /usr/local/src/root_v5.34.30/include/TVector3.h \
- /usr/local/src/root_v5.34.30/include/TError.h \
  /usr/local/src/root_v5.34.30/include/TVector2.h \
  /usr/local/src/root_v5.34.30/include/TObject.h \
  /usr/local/src/root_v5.34.30/include/TMatrix.h \
  /usr/local/src/root_v5.34.30/include/TMatrixF.h \
  /usr/local/src/root_v5.34.30/include/TMatrixT.h \
  /usr/local/src/root_v5.34.30/include/TMatrixTBase.h \
- /usr/include/c++/4.8.2/limits \
  /usr/local/src/root_v5.34.30/include/TMatrixFBasefwd.h \
  /usr/local/src/root_v5.34.30/include/TMatrixDBasefwd.h \
  /usr/local/src/root_v5.34.30/include/TVectorFfwd.h \
@@ -160,14 +167,6 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TMatrixFUtils.h \
  /usr/local/src/root_v5.34.30/include/TMatrixFUtilsfwd.h \
  /usr/local/src/root_v5.34.30/include/TLorentzVector.h \
- /usr/local/src/root_v5.34.30/include/TMath.h \
- /usr/include/c++/4.8.2/algorithm /usr/include/c++/4.8.2/utility \
- /usr/include/c++/4.8.2/bits/stl_relops.h \
- /usr/include/c++/4.8.2/bits/stl_algo.h \
- /usr/include/c++/4.8.2/bits/algorithmfwd.h \
- /usr/include/c++/4.8.2/bits/stl_heap.h \
- /usr/include/c++/4.8.2/bits/stl_tempbuf.h \
- /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/float.h \
  /usr/local/src/root_v5.34.30/include/TRotation.h \
  /usr/include/c++/4.8.2/iostream include/TArtMDF_s027_FlMDF.hh \
  include/TArtEasyNeutrons.hh include/TArtEasyNeutron.hh \
@@ -199,8 +198,7 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  ../../sources/Core/include/TArtRawTacquilaDataObject.hh \
  ../../sources/Core/include/TArtRawScalerObject.hh \
  include/TArtMDF_s027_TofMDF.hh include/TArtEasySAMURAIPID.hh \
- /usr/local/src/root_v5.34.30/include/TMath.h include/TArtEasyTimer.hh \
- /usr/local/src/root_v5.34.30/include/TDatime.h \
+ include/TArtEasyTimer.hh /usr/local/src/root_v5.34.30/include/TDatime.h \
  include/TArtMDF_s027_BrhoMDF.hh include/TArtEasyScaler.hh \
  /usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h \
  /usr/local/src/root_v5.34.30/include/TClass.h \
@@ -608,6 +606,28 @@ include/TArtEasyGamma.hh:
 
 include/TArtEasyPID.hh:
 
+/usr/local/src/root_v5.34.30/include/TMath.h:
+
+/usr/local/src/root_v5.34.30/include/TError.h:
+
+/usr/include/c++/4.8.2/algorithm:
+
+/usr/include/c++/4.8.2/utility:
+
+/usr/include/c++/4.8.2/bits/stl_relops.h:
+
+/usr/include/c++/4.8.2/bits/stl_algo.h:
+
+/usr/include/c++/4.8.2/bits/algorithmfwd.h:
+
+/usr/include/c++/4.8.2/bits/stl_heap.h:
+
+/usr/include/c++/4.8.2/bits/stl_tempbuf.h:
+
+/usr/include/c++/4.8.2/limits:
+
+/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/float.h:
+
 include/TArtEasyNeutron.hh:
 
 ../../sources/Core/include/TArtDataObject.hh:
@@ -615,8 +635,6 @@ include/TArtEasyNeutron.hh:
 ../../sources/Core/include/TArtCore.hh:
 
 /usr/local/src/root_v5.34.30/include/TVector3.h:
-
-/usr/local/src/root_v5.34.30/include/TError.h:
 
 /usr/local/src/root_v5.34.30/include/TVector2.h:
 
@@ -629,8 +647,6 @@ include/TArtEasyNeutron.hh:
 /usr/local/src/root_v5.34.30/include/TMatrixT.h:
 
 /usr/local/src/root_v5.34.30/include/TMatrixTBase.h:
-
-/usr/include/c++/4.8.2/limits:
 
 /usr/local/src/root_v5.34.30/include/TMatrixFBasefwd.h:
 
@@ -649,24 +665,6 @@ include/TArtEasyNeutron.hh:
 /usr/local/src/root_v5.34.30/include/TMatrixFUtilsfwd.h:
 
 /usr/local/src/root_v5.34.30/include/TLorentzVector.h:
-
-/usr/local/src/root_v5.34.30/include/TMath.h:
-
-/usr/include/c++/4.8.2/algorithm:
-
-/usr/include/c++/4.8.2/utility:
-
-/usr/include/c++/4.8.2/bits/stl_relops.h:
-
-/usr/include/c++/4.8.2/bits/stl_algo.h:
-
-/usr/include/c++/4.8.2/bits/algorithmfwd.h:
-
-/usr/include/c++/4.8.2/bits/stl_heap.h:
-
-/usr/include/c++/4.8.2/bits/stl_tempbuf.h:
-
-/usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/float.h:
 
 /usr/local/src/root_v5.34.30/include/TRotation.h:
 
@@ -739,8 +737,6 @@ include/TArtEasyTarget.hh:
 include/TArtMDF_s027_TofMDF.hh:
 
 include/TArtEasySAMURAIPID.hh:
-
-/usr/local/src/root_v5.34.30/include/TMath.h:
 
 include/TArtEasyTimer.hh:
 

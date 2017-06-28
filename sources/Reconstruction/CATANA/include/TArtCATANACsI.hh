@@ -8,11 +8,15 @@ class TArtCATANACsI: public TArtDataObject {
  public:
 
  TArtCATANACsI()
-   : TArtDataObject(), fADC(0), fTDC(0), fTRef(0), fX(-1), fY(-1), fZ(-1),
+   : TArtDataObject(), fADC(0), fTDC(0), fTRef(0), fX(-1), fY(-1), fZ(-1), fChannel(-1), fLayer(-1),
      fEnergy(-1), fDoppCorEnergy(-1),fTime(-1), fTimeOffseted(-1), fTDCSub(-1)
     {;}
   virtual ~TArtCATANACsI(){}
-  
+
+  Int_t GetChannel(){return fChannel;}
+  Int_t GetLayer(){return fLayer;}
+  Int_t SetChannel(Int_t val){fChannel=val;}
+  Int_t SetLayer(Int_t val){fLayer=val;}
   virtual void SetPositionX(Double_t val){fX = val;}
   virtual void SetPositionY(Double_t val){fY = val;}
   virtual void SetPositionZ(Double_t val){fZ = val;}
@@ -51,6 +55,7 @@ class TArtCATANACsI: public TArtDataObject {
   Int_t fTDC;  
   Int_t fTRef,fTDCSub;  
 
+  Int_t fLayer,fChannel;
   Double_t fX, fY, fZ;
 
   Double_t fEnergy;  

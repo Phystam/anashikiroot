@@ -49,15 +49,17 @@ public:
   Bool_t IsTDCmode(){return fTDCmode;}
   Bool_t IsBeammode(){return fBeammode;}
   Bool_t IsInTgt(){return fintgt;}
-  Double_t GetBDC1X(){return fBDC1X;}// unit: mm
-  Double_t GetBDC1Y(){return fBDC1Y;}// unit: mm
-  Double_t GetBDC1Z(){return fBDC1Z;}// unit: mm
-  Double_t GetBDC2X(){return fBDC2X;}// unit: mm
-  Double_t GetBDC2Y(){return fBDC2Y;}// unit: mm
-  Double_t GetBDC2Z(){return fBDC2Z;}// unit: mm
-  Double_t GetTgtX(){return fTgtX;}  // unit: mm
-  Double_t GetTgtY(){return fTgtY;}  // unit: mm
-  Double_t GetTgtZ(){return fTgtZ;}  // unit: mm
+  Double_t GetBDC1X(){return fBDC1Pos.X();}// unit: mm
+  Double_t GetBDC1Y(){return fBDC1Pos.Y();}// unit: mm
+  Double_t GetBDC1Z(){return fBDC1Pos.Z();}// unit: mm
+  TVector3 GetBDC1Pos(){return fBDC1Pos;}  // unit: mm
+  Double_t GetBDC2X(){return fBDC2Pos.X();}// unit: mm
+  Double_t GetBDC2Y(){return fBDC2Pos.Y();}// unit: mm
+  Double_t GetBDC2Z(){return fBDC2Pos.Z();}// unit: mm
+  TVector3 GetBDC2Pos(){return fBDC2Pos;}  // unit: mm
+  Double_t GetTgtX(){return fTgtPos.X();}  // unit: mm
+  Double_t GetTgtY(){return fTgtPos.Y();}  // unit: mm
+  Double_t GetTgtZ(){return fTgtPos.Z();}  // unit: mm
   TVector3 GetTgtPos(){return fTgtPos;}  // unit: mm
   Double_t GetBDC1A(){return fBDC1A;}// unit: mrad
   Double_t GetBDC1B(){return fBDC1B;}// unit: mrad
@@ -86,15 +88,15 @@ public:
 
 
 
-  void SetBDC1X(Double_t val){fBDC1X=val;}
-  void SetBDC1Y(Double_t val){fBDC1Y=val;}
-  void SetBDC1Z(Double_t val){fBDC1Z=val;}
-  void SetBDC2X(Double_t val){fBDC2X=val;}
-  void SetBDC2Y(Double_t val){fBDC2Y=val;}
-  void SetBDC2Z(Double_t val){fBDC2Z=val;}
-  void SetTgtX (Double_t val){fTgtX =val;}
-  void SetTgtY (Double_t val){fTgtY =val;}
-  void SetTgtZ (Double_t val){fTgtZ =val;}
+  void SetBDC1X(Double_t val){fBDC1Pos.SetX(val);}
+  void SetBDC1Y(Double_t val){fBDC1Pos.SetY(val);}
+  void SetBDC1Z(Double_t val){fBDC1Pos.SetZ(val);}
+  void SetBDC2X(Double_t val){fBDC2Pos.SetX(val);}
+  void SetBDC2Y(Double_t val){fBDC2Pos.SetY(val);}
+  void SetBDC2Z(Double_t val){fBDC2Pos.SetZ(val);}
+  void SetTgtX (Double_t val){fTgtPos.SetX(val);}
+  void SetTgtY (Double_t val){fTgtPos.SetY(val);}
+  void SetTgtZ (Double_t val){fTgtPos.SetZ(val);}
   void SetBDC1A(Double_t val){fBDC1A=val;}
   void SetBDC1B(Double_t val){fBDC1B=val;}
   void SetBDC2A(Double_t val){fBDC2A=val;}
@@ -135,7 +137,6 @@ public:
   Int_t GetNumBDC2Tracks(){return (Int_t)fbdc2tracks.size();}
 
   TLorentzVector GetMomentumVector(Double_t totalmomentum, Double_t totalenergy);
-  TVector3 GetTgtPosition();
 
   std::vector<TArtDCHit*>   fbdc1hits;
   std::vector<TArtDCHit*>   fbdc2hits;
@@ -152,16 +153,12 @@ public:
   TArtCalibBDC2Track* fcalibbdc2track;
 
   //variables
-  Double_t fBDC1X;
-  Double_t fBDC1Y;
-  Double_t fBDC1Z;
-  Double_t fBDC2X;
-  Double_t fBDC2Y;
-  Double_t fBDC2Z;
-  Double_t fTgtX;
-  Double_t fTgtY;
-  Double_t fTgtZ;
+  TVector3 fBDC1Pos;
+  TVector3 fBDC2Pos;
   TVector3 fTgtPos;
+  Double_t fBDC1Z;
+  Double_t fBDC2Z;
+  Double_t fTgtZ;
   Double_t fBDC1A;
   Double_t fBDC1B;
   Double_t fBDC2A;
