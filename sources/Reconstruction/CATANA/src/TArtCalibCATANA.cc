@@ -45,7 +45,7 @@ void TArtCalibCATANA::LoadData()   {
 
   TArtRawEventObject *fEvent = (TArtRawEventObject *)sman->FindDataContainer("RawEvent");
 
-  for(Int_t i=0;i<fEvent->GetNumSeg();i++){
+  for(Int_t i=fEvent->GetNumSeg()-1;i>=0;i--){
     TArtRawSegmentObject *seg = fEvent->GetSegment(i);
     Int_t device   = seg->GetDevice();
     Int_t detector = seg->GetDetector();
