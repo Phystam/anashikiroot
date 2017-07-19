@@ -103,6 +103,7 @@ TArtCATANACsIPara *TArtCATANAParameters::ParseCATANACsIPara(TXMLNode *node) {
   Double_t  x = 0, y=0, z=0;
   Double_t  tcal = 0;
   Double_t  toff = 0;
+  Double_t  tslw = 0;
   Double_t  qcal = 0;
   Double_t  qped = 0;
   Int_t tdc_geo, tdc_ch, adc_geo, adc_ch;
@@ -129,6 +130,8 @@ TArtCATANACsIPara *TArtCATANAParameters::ParseCATANACsIPara(TXMLNode *node) {
 	z = (Double_t)atof(node->GetText());
       if (strcmp(node->GetNodeName(), "toff") == 0)
 	toff = (Double_t)atof(node->GetText());
+      if (strcmp(node->GetNodeName(), "tslw") == 0)
+	tslw = (Double_t)atof(node->GetText());
       if (strcmp(node->GetNodeName(), "tcal") == 0)
 	tcal = (Double_t)atof(node->GetText());
       if (strcmp(node->GetNodeName(), "qped") == 0)
@@ -151,7 +154,7 @@ TArtCATANACsIPara *TArtCATANAParameters::ParseCATANACsIPara(TXMLNode *node) {
   //  TArtCore::Info(__FILE__,"Reading database for %s CATANA",name.Data());
   //  TArtCATANANaIPara * para = new TArtCATANANaIPara(id, name, fpl, layer, tcal, toff, qcal, qped, theta);
   TArtCATANACsIPara *para = new TArtCATANACsIPara(id,ch,name, fpl, frame,layer, detpos, 
-						  tcal,toff, qcal, qped);
+						  tcal,toff,tslw, qcal, qped);
   //  para->SetName((name+"Para").Data());
   para->SetMap(tdc_geo, tdc_ch, adc_geo, adc_ch);
 

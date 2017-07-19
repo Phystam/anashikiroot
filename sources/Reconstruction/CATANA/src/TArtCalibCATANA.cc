@@ -162,10 +162,12 @@ void TArtCalibCATANA::ReconstructData(){ // call after the raw data are loaded
     if(!(tdc>0 && adc>0 && tdc<100000 && adc<4000)) continue;
     
     Double_t fTime = (double)tdcsub* para->GetTCal();
-    Double_t fTimeOffseted = fTime + para->GetTOffset();
+    Double_t fTimeOffseted = fTime - para->GetTOffset();
+    Double_t fTimeSlew = fTime - para->GetTOffset()-para->GetTSlw()/sqrt(fEnergy);
 
     csi->SetTime(fTime);
     csi->SetTimeOffseted(fTimeOffseted);
+    csi->SetTimeSlew(fTimeSlew);
     
     // copy some information from para to data container
     csi->SetID(para->GetID());

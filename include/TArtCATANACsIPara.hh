@@ -11,11 +11,11 @@ class TArtCATANACsIPara : public TObject {
  public:
   TArtCATANACsIPara(Int_t id = -1, Int_t ch=-1,const TString& detname = "",
 		    Int_t fpl = -1, Int_t frame=-1, Int_t layer=-1,const Double_t* detpos = 0,
-		    Double_t tcal = -1, Double_t toff = -1,
+		    Double_t tcal = -1, Double_t toff = -1, Double_t tslw = 1,
 		    Double_t qcal = -1, Double_t qped = -1
 		    )
     : TObject(), fID(id),fChannel(ch), fDetName(detname), fFpl(fpl), fFrame(frame),fLayer(layer),
-      fTCal(tcal), fTOff(toff), fQCal(qcal), fQPed(qped)
+      fTCal(tcal), fTOff(toff), fTSlw(tslw), fQCal(qcal), fQPed(qped)
   {
     if(detpos) for(Int_t i=0;i<3;i++)fDetPos[i] = detpos[i];
     else for(Int_t i=0;i<3;i++)fDetPos[i] = -10000;
@@ -38,6 +38,7 @@ class TArtCATANACsIPara : public TObject {
   void SetDetPos(Double_t val, Int_t i){fDetPos[i] = val;}
   void SetTCal(Double_t val){fTCal = val;}
   void SetTOff(Double_t val){fTOff = val;}
+  void SetTSlw(Double_t val){fTSlw = val;}
   void SetQCal(Double_t val){fQCal = val;}
   void SetQPed(Double_t val){fQPed = val;}
 
@@ -49,6 +50,7 @@ class TArtCATANACsIPara : public TObject {
   Int_t GetLayer() const { return fLayer; }
   Double_t GetTCal() const { return fTCal; } 
   Double_t GetTOffset() const { return fTOff; } 
+  Double_t GetTSlw() const { return fTSlw; } 
   Double_t GetQCal() const { return fQCal; } 
   Double_t GetQPed() const { return fQPed; } 
   const Double_t* GetDetPos() const { return fDetPos; } 
@@ -66,6 +68,7 @@ class TArtCATANACsIPara : public TObject {
     out << "Layer: " << p.fLayer << ", ";
     out << "Time Calib: " << p.fTCal << ", ";
     out << "Time Offset: " << p.fTOff << ", ";
+    out << "Slew Parameter: " << p.fTSlw << ", ";
     out << "QDC Calib: " << p.fQCal << ", ";
     out << "QDC pedestal: " << p.fQPed << ", ";
     out << "Position: " <<p.fDetPos[0]<< " " 
@@ -85,6 +88,7 @@ class TArtCATANACsIPara : public TObject {
   Double_t  fDetPos[3];
   Double_t  fTCal;
   Double_t  fTOff;
+  Double_t  fTSlw;
   Double_t  fQCal;
   Double_t  fQPed;
 

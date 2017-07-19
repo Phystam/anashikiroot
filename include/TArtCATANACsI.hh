@@ -42,12 +42,14 @@ class TArtCATANACsI: public TArtDataObject {
   virtual void  SetDoppCorEnergy(Double_t val){fDoppCorEnergy = val;}
   virtual void  SetTime(Double_t val){fTime = val;}
   virtual void  SetTimeOffseted(Double_t val){fTimeOffseted = val;}
+  virtual void  SetTimeSlew(Double_t val){fTimeSlew = val;}
 
   // function to get reco data
   virtual Double_t GetEnergy(){return fEnergy;}
   virtual Double_t GetDoppCorEnergy(){return fDoppCorEnergy;}
   virtual Double_t GetTime(){return fTime;}
   virtual Double_t GetTimeOffseted(){return fTimeOffseted;}
+  Double_t GetTimeSlew(){return fTimeSlew;}
 
  private:
 
@@ -62,6 +64,7 @@ class TArtCATANACsI: public TArtDataObject {
   Double_t fDoppCorEnergy;  
   Double_t fTime;  
   Double_t fTimeOffseted;
+  Double_t fTimeSlew;
 
   ClassDef(TArtCATANACsI,1);
 
