@@ -99,11 +99,7 @@ public:
 
   Double_t E2Tgt(Double_t E);
   Double_t GetTOFSBTTgt();
-  void SetNuclide(Int_t a,Int_t z, Double_t mass_ex){
-    fA_for_calc = a;
-    fZ_for_calc = z;
-    fEx_for_calc = mass_ex;
-  }
+
   void SetBrho0(Double_t val){fBrho0=val;} 
   void SetBrho(Double_t val){fBrho=val;} 
   void SetTOF713(Double_t val){fTOF713=val;} 
@@ -142,9 +138,6 @@ public:
   Double_t fAoZ;
   Double_t ff13Time;
   Bool_t frejected_f3,frejected_f5,frejected_f7,frejected_tof;
-  Int_t fA_for_calc;
-  Int_t fZ_for_calc;
-  Double_t fEx_for_calc;
   Bool_t freconstructed;
   TArtStoreManager* sman;
   const TArtShikiParameters* fshikipara;

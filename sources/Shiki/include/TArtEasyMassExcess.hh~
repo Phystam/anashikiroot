@@ -1,0 +1,18 @@
+#ifndef _TARTEASYMASSEXCESS_HH_
+#define _TARTEASYMASSEXCESS_HH_
+
+#include <map>
+#include <utility> //to use std::pair
+#include <TObject.h>
+
+class TObject;
+class TArtEasyMassExcess : public TObject {
+public:
+  TArtEasyMassExcess();
+  virtual ~TArtEasyMassExcess(){}
+  GetMassExcess(Int_t A, Int_t Z){
+    return fMassExcess[std::make_pair(A,Z)];
+  }
+private:
+  std::map<std::pair<Int_t,Int_t>,Double_t> fMassExcess;
+};

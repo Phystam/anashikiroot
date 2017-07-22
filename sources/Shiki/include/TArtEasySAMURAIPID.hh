@@ -33,6 +33,7 @@ class TArtEasyTarget;
 class TArtShikiParameters;
 class TLorentzVector;
 class TVector3;
+class TArtEasyMassExcess;
 class TArtEasySAMURAIPID : public TArtReconstruction{
 
 public:
@@ -80,18 +81,10 @@ public:
   Double_t GetEnergy(){return fEnergy;}
   Double_t GetMomentum(){return fMomentum;}
   TLorentzVector GetMomentum4D(){return fMomentum4D;}
-  TLorentzVector GetMomentum4DAtTgt(Double_t mass_excess);
+  TLorentzVector GetMomentum4DAtTgt();
   Double_t GetMass(){return fMomentum4D.M();}
   Double_t GetHODQPed(){return fhodqped;}
   Double_t GetNumHODPla(){return fnumhodpla;}
-
-
-
-  void SetNuclide(Int_t a,Int_t z, Double_t mass_ex){
-    fA_for_calc = a;
-    fZ_for_calc = z;
-    fEx_for_calc = mass_ex;
-  }
 
   void SetBrho  (Double_t val){fBrho = val;}
   void SetDeltaE(Double_t val){fDeltaE = val;}
@@ -230,16 +223,13 @@ private:
   Bool_t fFDC1_reconstructed;
   Bool_t fFDC2_reconstructed;
   Bool_t fTDCmode;
-  Int_t fA_for_calc;
-  Int_t fZ_for_calc;
-  Double_t fEx_for_calc;
 
+  TArtEasyMassExcess* feasyex;
   static const Double_t fclight=299.792458;//mm/ns
   static const Double_t famu_MeV=931.494;//MeV
-  static const Double_t fmass_excess = 30.8;//for 31Ne
   TArtMDF_s027_BrhoMDF* fbrhomdf;
   TArtMDF_s027_TofMDF* ftofmdf;
   TArtMDF_s027_FlMDF* fflmdf;
-
+  ClassDef(TArtEasySAMURAIPID,1);
 };
 #endif

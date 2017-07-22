@@ -20,7 +20,7 @@ class TArtIC;
 class TArtStoreManager;
 class TArtShikiParameters;
 class TArtEasyTarget;
-
+class TArtEasyMassExcess;
 
 class TArtEasyPID : public TArtReconstruction{
 
@@ -149,13 +149,13 @@ public:
   TArtStoreManager* sman;
   const TArtShikiParameters* fshikipara;
   TArtEasyTarget* feasytarget;
+  TArtEasyMassExcess* feasyex;
   static const Double_t fclight=2.99792458e8;// m/s
   static const Double_t fe=1.6021766208e-19;// C
   static const Double_t famu=1.660538921e-27;// kg
   static const Double_t famu_MeV=931.494061;//MeV
 
   ClassDef(TArtEasyPID,1);
-
 
 };
 

@@ -35,6 +35,7 @@ extern void G__set_cpp_environmentanashiki_dict();
 #include "include/TArtEasyGamma.hh"
 #include "include/TArtEasyPID.hh"
 #include "include/TArtEasyNeutron.hh"
+#include "include/TArtEasyMassExcess.hh"
 #include "include/TArtMDF_s027_FlMDF.hh"
 #include "include/TArtEasyNeutrons.hh"
 #include "include/TArtEasyBeam.hh"
@@ -62,6 +63,7 @@ extern G__linked_taginfo G__anashiki_dictLN_reverse_iteratorlEvectorlEROOTcLcLTS
 extern G__linked_taginfo G__anashiki_dictLN_vectorlETVirtualArraymUcOallocatorlETVirtualArraymUgRsPgR;
 extern G__linked_taginfo G__anashiki_dictLN_reverse_iteratorlEvectorlETVirtualArraymUcOallocatorlETVirtualArraymUgRsPgRcLcLiteratorgR;
 extern G__linked_taginfo G__anashiki_dictLN_iteratorlEbidirectional_iterator_tagcOTObjectmUcOlongcOconstsPTObjectmUmUcOconstsPTObjectmUaNgR;
+extern G__linked_taginfo G__anashiki_dictLN_pairlEintcOintgR;
 extern G__linked_taginfo G__anashiki_dictLN_TXMLNode;
 extern G__linked_taginfo G__anashiki_dictLN_TArtEasyTarget;
 extern G__linked_taginfo G__anashiki_dictLN_TArtStoreManager;
@@ -76,6 +78,7 @@ extern G__linked_taginfo G__anashiki_dictLN_TArtCalibPlastic;
 extern G__linked_taginfo G__anashiki_dictLN_TArtPlastic;
 extern G__linked_taginfo G__anashiki_dictLN_TArtCalibIC;
 extern G__linked_taginfo G__anashiki_dictLN_TArtIC;
+extern G__linked_taginfo G__anashiki_dictLN_TArtEasyMassExcess;
 extern G__linked_taginfo G__anashiki_dictLN_TArtEasyPID;
 extern G__linked_taginfo G__anashiki_dictLN_TArtDataObject;
 extern G__linked_taginfo G__anashiki_dictLN_TMatrixTBaselEfloatgR;
@@ -102,6 +105,7 @@ extern G__linked_taginfo G__anashiki_dictLN_TMatrixTSparseDiaglEfloatgR;
 extern G__linked_taginfo G__anashiki_dictLN_TVector3;
 extern G__linked_taginfo G__anashiki_dictLN_TLorentzVector;
 extern G__linked_taginfo G__anashiki_dictLN_TArtEasyNeutron;
+extern G__linked_taginfo G__anashiki_dictLN_maplEpairlEintcOintgRcOdoublecOlesslEpairlEintcOintgRsPgRcOallocatorlEpairlEconstsPpairlEintcOintgRcOdoublegRsPgRsPgR;
 extern G__linked_taginfo G__anashiki_dictLN_TArtMDF_s027_FlMDF;
 extern G__linked_taginfo G__anashiki_dictLN_TArtCalibNEBULA;
 extern G__linked_taginfo G__anashiki_dictLN_TArtCalibNeuLAND;
