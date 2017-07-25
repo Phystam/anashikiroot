@@ -194,7 +194,7 @@ void TArtCalibNeuLAND::ReconstructData()
       if ( false ) {//not to use
         time_ms = para->GetTDCTCal(0, pla->GetTac(0), false);
         time_ref = para->GetTDCTCal(0, pla->GetTacRef(0), true);
-      } else if ( true ){ //phystam
+      }  else if ( true ){ //phystam
 	const Double_t* p = para->GetTac2nsPara(0, 0);
 	const Double_t* pref = para->GetTac2nsPara(0, 1);
 	// time = Tac2ns(pla->GetTac(0), para->GetTac2nsPara(0, 0));
@@ -235,9 +235,9 @@ void TArtCalibNeuLAND::ReconstructData()
         time = para->GetTDCTCal(j, pla->GetTac(j), false);
         time_ref = para->GetTDCTCal(j, pla->GetTacRef(j), true);
       } else if ( true ){ //phystam
-	Double_t const *p = para->GetTac2nsPara(j, false);
-	Double_t const *pref = para->GetTac2nsPara(j, true);
-	time = Tac2ns(pla->GetTac(j), p);
+      	Double_t const *p = para->GetTac2nsPara(j, false);
+      	Double_t const *pref = para->GetTac2nsPara(j, true);
+      	time = Tac2ns(pla->GetTac(j), p);
         time_ref = Tac2ns(pla->GetTacRef(j), pref);
       } else {
         time = 24.9982/(para->GetTDC25ns(j)-para->GetTDC0ns(j)) * ((Double_t)pla->GetTac(j) - para->GetTDC0ns(j));
