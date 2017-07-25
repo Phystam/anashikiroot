@@ -89,7 +89,7 @@ void TArtCalibPlastic::LoadData(TArtRawSegmentObject *seg)   {
 
     TArtPlasticPara *para = (TArtPlasticPara*)setup->FindPlasticPara(&mm);
     if(NULL == para){
-      TArtCore::Warning(__FILE__,"Could not find TArtPlasticPara...: Dev:%d, %s", device, mm.GetMapInfo());
+      //      TArtCore::Warning(__FILE__,"Could not find TArtPlasticPara...: Dev:%d, %s", device, mm.GetMapInfo());
       continue;
     }
     else {

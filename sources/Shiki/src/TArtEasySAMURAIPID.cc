@@ -35,6 +35,7 @@ TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   feasybeam=TArtEasyBeam::Instance();
   fshikipara=TArtShikiParameters::Instance();
   feasytarget = fshikipara->FindEasyTarget(1);
+  fselectedtarget=false;
   fcalibhod=new TArtCalibHODPla();
   feasyex=new TArtEasyMassExcess();
   fbrhomdf=new TArtMDF_s027_BrhoMDF();
@@ -127,6 +128,10 @@ void TArtEasySAMURAIPID::LoadData(){
 }
 
 void TArtEasySAMURAIPID::ReconstructData(){
+  if(!fselectedtarget){
+    TArtCore::Warning(__FILE__,"Target is not selected, use TArtEasySAMURAIPID::SelectTarget()");
+    fselectedtarget=true;
+  }
   LoadData();
   FDCReconstructData();
   Double_t fdc1a = atan((fFDC1X-feasybeam->GetTgtX())/(fFDC1Z-feasybeam->GetTgtZ()));
@@ -209,7 +214,7 @@ void TArtEasySAMURAIPID::ReconstructData(){
   //運動量とbetaからエネルギーを求める...えっこれアウトやん
   //ちゃんと質量を与えてあげないと意味わからんくない？
   Double_t mass = A*famu_MeV + feasyex->GetMassExcess(A,Z);
-  fEnergy = sqrt(pow(fMomentum,2.)-pow(mass,2.));
+  fEnergy = sqrt(pow(fMomentum,2.)+pow(mass,2.));
   //  fEnergy = fMomentum/fBeta;
   //フラグメントの不変質量
   TVector3 vect=fFDC1Pos-feasybeam->GetTgtPos();
@@ -230,7 +235,8 @@ Double_t TArtEasySAMURAIPID::GetTOFSimTotal(){
 }
 
 Double_t TArtEasySAMURAIPID::GetTOFTgtHODSim(){
-  Double_t mass = (Double_t)GetAInt()*famu_MeV + feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  //  Double_t mass = (Double_t)GetAInt()*famu_MeV + feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t mass = 31.*famu_MeV + feasyex->GetMassExcess(31,10);
   Double_t betagamma = GetZetInt()/mass*fBrho*fclight;
   Double_t beta = betagamma/sqrt(1+pow(betagamma,2.));
   Double_t velosity=beta*fclight;
@@ -244,13 +250,16 @@ TLorentzVector TArtEasySAMURAIPID::GetMomentum4DAtTgt(){
   TLorentzVector momentum;
   TVector3 pvects = fMomentum4D.Vect();
   Double_t m = fMomentum4D.M();
-  Int_t A = GetAInt();
   Double_t Ts=fMomentum4D.E()-m;
   Double_t* para=feasytarget->GetFragE();
-  Ts = (Double_t)Ts/A;//Kinetic energy as AMeV
+  Double_t u = m/famu_MeV;
+  //  Ts = (Double_t)Ts/A;//Kinetic energy as AMeV
+  Ts = (Double_t)Ts/u;//Kinetic energy as MeV/u
   Double_t Tt=para[0]+para[1]*Ts+para[2]*pow(Ts,2.)+para[3]*pow(Ts,3.);//parameter: for 31Ne or 32Ne
-  //  std::cout <<m<<" "<<Ts<<" "<<Tt<<" "<<para[0]<<" "<<para[1]<<" "<<para[2]<<" "<<para[3]<<std::endl;
-  Tt *= A;
+  //  if(GetAInt()==31&&GetZetInt()==10){
+    //    std::cout <<m<<" "<<Ts<<" "<<Tt<<" "<<para[0]<<" "<<para[1]<<" "<<para[2]<<" "<<para[3]<<std::endl;
+  //  }
+  Tt *= u;
 
   Double_t Et=Tt+m;
   Double_t pt=sqrt(Et*Et-m*m);
@@ -412,6 +421,7 @@ void TArtEasySAMURAIPID::SelectTarget(TString name){
   TArtCore::Info(__FILE__,Form("selected target is %s, position=%fmm",feasytarget->GetDetectorName()->Data(),feasytarget->GetPosZ()));
   feasypid->SelectTarget(name);
   feasybeam->SelectTarget(name);
+  fselectedtarget=true;
 }
 
 void TArtEasySAMURAIPID::SelectTarget(Int_t ID){
@@ -419,5 +429,5 @@ void TArtEasySAMURAIPID::SelectTarget(Int_t ID){
   TArtCore::Info(__FILE__,Form("selected target is %s, position=%fmm",feasytarget->GetDetectorName()->Data(),feasytarget->GetPosZ()));
   feasypid->SelectTarget(ID);
   feasybeam->SelectTarget(ID);
-
+  fselectedtarget=true;
 }

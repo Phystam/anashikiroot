@@ -872,6 +872,54 @@ TArtNeuLANDPlaPara *TArtSAMURAIParameters::ParseNeuLANDPlaPara(TXMLNode *node)
     }else if(strcmp(node->GetNodeName(), "tdc25ns1_t17") == 0){
       Double_t val = atof(node->GetText());
       para->SetTDC25ns_t17(1,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_0") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,0,0,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_1") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,0,1,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_2") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,0,2,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_3") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,0,3,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_0") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,0,0,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_1") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,0,1,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_2") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,0,2,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_3") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,0,3,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_0ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,1,0,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_1ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,1,1,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_2ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,1,2,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns0_3ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(0,1,3,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_0ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,1,0,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_1ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,1,1,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_2ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,1,2,val);
+    }else if(strcmp(node->GetNodeName(), "tac2ns1_3ref") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetTac2nsPara(1,1,3,val);
     }else if(strcmp(node->GetNodeName(), "tdiff_offset") == 0){
       Double_t val = atof(node->GetText());
       para->SetTDiffOffset(val);

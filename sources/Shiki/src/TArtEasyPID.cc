@@ -80,19 +80,22 @@ void TArtEasyPID::ReconstructData(){
   Double_t f5x=fpla[1]->GetXposition();
   
   //f3pla time rejection
-  {
-    // Double_t sigma=2.645e-4;
-    // Double_t mean =1.00628; // for 31Ne+C
-    Double_t sigma=3.03145e-4;
-    Double_t mean =1.00641;
-    Double_t tlraw = fpla[0]->GetTLRaw();
-    Double_t trraw = fpla[0]->GetTRRaw();
-    Double_t troffset = -312.7;
-    Double_t ratio = (trraw-troffset)/tlraw;
-    if(ratio<mean-4.*sigma || ratio>mean+4.*sigma){
-      frejected_f3=true;
-    }
-  }
+  // {
+  //   // Double_t sigma=2.645e-4;
+  //   // Double_t mean =1.00628; // for 31Ne+C
+  //   // Double_t sigma=3.03145e-4;
+  //   // Double_t mean =1.00641;
+  //   Double_t tlraw = fpla[0]->GetTLRaw();
+  //   Double_t trraw = fpla[0]->GetTRRaw();
+  //   // Double_t troffset = -312.7;
+  //   // Double_t ratio = (trraw-troffset)/tlraw;
+  //   //     if(ratio<mean-4.*sigma || ratio>mean+4.*sigma){
+  //   //   frejected_f3=true;
+  //   // }
+  //   if(abs(tlraw-trraw)>100){//||tlraw<40000||tlraw>50000){
+  //     frejected_f3=true;
+  //   }
+  // }
   //f5pla time rejection
   {
     if(f5x<-120||f5x>120){
@@ -104,13 +107,9 @@ void TArtEasyPID::ReconstructData(){
   }
   //f7pla time rejection
   {
-    Double_t sigma=2.92014e-4;
-    Double_t mean =0.991798;
     Double_t tlraw = fpla[2]->GetTLRaw();
     Double_t trraw = fpla[2]->GetTRRaw();
-    Double_t troffset = 165.;
-    Double_t ratio = (trraw-troffset)/tlraw;
-    if(ratio<mean-6.*sigma || ratio>mean+6.*sigma){
+    if(trraw-tlraw>-100||trraw-tlraw<-250){
       frejected_f7=true;
     }
   }
@@ -119,9 +118,9 @@ void TArtEasyPID::ReconstructData(){
   {
     // Double_t sigma=6.48837e-4;
     // Double_t mean =7.74421e-1; //for 31Ne+C
-    Double_t sigma = 6.79681e-4;
-    Double_t mean = 7.77812e-1;
-    if(TOF713/TOF37<mean-6.*sigma || TOF713/TOF37>mean+6.*sigma){
+    
+
+    if(TOF37-TOF713>60){
       frejected_tof=true;
     }
   }

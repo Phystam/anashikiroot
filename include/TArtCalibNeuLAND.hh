@@ -75,7 +75,7 @@ private:
   Int_t GetTac16(Int_t sam, Int_t gtb, Int_t mod) const;
   Double_t QDC2Energy(Double_t channel);
   Double_t WalkCorrection(Double_t e);
-
+  Double_t Tac2ns(Int_t x,Double_t const *p);
   class Tac16 : public TObject {
   public:
     Tac16(){sam=-1;gtb=-1;mod=-1;tac=-1;}

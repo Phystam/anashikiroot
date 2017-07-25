@@ -105,12 +105,24 @@ public:
     fTCalYep[i] = true;
   }
 
+  void SetTac2nsPara   (int const i, int const is_tref, int const j,double const val) { //i: L/R or U/D(0 or 1), //j: parameter index, 0-3
+    fTac2nsPara[i][is_tref][j]=val;
+  }
+
   Double_t GetQCal       (int i) const {return fQCal[i];} 
   Double_t GetQPed       (int i) const {return fQPed[i];} 
   Double_t GetTDC0ns     (int i) const {return fTDC0ns[i];} 
   Double_t GetTDC25ns    (int i) const {return fTDC25ns[i];} 
   Double_t GetTDC0ns_t17 (int i) const {return fTDC0ns_t17[i];} 
   Double_t GetTDC25ns_t17(int i) const {return fTDC25ns_t17[i];} 
+  Double_t const *GetTac2nsPara(int const i, int const is_tref) const { //i: L/R or U/D(0 or 1), //j: parameter index, 0-3
+    return fTac2nsPara[i][is_tref];
+  }
+  // Double_t GetTac2nsPara(int const i, int const is_tref,int const j) const { //i: L/R or U/D(0 or 1), //j: parameter index, 0-3
+  //   return fTac2nsPara[i][is_tref][j];
+  // }
+
+
   Bool_t HasTDCTCal      () const {return false;/*fTCalYep[0] && fTCalYep[1];*/}
   Double_t GetTDCTCal    (int const i, int const channel, bool const is_tref)
       const {
@@ -184,6 +196,12 @@ public:
       out << "T"<<i<<" 25ns      TDC: " << p.fTDC25ns[i]       << std::endl;
       out << "T"<<i<<"  0ns ref. TDC: " << p.fTDC0ns_t17[i]    << std::endl;
       out << "T"<<i<<" 25ns ref. TDC: " << p.fTDC25ns_t17[i]   << std::endl;
+      for(int j=0;j<4;j++){
+	out << "T"<<i<<" Tac 2 ns    "<<j<<": " << p.fTac2nsPara[i][0][j]   << std::endl;
+      }
+      for(int j=0;j<4;j++){
+	out << "T"<<i<<" Tac 2 ns Ref"<<j<<": " << p.fTac2nsPara[i][1][j]   << std::endl;
+      }
     }
 
     out << "tdiff_offset: "   << p.tdiff_offset << std::endl;
@@ -217,7 +235,7 @@ private:
   Double_t  fTDC25ns[2]; // tdc correspoinding to 25ns:1clk (calibration)
   Double_t  fTDC0ns_t17[2]; // tdc correspoinding to 0ns of common stop (calibration)
   Double_t  fTDC25ns_t17[2]; // tdc correspoinding to 25ns:1clk of common stop (calibration)
-
+  Double_t  fTac2nsPara[2][2][4]; // first index: U/D or L/R, second index: Tac or TacRef, third index: parameter index
   // Fine tcal calibration, taking delay line differences into account.
   std::vector<int>      fTCalChannel[4];
   std::vector<Double_t> fTCalNs[4];

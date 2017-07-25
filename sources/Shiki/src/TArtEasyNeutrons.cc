@@ -210,6 +210,7 @@ void TArtEasyNeutrons::ReconstructData(){
     easyneut->SetSubLayer(0);
     easyneut->SetIsVeto(true);
     fisveto=true;
+    //    std::cout << "neulandveto fired "<<pla->GetTURaw()<<endl;
     easyneut->SetT1Raw(pla->GetTURaw());
     easyneut->SetT2Raw(pla->GetTDRaw());
     easyneut->SetT1Cal(pla->GetTUCal());

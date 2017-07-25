@@ -191,9 +191,16 @@ void TArtCalibNeuLAND::ReconstructData()
     }
     else {
       Double_t time_ref;
-      if (para->HasTDCTCal()) {
+      if ( false ) {//not to use
         time_ms = para->GetTDCTCal(0, pla->GetTac(0), false);
-        Double_t time_ref = para->GetTDCTCal(0, pla->GetTacRef(0), true);
+        time_ref = para->GetTDCTCal(0, pla->GetTacRef(0), true);
+      } else if ( true ){ //phystam
+	const Double_t* p = para->GetTac2nsPara(0, 0);
+	const Double_t* pref = para->GetTac2nsPara(0, 1);
+	// time = Tac2ns(pla->GetTac(0), para->GetTac2nsPara(0, 0));
+        // time_ref = Tac2ns(pla->GetTacRef(0), para->GetTac2nsPara(0, 1));
+	time_ms = Tac2ns(pla->GetTac(0), p);
+        time_ref = Tac2ns(pla->GetTacRef(0), pref);
       } else {
         time_ms = 24.9982/(para->GetTDC25ns(0)-para->GetTDC0ns(0)) * ((Double_t)pla->GetTac(0) - para->GetTDC0ns(0));
         time_ref = 24.9982/(para->GetTDC25ns_t17(0)-para->GetTDC0ns_t17(0)) * ((Double_t)pla->GetTacRef(0) - para->GetTDC0ns_t17(0));
@@ -223,9 +230,15 @@ void TArtCalibNeuLAND::ReconstructData()
       pla->SetQCal(j,energy_final);
       Double_t time;
       Double_t time_ref;
-      if (para->HasTDCTCal()) {
+      //      if (para->HasTDCTCal()) {
+      if (false) {
         time = para->GetTDCTCal(j, pla->GetTac(j), false);
         time_ref = para->GetTDCTCal(j, pla->GetTacRef(j), true);
+      } else if ( true ){ //phystam
+	Double_t const *p = para->GetTac2nsPara(j, false);
+	Double_t const *pref = para->GetTac2nsPara(j, true);
+	time = Tac2ns(pla->GetTac(j), p);
+        time_ref = Tac2ns(pla->GetTacRef(j), pref);
       } else {
         time = 24.9982/(para->GetTDC25ns(j)-para->GetTDC0ns(j)) * ((Double_t)pla->GetTac(j) - para->GetTDC0ns(j));
         time_ref = 24.9982/(para->GetTDC25ns_t17(j)-para->GetTDC0ns_t17(j)) * ((Double_t)pla->GetTacRef(j) - para->GetTDC0ns_t17(j));
@@ -342,3 +355,14 @@ void TArtCalibNeuLAND::ClearData()
   fNeuLANDMasterStart = NULL;
 }
 
+Double_t TArtCalibNeuLAND::Tac2ns(Int_t x,Double_t const *p) {
+  Double_t val;
+  if(x<p[3]){
+    val=p[0]+p[1]*x;
+  }else{
+    val=p[0]+p[2]*pow(p[3],2.)
+      +(p[1]-2.*p[2]*p[3])*x
+      +p[2]*pow(x,2.);
+  }
+  return val;
+}

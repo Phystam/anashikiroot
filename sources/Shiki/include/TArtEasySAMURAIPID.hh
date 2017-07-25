@@ -223,7 +223,7 @@ private:
   Bool_t fFDC1_reconstructed;
   Bool_t fFDC2_reconstructed;
   Bool_t fTDCmode;
-
+  Bool_t fselectedtarget;
   TArtEasyMassExcess* feasyex;
   static const Double_t fclight=299.792458;//mm/ns
   static const Double_t famu_MeV=931.494;//MeV
