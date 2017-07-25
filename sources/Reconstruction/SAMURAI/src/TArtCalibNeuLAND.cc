@@ -205,6 +205,8 @@ void TArtCalibNeuLAND::ReconstructData()
         time_ms = 24.9982/(para->GetTDC25ns(0)-para->GetTDC0ns(0)) * ((Double_t)pla->GetTac(0) - para->GetTDC0ns(0));
         time_ref = 24.9982/(para->GetTDC25ns_t17(0)-para->GetTDC0ns_t17(0)) * ((Double_t)pla->GetTacRef(0) - para->GetTDC0ns_t17(0));
       }
+      pla->SetTacCal(0,time_ms);
+      pla->SetTacRefCal(0,time_ref);
       time_ms = time_ms + 25.*pla->GetTCycle(0) - time_ref;
       pla->SetTRaw(0,time_ms);
     }
@@ -243,8 +245,12 @@ void TArtCalibNeuLAND::ReconstructData()
         time = 24.9982/(para->GetTDC25ns(j)-para->GetTDC0ns(j)) * ((Double_t)pla->GetTac(j) - para->GetTDC0ns(j));
         time_ref = 24.9982/(para->GetTDC25ns_t17(j)-para->GetTDC0ns_t17(j)) * ((Double_t)pla->GetTacRef(j) - para->GetTDC0ns_t17(j));
       }
+      pla->SetTacCal(j,time);
+      pla->SetTacRefCal(j,time_ref);
+
       time = time + 25.*pla->GetTCycle(j) - time_ref;
       time -= time_ms;
+
       pla->SetTRaw(j,time);
 
       time = j == 0 ? 

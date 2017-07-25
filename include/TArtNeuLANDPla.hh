@@ -18,6 +18,8 @@ public:
       fQRaw[i] = -1;
       fQCal[i] = -1;
       fTac[i] = -1;
+      fTacCal[i] = -1;
+      fTacRefCal[i] = -1;
       fTCycle[i] = -1;
       fTRaw[i] = -1;
       fTCal[i] = -1;
@@ -33,6 +35,8 @@ public:
   virtual void SetQCal(Int_t i, Double_t val){fQCal[i] = val;}
   virtual void SetTCycle(Int_t i, Int_t val){fTCycle[i] = val;}
   virtual void SetTac(Int_t i, Int_t val){fTac[i] = val;}
+  virtual void SetTacCal(Int_t i, Double_t val){fTacCal[i] = val;}
+  virtual void SetTacRefCal(Int_t i, Double_t val){fTacRefCal[i] = val;}
   virtual void SetTacRef(Int_t i, Int_t val){fTacRef[i] = val;}
   virtual void SetTRaw(Int_t i, Double_t val){fTRaw[i] = val;} 
   virtual void SetTCal(Int_t i, Double_t val){fTCal[i] = val;}
@@ -53,6 +57,8 @@ public:
   virtual Double_t GetQCal  (Int_t i) const {return fQCal[i];}
   virtual Int_t    GetTCycle(Int_t i) const {return fTCycle[i];}
   virtual Int_t    GetTac   (Int_t i) const {return fTac[i];}
+  virtual Double_t GetTacCal(Int_t i) const {return fTacCal[i];}
+  virtual Double_t GetTacRefCal(Int_t i) const {return fTacRefCal[i];}
   virtual Int_t    GetTacRef(Int_t i) const {return fTacRef[i];}
   virtual Double_t GetTRaw  (Int_t i) const {return fTRaw[i];}
   virtual Double_t GetTCal  (Int_t i) const {return fTCal[i];}
@@ -80,6 +86,8 @@ public:
       std::cout << "QCal"<<i<<": " << fQCal[i]          << std::endl;
       std::cout << "Tac"<<i<<": " << fTac[i]        << std::endl;
       std::cout << "TacRef"<<i<<": " << fTacRef[i]       << std::endl;
+      std::cout << "TacCal"<<i<<": " << fTacCal[i]        << std::endl;
+      std::cout << "TacRefCal"<<i<<": " << fTacRefCal[i]       << std::endl;
       std::cout << "TCycle"<<i<<": " << fTCycle[i]    << std::endl;
       std::cout << "TRaw"<<i<<": " << fTRaw[i]   << std::endl;
       std::cout << "TCal"<<i<<": " << fTCal[i]   << std::endl;
@@ -99,6 +107,8 @@ private:
 
   Int_t    fTac[2];
   Int_t    fTacRef[2]; // reference tac, Tac 16
+  Int_t    fTacCal[2];
+  Int_t    fTacRefCal[2]; // reference tac, Tac 16
   Int_t    fTCycle[2];
   Double_t fTRaw[2]; // traw = tac1 (calibrated in ns) + 25*cnt - t17 (calibrated in ns)
   Double_t fTCal[2];
