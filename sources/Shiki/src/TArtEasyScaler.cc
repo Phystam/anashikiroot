@@ -28,6 +28,9 @@ TArtEasyScaler::TArtEasyScaler(Int_t runnum){
   TString scrfile=Form("scr/run%04d.scr",runnum);
   SetEasyScaler(scrfile);
 }
+TArtEasyScaler::TArtEasyScaler(){
+  Init();
+}
 
 void TArtEasyScaler::Init(){
   fgated   = 1;

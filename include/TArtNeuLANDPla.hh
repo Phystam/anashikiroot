@@ -107,8 +107,8 @@ private:
 
   Int_t    fTac[2];
   Int_t    fTacRef[2]; // reference tac, Tac 16
-  Int_t    fTacCal[2];
-  Int_t    fTacRefCal[2]; // reference tac, Tac 16
+  Double_t    fTacCal[2];
+  Double_t    fTacRefCal[2]; // reference tac, Tac 16
   Int_t    fTCycle[2];
   Double_t fTRaw[2]; // traw = tac1 (calibrated in ns) + 25*cnt - t17 (calibrated in ns)
   Double_t fTCal[2];
