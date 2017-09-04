@@ -18,5 +18,6 @@
 #pragma link C++ class TArtMDF_s027_FlMDF+;
 #pragma link C++ class TArtEasyScaler+;
 #pragma link C++ class TArtEasyMassExcess+;
+#pragma link C++ class TArtEasyEnergyLossFunc+;
 //#pragma link C++ class TArtEasyConvolution+;
 #endif

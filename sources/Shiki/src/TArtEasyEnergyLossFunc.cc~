@@ -1,0 +1,67 @@
+#include "TArtEasyMassExcess.hh"
+#include <map>
+#include <utility>
+#include <TObject.h>
+#include <TString.h>
+using namespace std;
+
+TArtEasyMassExcess::TArtEasyEnergyLossFunc(){
+
+  fBeamElossPara[make_pair(make_pair(27,9),"C")][0]=6.87655;
+  fBeamElossPara[make_pair(make_pair(27,9),"C")][1]=0.593068;
+  fBeamElossPara[make_pair(make_pair(27,9),"C")][2]=0.00203127;
+  fBeamElossPara[make_pair(make_pair(27,9),"C")][3]=-3.02836e-06;
+  fBeamElossPara[make_pair(make_pair(29,9),"C")][0]=9.12862;
+  fBeamElossPara[make_pair(make_pair(29,9),"C")][1]=0.589959;
+  fBeamElossPara[make_pair(make_pair(29,9),"C")][2]=0.00201206;
+  fBeamElossPara[make_pair(make_pair(29,9),"C")][3]=-2.9774e-06;
+  fBeamElossPara[make_pair(make_pair(31,9),"C")][0]=11.467;
+  fBeamElossPara[make_pair(make_pair(31,9),"C")][1]=0.585546;
+  fBeamElossPara[make_pair(make_pair(31,9),"C")][2]=0.00198841;
+  fBeamElossPara[make_pair(make_pair(31,9),"C")][3]=-2.90216e-06;
+
+  //for Ne isotopes
+
+
+  //30Ne+C
+  fBeamElossPara[make_pair(make_pair(29,10),"C")][0]=2.82761;
+  fBeamElossPara[make_pair(make_pair(29,10),"C")][1]=0.596318;
+  fBeamElossPara[make_pair(make_pair(29,10),"C")][2]=0.00206004;
+  fBeamElossPara[make_pair(make_pair(29,10),"C")][3]=-3.0867e-06;
+  fBeamElossPara[make_pair(make_pair(30,10),"C")][0]=4.2559;
+  fBeamElossPara[make_pair(make_pair(30,10),"C")][1]=0.593919;
+  fBeamElossPara[make_pair(make_pair(30,10),"C")][2]=0.00204671;
+  fBeamElossPara[make_pair(make_pair(30,10),"C")][3]=-3.04789e-06;
+  fBeamElossPara[make_pair(make_pair(31,10),"C")][0]=5.04995;
+  fBeamElossPara[make_pair(make_pair(31,10),"C")][1]=0.593876;
+  fBeamElossPara[make_pair(make_pair(31,10),"C")][2]=0.00204257;
+  fBeamElossPara[make_pair(make_pair(31,10),"C")][3]=-3.04541e-06;
+  fBeamElossPara[make_pair(make_pair(32,10),"C")][0]=4.5962;
+  fBeamElossPara[make_pair(make_pair(32,10),"C")][1]=0.595879;
+  fBeamElossPara[make_pair(make_pair(32,10),"C")][2]=0.00205003;
+  fBeamElossPara[make_pair(make_pair(32,10),"C")][3]=-3.07773e-06;
+
+  fBeamElossPara[make_pair(make_pair(30,11),"C")][0]=-2.69551;
+  fBeamElossPara[make_pair(make_pair(30,11),"C")][1]=0.601398;
+  fBeamElossPara[make_pair(make_pair(30,11),"C")][2]=0.00210123;
+  fBeamElossPara[make_pair(make_pair(30,11),"C")][3]=-3.17644e-06;
+  fBeamElossPara[make_pair(make_pair(31,11),"C")][0]=-1.83323;
+  fBeamElossPara[make_pair(make_pair(31,11),"C")][1]=0.601837;
+  fBeamElossPara[make_pair(make_pair(31,11),"C")][2]=0.00209827;
+  fBeamElossPara[make_pair(make_pair(31,11),"C")][3]=-3.18262e-06;
+  fBeamElossPara[make_pair(make_pair(32,11),"C")][0]=-0.441637;
+  fBeamElossPara[make_pair(make_pair(32,11),"C")][1]=0.599838;
+  fBeamElossPara[make_pair(make_pair(32,11),"C")][2]=0.0020856;
+  fBeamElossPara[make_pair(make_pair(32,11),"C")][3]=-3.148e-06;
+  fBeamElossPara[make_pair(make_pair(33,11),"C")][0]=0.850801;
+  fBeamElossPara[make_pair(make_pair(33,11),"C")][1]=0.597914;
+  fBeamElossPara[make_pair(make_pair(33,11),"C")][2]=0.00207395;
+  fBeamElossPara[make_pair(make_pair(33,11),"C")][3]=-3.11494e-06;
+  fBeamElossPara[make_pair(make_pair(34,11),"C")][0]=1.77357;
+  fBeamElossPara[make_pair(make_pair(34,11),"C")][1]=0.597398;
+  fBeamElossPara[make_pair(make_pair(34,11),"C")][2]=0.00206823;
+  fBeamElossPara[make_pair(make_pair(34,11),"C")][3]=-3.10616e-06;
+
+
+
+}

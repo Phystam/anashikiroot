@@ -14,6 +14,7 @@
 #include <TROOT.h>
 #include <TMath.h>
 #include "TArtEasyMassExcess.hh"
+#include "TArtEasyEnergyLossFunc.hh"
 //________________________________________________________
 // TArtEasyPID::TArtEasyPID(){
 //   TArtCore::Info(__FILE__,"Creating BigRIPS detector objects...");
@@ -186,9 +187,9 @@ Double_t TArtEasyPID::GetKineticEnergyFromTOF(){
 }
 
 Double_t TArtEasyPID::E2Tgt(Double_t E){
-  //  Double_t para[] = {-8.87313,1.02961,-3.97733e-5};//empty target
-  //Double_t para[] = {-45.9326,1.0811,-5.78495e-5};//C target
-  Double_t* para=feasytarget->GetBeamE();  
+  //  Double_t* para=feasytarget->GetBeamE(); legacy
+  TArtEasyEnergyLossFunc lossfunc;
+  std::vector<Double_t> para=lossfunc.GetBeamEnergyLossPara(GetAInt(),GetZetInt(),feasytarget->GetName());
   E=para[0]+para[1]*E+para[2]*E*E+para[3]*E*E*E;
   return E;
 }
