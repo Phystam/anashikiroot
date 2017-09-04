@@ -226,7 +226,7 @@ private:
   Bool_t fselectedtarget;
   TArtEasyMassExcess* feasyex;
   static const Double_t fclight=299.792458;//mm/ns
-  static const Double_t famu_MeV=931.494;//MeV
+  static const Double_t famu_MeV=931.494061;//MeV
   TArtMDF_s027_BrhoMDF* fbrhomdf;
   TArtMDF_s027_TofMDF* ftofmdf;
   TArtMDF_s027_FlMDF* fflmdf;

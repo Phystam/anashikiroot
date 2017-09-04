@@ -80,6 +80,13 @@ void TArtEasyScaler::SetEasyScaler(TString scrfile){
   }
 }
 
+void TArtEasyScaler::SetEasyScaler(Int_t runnum){
+  Init();
+  TString scrfile=Form("scr/run%04d.scr",runnum);
+  SetEasyScaler(scrfile);
+}
+
+
 TArtEasyScaler TArtEasyScaler::operator+(TArtEasyScaler &scr2){
   return TArtEasyScaler(fgated+scr2.GetGated(),
 			fungated+scr2.GetUngated(),
