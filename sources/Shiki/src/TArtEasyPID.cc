@@ -31,6 +31,7 @@ TArtEasyPID::TArtEasyPID(Double_t Brho0){
   fshikipara=(const TArtShikiParameters*)sman->FindParameters("ShikiParameters");
   feasytarget=fshikipara->FindEasyTarget(1);
   feasyex=new TArtEasyMassExcess();
+  feasyeloss=new TArtEasyEnergyLossFunc();
 }
 
 TArtEasyPID* TArtEasyPID::Instance(Double_t Brho0){
@@ -188,8 +189,10 @@ Double_t TArtEasyPID::GetKineticEnergyFromTOF(){
 
 Double_t TArtEasyPID::E2Tgt(Double_t E){
   //  Double_t* para=feasytarget->GetBeamE(); legacy
-  TArtEasyEnergyLossFunc lossfunc;
-  std::vector<Double_t> para=lossfunc.GetBeamEnergyLossPara(GetAInt(),GetZetInt(),feasytarget->GetName());
+
+  std::vector<Double_t> para=feasyeloss->GetBeamEnergyLossPara(GetAInt(),GetZetInt(),*feasytarget->GetDetectorName());
+  // std::cout << GetAInt() <<"  "<<GetZetInt() <<"  "<<*feasytarget->GetDetectorName() << std::endl;
+  // std::cout << para[0] <<" "<< para[1] <<" "<< para[2] <<" "<< para[3] << std::endl;
   E=para[0]+para[1]*E+para[2]*E*E+para[3]*E*E*E;
   return E;
 }

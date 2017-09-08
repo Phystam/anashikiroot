@@ -26,7 +26,9 @@
 #include <TFile.h>
 #include <TLorentzVector.h>
 #include <TVector3.h>
+#include <TString.h>
 #include <TMath.h>
+#include "TArtEasyEnergyLossFunc.hh"
 using namespace std;
 TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   TArtCore::Info(__FILE__,"Creating SAMURAI detector objects...");
@@ -36,8 +38,10 @@ TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   fshikipara=TArtShikiParameters::Instance();
   feasytarget = fshikipara->FindEasyTarget(1);
   fselectedtarget=false;
+  frunnum=0;
   fcalibhod=new TArtCalibHODPla();
   feasyex=new TArtEasyMassExcess();
+  feasyeloss=new TArtEasyEnergyLossFunc();
   fbrhomdf=new TArtMDF_s027_BrhoMDF();
   ftofmdf=new TArtMDF_s027_TofMDF();
   fflmdf=new TArtMDF_s027_FlMDF();
@@ -207,6 +211,10 @@ void TArtEasySAMURAIPID::ReconstructData(){
   fAoZ=fclight*fBrho/(famu_MeV*fBeta*fGamma);
   fZet=pla_qmax->GetZet(fBeta);
 
+  //Zの位置補正・ラン補正
+  CalcXYCorrectionOfHODF();
+  RunCorrections();
+
   Int_t Z=GetZetInt();
   Int_t A=GetAInt();
   //Z(整数)とBrhoから運動量を求める
@@ -251,7 +259,10 @@ TLorentzVector TArtEasySAMURAIPID::GetMomentum4DAtTgt(){
   TVector3 pvects = fMomentum4D.Vect();
   Double_t m = fMomentum4D.M();
   Double_t Ts=fMomentum4D.E()-m;
-  Double_t* para=feasytarget->GetFragE();
+  std::vector<Double_t> para=feasyeloss->GetFragEnergyLossPara(GetAInt(),GetZetInt(),*feasytarget->GetDetectorName());
+  // std::cout << GetAInt() <<"  "<<GetZetInt() <<"  "<<*feasytarget->GetDetectorName()<< std::endl;
+  // std::cout <<" "<< para[0] <<" "<< para[1] <<" "<< para[2] <<" "<< para[3] << std::endl;
+  //Double_t* para=feasytarget->GetFragE();
   Double_t u = m/famu_MeV;
   //  Ts = (Double_t)Ts/A;//Kinetic energy as AMeV
   Ts = (Double_t)Ts/u;//Kinetic energy as MeV/u
@@ -430,4 +441,45 @@ void TArtEasySAMURAIPID::SelectTarget(Int_t ID){
   feasypid->SelectTarget(ID);
   feasybeam->SelectTarget(ID);
   fselectedtarget=true;
+}
+
+void TArtEasySAMURAIPID::CalcXYCorrectionOfHODF(){
+  if(fhodid==11){
+    fZet=fZet/(9.4735+0.00233*GetHODX())*10.;
+  }
+  fZet=fZet/(9.98+1.41403e-7*pow(GetHODY(),2)+1.07601e-11*pow(GetHODY(),4.))*10.;
+}
+
+void TArtEasySAMURAIPID::RunCorrections(){
+  Double_t factor=1;
+  switch(frunnum){
+  case 238:
+    factor=1.03213;
+    break;
+  case 239:
+    factor=1.02662;
+    break;
+  case 240:
+    factor=1.01764;
+    break;
+  case 241:
+    factor=1.01752;
+    break;
+  case 242:
+    factor=1.01774;
+    break;
+  case 243:
+    factor=1.00606;
+    break;
+  case 244:
+    factor=1.00044;
+    break;
+  default:
+    factor=1;
+    break;
+  }
+  if(fhodid==18){
+    fZet=fZet/factor;
+  }
+
 }

@@ -34,6 +34,8 @@ class TArtShikiParameters;
 class TLorentzVector;
 class TVector3;
 class TArtEasyMassExcess;
+class TArtEasyEnergyLossFunc;
+
 class TArtEasySAMURAIPID : public TArtReconstruction{
 
 public:
@@ -51,6 +53,9 @@ public:
   void LoadData();
   void ReconstructData();
   void FDCReconstructData();
+  void CalcXYCorrectionOfHODF();
+  void RunCorrections();
+
   void SelectTarget(TString name);
   void SelectTarget(Int_t ID);
   Double_t GetBrho(){return fBrho;}
@@ -73,6 +78,12 @@ public:
   Double_t GetHODTime(){return fhodtime;}
   Double_t GetHODID(){return fhodid;}
   Double_t GetHODQ(){return fhodq;}
+  Double_t GetHODX(){
+    return (4954.17-4124.51)*tan(0.001*fFDC2A)+fFDC2X;
+  }
+  Double_t GetHODY(){
+    return (4954.17-4124.51)*tan(0.001*fFDC2B)+fFDC2Y;
+  }
   Double_t GetHODQUPed(){return fhodquped;}
   Double_t GetHODQDPed(){return fhodqdped;}
   Double_t GetHODTUSlw(){return fhodtu;}
@@ -85,6 +96,9 @@ public:
   Double_t GetMass(){return fMomentum4D.M();}
   Double_t GetHODQPed(){return fhodqped;}
   Double_t GetNumHODPla(){return fnumhodpla;}
+  Int_t SetRunNumber(Int_t val){frunnum=val;}
+  Int_t GetRunNumber(){return frunnum;}
+
 
   void SetBrho  (Double_t val){fBrho = val;}
   void SetDeltaE(Double_t val){fDeltaE = val;}
@@ -154,6 +168,7 @@ public:
   TArtEasyPID* GetEasyPID(){return feasypid;}
   TArtEasyBeam* GetEasyBeam(){return feasybeam;}
 private:
+  Int_t frunnum;
   Double_t fBrho;
   Double_t fTOFTgtHOD;
   Double_t fTOFSim;
@@ -225,6 +240,7 @@ private:
   Bool_t fTDCmode;
   Bool_t fselectedtarget;
   TArtEasyMassExcess* feasyex;
+  TArtEasyEnergyLossFunc* feasyeloss;
   static const Double_t fclight=299.792458;//mm/ns
   static const Double_t famu_MeV=931.494061;//MeV
   TArtMDF_s027_BrhoMDF* fbrhomdf;

@@ -15,23 +15,36 @@ public:
   TArtEasyEnergyLossFunc();
   virtual ~TArtEasyEnergyLossFunc(){}
   std::vector<Double_t> GetBeamEnergyLossPara(Int_t A, Int_t Z,TString target){
-    if(A>25&&A<34&&Z>8&&Z<12){
+    if(target != "C" && target != "Pb" && target !="Emp"){
+      return fdefault;
+    }
+    if( (Z==9 && (A==27||A==29||A==31))
+	||(Z==10 && (A>28&&A<33))
+	||(Z==11 && (A>29&&A<35))
+	){ 
       return fBeamElossPara[std::make_pair(std::make_pair(A,Z),target)];
     }else{
       return fdefault;
     }
   }
   std::vector<Double_t> GetFragEnergyLossPara(Int_t A, Int_t Z,TString target){
-    if(A>25&&A<34&&Z>8&&Z<12){
+    if(target != "C" && target != "Pb" && target !="Emp"){
+      return fdefaultfrag;
+    }
+    if( (Z==9 && (A==27||A==29||A==31))
+	||(Z==10 && (A>28&&A<33))
+	||(Z==11 && (A>29&&A<35))
+	){ 
       return fFragElossPara[std::make_pair(std::make_pair(A,Z),target)];
     }else{
-      return fdefault;
+      return fdefaultfrag;
     }
   }
 private:
   Eloss_t fBeamElossPara;
   Eloss_t fFragElossPara;
   std::vector<Double_t> fdefault;
+  std::vector<Double_t> fdefaultfrag;
   ClassDef(TArtEasyEnergyLossFunc,1);
   
 };
