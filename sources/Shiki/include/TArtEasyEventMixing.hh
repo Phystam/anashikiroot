@@ -8,19 +8,38 @@ This privides event mixing scheme
 
 #include <vector>
 #include <TLorentzVector.h>
+#include <TObject.h>
 
 class TLorentzVector;
-class TArtEasyEventMixing {
+class TObject;
+
+class TArtEasyEventMixing : public TObject{
 public:
   TArtEasyEventMixing();
-  TArtEasyEventMixing();
-  void LoadEvents(std::vector<TLorentzVector> part1, std::vector<TLorentzVector> part2);
-  void DoMixing();
+  TArtEasyEventMixing(std::vector<TLorentzVector> part1, std::vector<TLorentzVector> part2);
+  void LoadData(std::vector<TLorentzVector> part1, std::vector<TLorentzVector> part2);
+  void SetErelMax(Double_t val){fErelmax=val;}
+  Double_t Mix();
   void DoIteration();
-  Double_t GetNumVirtualPair();
-  
+  Int_t GetNumVirtualPairs();
+  Double_t GetRelativeEnergy();
+  Int_t GetNumPairs(){return fneve;}
+  Bool_t GetNextVirtualPair();
 private:
-  std::vector<TLorentzVector> fpart1;
-  std::vector<TLorentzVector> fpart2;
+  void InitCounter(){
+    fcounter_frag=0;
+    fcounter_neut=0;
+  }
+  std::vector<TLorentzVector> ffragtable;
+  std::vector<TLorentzVector> fneuttable;
+  std::vector<Double_t> fCm_frag;
+  std::vector<Double_t> fCm_feut;
+  Double_t fweight;
+  Double_t ferror;
+  Double_t fErelmax;
+  Int_t fneve;
+  Int_t fcounter_frag;//
+  Int_t fcounter_neut;//
+  ClassDef(TArtEasyEventMixing,1);
 };
 #endif
