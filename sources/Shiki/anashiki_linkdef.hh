@@ -19,5 +19,6 @@
 #pragma link C++ class TArtEasyScaler+;
 #pragma link C++ class TArtEasyMassExcess+;
 #pragma link C++ class TArtEasyEnergyLossFunc+;
+#pragma link C++ class TArtEasyEventMixing+;
 //#pragma link C++ class TArtEasyConvolution+;
 #endif

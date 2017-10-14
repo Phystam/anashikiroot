@@ -7,10 +7,10 @@ This privides event mixing scheme
 #define EASY_EVENT_MIXING_HH
 
 #include <vector>
-#include <TLorentzVector.h>
 #include <TObject.h>
 
 class TLorentzVector;
+class TH1;
 class TObject;
 
 class TArtEasyEventMixing : public TObject{
@@ -25,6 +25,8 @@ public:
   Double_t GetRelativeEnergy();
   Int_t GetNumPairs(){return fneve;}
   Bool_t GetNextVirtualPair();
+  void CalcCorrelationFunction();
+
 private:
   void InitCounter(){
     fcounter_frag=0;
@@ -34,6 +36,7 @@ private:
   std::vector<TLorentzVector> fneuttable;
   std::vector<Double_t> fCm_frag;
   std::vector<Double_t> fCm_feut;
+  TH1* fhcorrfunc;
   Double_t fweight;
   Double_t ferror;
   Double_t fErelmax;

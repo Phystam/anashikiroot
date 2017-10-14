@@ -1,16 +1,22 @@
 #include "TArtEasyEventMixing.hh"
+#include <TH1.h>
 #include <vector>
 #include <TLorentzVector.h>
 #include "TArtCore.hh"
 
 TArtEasyEventMixing::TArtEasyEventMixing(){
-  TArtCore::Info(__FILE__,"Let's do Event Mixing! Now creating empty data set.");
   InitCounter();
+  fhcorrfunc = new TH1("fhcorrfunc","Correlation function",fnbins,0,fErelmax);
+  fherel = new TH1("fhcorrfunc","Correlated relative energy spectrum",fnbins,0,fErelmax);
+  fhereluncor = new TH1("fhereluncor","Uncorrelated relative energy spectrum",fnbins,0,fErelmax);
 }
-TArtEasyEventMixing::TArtEasyEventMixing(std::vector<TLorentzVector> frags, std::vector<TLorentzVector> neuts){
+
+TArtEasyEventMixing::TArtEasyEventMixing(std::vector<TLorentzVector> frags, std::vector<TLorentzVector> neuts,Double_t bins=100,Double_t Erelmax=5){
   TArtCore::Info(__FILE__,"Let's do Event Mixing! Now creating data set from inputs.");
   LoadData(frags, neuts);
-  InitCounter();
+  fnbins=bins;
+  fErelmax=Erelmax;
+  TArtEasyEventMixing();
 }
 
 
@@ -36,6 +42,10 @@ Int_t TArtEasyEventMixing::GetNumVirtualPairs(){
 }
 
 Bool_t TArtEasyEventMixing::GetNextVirtualPair(){ 
+  //もしイベント数が0だったらfalseを返す
+  if(fneve==0){
+    return false;
+  }
   //もしfcounter_fragもfcounter_neutもイベント数と同じだったら終了なのでfalseを返す
   if(fcounter_neut==fneve-1 && fcounter_frag==fneve-1){
     return false;
