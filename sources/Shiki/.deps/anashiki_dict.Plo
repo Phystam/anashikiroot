@@ -198,8 +198,9 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  ../../sources/Core/include/TArtCore.hh \
  ../../sources/Core/include/TArtRawTacquilaDataObject.hh \
  ../../sources/Core/include/TArtRawScalerObject.hh \
- include/TArtMDF_s027_TofMDF.hh include/TArtEasySAMURAIPID.hh \
- include/TArtEasyTimer.hh /usr/local/src/root_v5.34.30/include/TDatime.h \
+ include/TArtEasyEventMixing.hh include/TArtMDF_s027_TofMDF.hh \
+ include/TArtEasySAMURAIPID.hh include/TArtEasyTimer.hh \
+ /usr/local/src/root_v5.34.30/include/TDatime.h \
  include/TArtMDF_s027_BrhoMDF.hh include/TArtEasyScaler.hh \
  /usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h \
  /usr/local/src/root_v5.34.30/include/TClass.h \
@@ -738,6 +739,8 @@ include/TArtEasyTarget.hh:
 ../../sources/Core/include/TArtRawTacquilaDataObject.hh:
 
 ../../sources/Core/include/TArtRawScalerObject.hh:
+
+include/TArtEasyEventMixing.hh:
 
 include/TArtMDF_s027_TofMDF.hh:
 

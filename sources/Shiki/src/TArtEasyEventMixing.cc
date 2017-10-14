@@ -6,9 +6,9 @@
 
 TArtEasyEventMixing::TArtEasyEventMixing(){
   InitCounter();
-  fhcorrfunc = new TH1("fhcorrfunc","Correlation function",fnbins,0,fErelmax);
-  fherel = new TH1("fhcorrfunc","Correlated relative energy spectrum",fnbins,0,fErelmax);
-  fhereluncor = new TH1("fhereluncor","Uncorrelated relative energy spectrum",fnbins,0,fErelmax);
+  fhcorrfunc = new TH1D("fhcorrfunc","Correlation function",fnbins,0,fErelmax);
+  fherel = new TH1D("fhcorrfunc","Correlated relative energy spectrum",fnbins,0,fErelmax);
+  fhereluncor = new TH1D("fhereluncor","Uncorrelated relative energy spectrum",fnbins,0,fErelmax);
 }
 
 TArtEasyEventMixing::TArtEasyEventMixing(std::vector<TLorentzVector> frags, std::vector<TLorentzVector> neuts,Double_t bins=100,Double_t Erelmax=5){
@@ -29,7 +29,7 @@ void TArtEasyEventMixing::LoadData(std::vector<TLorentzVector> frags, std::vecto
   fneuttable=frags;
   fneve=(Int_t)ffragtable.size();
   //initializing <Correlation function>
-  for(int i=0;i<fneve.size();i++){
+  for(int i=0;i<fneve;i++){
     fCm_frag.push_back(1);
     fCm_feut.push_back(1);
   }
