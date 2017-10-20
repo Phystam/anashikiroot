@@ -188,6 +188,7 @@ void TArtEasyEventMixing::IterationOfMeanCorrelation(){
       if(fweightmatrix[fcounter] > 0){
 	fCm_frag[fcounter_frag] += fweightmatrix[fcounter] / fCm_neut[fcounter_neut] / pow( ferrorweight[fcounter], 2.);
 	Em_frag[fcounter_frag] += 1. / ( pow(ferrorweight[fcounter],2.));
+       
 	//	std::cout<< fweightmatrix[fcounter] <<" "<< fCm_neut[fcounter_neut] <<" "<< pow( ferrorweight[fcounter], 2)<<std::endl;
       }
       //end of neutron loop
