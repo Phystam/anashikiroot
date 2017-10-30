@@ -212,8 +212,8 @@ void TArtEasySAMURAIPID::ReconstructData(){
   fZet=pla_qmax->GetZet(fBeta);
 
   //Zの位置補正・ラン補正
-  CalcXYCorrectionOfHODF();
-  RunCorrections();
+  // CalcXYCorrectionOfHODF();
+  // RunCorrections();
 
   Int_t Z=GetZetInt();
   Int_t A=GetAInt();
@@ -244,11 +244,12 @@ Double_t TArtEasySAMURAIPID::GetTOFSimTotal(){
 
 Double_t TArtEasySAMURAIPID::GetTOFTgtHODSim(){
   //  Double_t mass = (Double_t)GetAInt()*famu_MeV + feasyex->GetMassExcess(GetAInt(),GetZetInt());
-  Double_t mass = 31.*famu_MeV + feasyex->GetMassExcess(31,10);
-  Double_t betagamma = GetZetInt()/mass*fBrho*fclight;
+  Double_t mass = 30.*famu_MeV + feasyex->GetMassExcess(30,10);
+  //  Double_t betagamma = GetZetInt()/mass*fBrho*fclight;
+  Double_t betagamma = 10./mass*fBrho*fclight;
   Double_t beta = betagamma/sqrt(1+pow(betagamma,2.));
   Double_t velosity=beta*fclight;
-  Double_t tofsbttgt=feasypid->GetTOFSBTTgt();
+  //  Double_t tofsbttgt=feasypid->GetTOFSBTTgt();
   //  std::cout<<fFl/velosity<<" "<<tofsbttgt<<std::endl;
   return fFl/velosity;
 }

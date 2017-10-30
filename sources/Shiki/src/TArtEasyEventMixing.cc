@@ -6,6 +6,7 @@
 #include <iostream>
 #include <TString.h>
 #include <algorithm>
+#include "../../Nadeko/include/TArtAlias.hh"
 TArtEasyEventMixing::TArtEasyEventMixing(){
   InitCounter();
   finit=false;
@@ -126,7 +127,7 @@ void TArtEasyEventMixing::MakeUncorrelatedSpectrum(Int_t i){
   while(GetNextVirtualPair()){
     if(fcounter%10000==0){
       ShowStatus(fcounter,GetNumVirtualPairs(), "MakeUncorrelatedSpectrum()");
-      //      std::cout<<fcounter<<" "<<GetWeight()<<std::endl;
+      std::cout<<fcounter<<": "<<GetRelativeEnergy()<<", "<<GetWeight()<<std::endl;
       
     }
     if(GetWeight()>0){
@@ -188,6 +189,7 @@ void TArtEasyEventMixing::IterationOfMeanCorrelation(){
       if(fweightmatrix[fcounter] > 0){
 	fCm_frag[fcounter_frag] += fweightmatrix[fcounter] / fCm_neut[fcounter_neut] / pow( ferrorweight[fcounter], 2.);
 	Em_frag[fcounter_frag] += 1. / ( pow(ferrorweight[fcounter],2.));
+       
 	//	std::cout<< fweightmatrix[fcounter] <<" "<< fCm_neut[fcounter_neut] <<" "<< pow( ferrorweight[fcounter], 2)<<std::endl;
       }
       //end of neutron loop
@@ -242,12 +244,18 @@ void TArtEasyEventMixing::ReconstructData(){
   fherel = new TH1D("fherel_evmix","Correlated relative energy spectrum",fnbins,0,fErelmax);
   //first iteration
   MakeCorrelatedSpectrum();
-  for(int i=0;i<5;i++){
-    MakeUncorrelatedSpectrum(i);
-    CalcCorrelationFunction(i);
-    MakeCorrelationMatrix(i);
-    IterationOfMeanCorrelation();
-  }
+  MakeUncorrelatedSpectrum(0);
+  CalcCorrelationFunction(0);
+  MakeCorrelationMatrix(0);
+  wait();
+  IterationOfMeanCorrelation();
+  wait();
+  
+  MakeUncorrelatedSpectrum(1);
+  wait();
+  CalcCorrelationFunction(1);
+  MakeCorrelationMatrix(1);
+
 }
 
 void TArtEasyEventMixing::ShowStatus(Int_t now, Int_t num,TString message){
