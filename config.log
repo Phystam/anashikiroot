@@ -28,7 +28,6 @@ uname -v = #1 SMP Tue Dec 8 10:11:15 CST 2015
 /bin/universe          = unknown
 
 PATH: /usr/local/lib64/root_v5.34.30/bin
-PATH: /usr/local/lib64/root_v5.34.30/bin
 PATH: /usr/lib64/qt-3.3/bin
 PATH: /home/tomai/perl5/bin
 PATH: /usr/local/bin
@@ -38,12 +37,9 @@ PATH: /usr/sbin
 PATH: /usr/babirl/bin
 PATH: /usr/local/texlive/2014/bin/x86_64-linux
 PATH: /home/tomai/exp/s027/scripts/
+PATH: /usr/local/src/tracedisp/
 PATH: /home/tomai/.local/bin
 PATH: /home/tomai/bin
-PATH: /home/tomai/exp/s027/anaroot/src/../util/bin
-PATH: /usr/babirl/bin
-PATH: /usr/local/texlive/2014/bin/x86_64-linux
-PATH: /home/tomai/exp/s027/scripts/
 PATH: /home/tomai/exp/s027/anaroot/src/../util/bin
 
 
@@ -659,7 +655,7 @@ configure:16489: $? = 0
 configure:16489: result: yes
 configure:16495: checking for _doprnt
 configure:16495: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccDztG5v.o: In function `main':
+/tmp/ccdn8o0x.o: In function `main':
 /home/tomai/exp/s027/anaroot/src/conftest.c:69: undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:16495: $? = 1

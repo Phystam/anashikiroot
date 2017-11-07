@@ -3,6 +3,7 @@
 #include <TObject.h>
 
 class TString;
+class TObject;
 class TArtEasyScaler : public TObject{
 public:
   TArtEasyScaler(Int_t g,Int_t ug,Int_t bnh,Int_t bneuh,Int_t bch, Int_t ck,Int_t cm);
@@ -12,6 +13,7 @@ public:
   virtual ~TArtEasyScaler(){}
   void Init();
   void SetEasyScaler(TString scrfile);
+  void SetEasyScaler(Int_t runnum);
   Int_t GetGated(){return fgated;}
   Int_t GetUngated(){return fungated;}
   Int_t GetBxNEBxH(){return fBxNEBxH;}

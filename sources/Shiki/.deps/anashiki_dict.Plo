@@ -169,10 +169,10 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TLorentzVector.h \
  /usr/local/src/root_v5.34.30/include/TRotation.h \
  /usr/include/c++/4.8.2/iostream include/TArtEasyMassExcess.hh \
- include/TArtMDF_s027_FlMDF.hh include/TArtEasyNeutrons.hh \
- include/TArtEasyNeutron.hh include/TArtEasyBeam.hh \
- include/TArtShikiParameters.hh include/TArtEasyTarget.hh \
- ../../sources/Core/include/TArtStoreManager.hh \
+ include/TArtMDF_s027_FlMDF.hh include/TArtEasyEnergyLossFunc.hh \
+ include/TArtEasyNeutrons.hh include/TArtEasyNeutron.hh \
+ include/TArtEasyBeam.hh include/TArtShikiParameters.hh \
+ include/TArtEasyTarget.hh ../../sources/Core/include/TArtStoreManager.hh \
  /usr/local/src/root_v5.34.30/include/TTree.h \
  /usr/local/src/root_v5.34.30/include/TBranch.h \
  /usr/local/src/root_v5.34.30/include/TAttFill.h \
@@ -198,8 +198,9 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  ../../sources/Core/include/TArtCore.hh \
  ../../sources/Core/include/TArtRawTacquilaDataObject.hh \
  ../../sources/Core/include/TArtRawScalerObject.hh \
- include/TArtMDF_s027_TofMDF.hh include/TArtEasySAMURAIPID.hh \
- include/TArtEasyTimer.hh /usr/local/src/root_v5.34.30/include/TDatime.h \
+ include/TArtEasyEventMixing.hh include/TArtMDF_s027_TofMDF.hh \
+ include/TArtEasySAMURAIPID.hh include/TArtEasyTimer.hh \
+ /usr/local/src/root_v5.34.30/include/TDatime.h \
  include/TArtMDF_s027_BrhoMDF.hh include/TArtEasyScaler.hh \
  /usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h \
  /usr/local/src/root_v5.34.30/include/TClass.h \
@@ -675,6 +676,8 @@ include/TArtEasyMassExcess.hh:
 
 include/TArtMDF_s027_FlMDF.hh:
 
+include/TArtEasyEnergyLossFunc.hh:
+
 include/TArtEasyNeutrons.hh:
 
 include/TArtEasyNeutron.hh:
@@ -736,6 +739,8 @@ include/TArtEasyTarget.hh:
 ../../sources/Core/include/TArtRawTacquilaDataObject.hh:
 
 ../../sources/Core/include/TArtRawScalerObject.hh:
+
+include/TArtEasyEventMixing.hh:
 
 include/TArtMDF_s027_TofMDF.hh:
 

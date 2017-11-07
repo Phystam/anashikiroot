@@ -14,6 +14,7 @@
 #include <TROOT.h>
 #include <TMath.h>
 #include "TArtEasyMassExcess.hh"
+#include "TArtEasyEnergyLossFunc.hh"
 //________________________________________________________
 // TArtEasyPID::TArtEasyPID(){
 //   TArtCore::Info(__FILE__,"Creating BigRIPS detector objects...");
@@ -30,6 +31,7 @@ TArtEasyPID::TArtEasyPID(Double_t Brho0){
   fshikipara=(const TArtShikiParameters*)sman->FindParameters("ShikiParameters");
   feasytarget=fshikipara->FindEasyTarget(1);
   feasyex=new TArtEasyMassExcess();
+  feasyeloss=new TArtEasyEnergyLossFunc();
 }
 
 TArtEasyPID* TArtEasyPID::Instance(Double_t Brho0){
@@ -186,9 +188,11 @@ Double_t TArtEasyPID::GetKineticEnergyFromTOF(){
 }
 
 Double_t TArtEasyPID::E2Tgt(Double_t E){
-  //  Double_t para[] = {-8.87313,1.02961,-3.97733e-5};//empty target
-  //Double_t para[] = {-45.9326,1.0811,-5.78495e-5};//C target
-  Double_t* para=feasytarget->GetBeamE();  
+  //  Double_t* para=feasytarget->GetBeamE(); legacy
+
+  std::vector<Double_t> para=feasyeloss->GetBeamEnergyLossPara(GetAInt(),GetZetInt(),*feasytarget->GetDetectorName());
+  // std::cout << GetAInt() <<"  "<<GetZetInt() <<"  "<<*feasytarget->GetDetectorName() << std::endl;
+  // std::cout << para[0] <<" "<< para[1] <<" "<< para[2] <<" "<< para[3] << std::endl;
   E=para[0]+para[1]*E+para[2]*E*E+para[3]*E*E*E;
   return E;
 }
