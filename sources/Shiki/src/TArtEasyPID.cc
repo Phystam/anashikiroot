@@ -127,18 +127,10 @@ void TArtEasyPID::ReconstructData(){
     }
   }
 
-  //  Double_t brho = fBrho0*(1+f5x/3300.);// D=3300mm
-  //  Double_t brho = fBrho0*(1+f5x/3079.12);// D=3300mm
-  Double_t brho0_f713 = fBrho0-0.04642;
-  Double_t brho = brho0_f713*(1+f5x/3095.08);// D=3300mm
-
   //  Double_t length = 35.608;//m, F7pla->F13pla1
   Double_t length = 35953;//mm, F7pla->F13pla1
   Double_t Beta = length/(TOF713*fclight)*1e6;
   Double_t Gamma = 1./sqrt(1.-Beta*Beta);
-
-  Double_t AoZ = brho/(Beta*Gamma);
-  AoZ=AoZ*fe/(fclight*famu);
 
   fcalibic->ReconstructData();
   Double_t DeltaE=0;
@@ -152,6 +144,17 @@ void TArtEasyPID::ReconstructData(){
       Z=ic->GetZet(Beta);
     }
   }
+
+  //  Double_t brho = fBrho0*(1+f5x/3300.);// D=3300mm
+  //  Double_t brho = fBrho0*(1+f5x/3079.12);// D=3300mm
+  //  Double_t brho0_f713 = fBrho0-0.04642;
+  Double_t brho = fBrho0*(1+f5x/3095.08);// D=3300mm
+  brho = 0.822563+0.572445*brho+0.0648057*pow(brho,2.)-0.00313776*pow(brho,3.);//fitting result
+  
+
+
+  Double_t AoZ = brho/(Beta*Gamma);
+  AoZ=AoZ*fe/(fclight*famu);
 
 
   SetBrho(brho);

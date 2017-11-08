@@ -16,6 +16,7 @@ public:
   {
     for(int i=0;i<2;i++){
       fQRaw[i] = -1;
+      fQPed[i] = -1;
       fQCal[i] = -1;
       fTac[i] = -1;
       fTacCal[i] = -1;
@@ -32,6 +33,7 @@ public:
   virtual void SetBarID(Int_t val){fBarID = val;}
 
   virtual void SetQRaw(Int_t i, Int_t val){fQRaw[i] = val;}
+  virtual void SetQPed(Int_t i, Double_t val){fQPed[i] = val;}
   virtual void SetQCal(Int_t i, Double_t val){fQCal[i] = val;}
   virtual void SetTCycle(Int_t i, Int_t val){fTCycle[i] = val;}
   virtual void SetTac(Int_t i, Int_t val){fTac[i] = val;}
@@ -54,6 +56,7 @@ public:
   virtual Int_t    GetLayer()         const {return fLayer;}
   virtual Int_t    GetBarID()         const {return fBarID;}
   virtual Int_t    GetQRaw  (Int_t i) const {return fQRaw[i];}
+  virtual Double_t GetQPed  (Int_t i) const {return fQPed[i];}
   virtual Double_t GetQCal  (Int_t i) const {return fQCal[i];}
   virtual Int_t    GetTCycle(Int_t i) const {return fTCycle[i];}
   virtual Int_t    GetTac   (Int_t i) const {return fTac[i];}
@@ -83,6 +86,7 @@ public:
 
     for(int i=0;i<2;i++){
       std::cout << "QRaw"<<i<<": " << fQRaw[i]          << std::endl;
+      std::cout << "QPed"<<i<<": " << fQPed[i]          << std::endl;
       std::cout << "QCal"<<i<<": " << fQCal[i]          << std::endl;
       std::cout << "Tac"<<i<<": " << fTac[i]        << std::endl;
       std::cout << "TacRef"<<i<<": " << fTacRef[i]       << std::endl;
@@ -103,6 +107,7 @@ private:
   Int_t    fBarID;  
 
   Int_t    fQRaw[2];
+  Int_t    fQPed[2];
   Double_t fQCal[2];
 
   Int_t    fTac[2];

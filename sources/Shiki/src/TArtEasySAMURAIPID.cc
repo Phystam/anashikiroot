@@ -212,7 +212,7 @@ void TArtEasySAMURAIPID::ReconstructData(){
   fZet=pla_qmax->GetZet(fBeta);
 
   //Zの位置補正・ラン補正
-  // CalcXYCorrectionOfHODF();
+  CalcXYCorrectionOfHODF();
   // RunCorrections();
 
   Int_t Z=GetZetInt();
@@ -445,9 +445,26 @@ void TArtEasySAMURAIPID::SelectTarget(Int_t ID){
 }
 
 void TArtEasySAMURAIPID::CalcXYCorrectionOfHODF(){
-  if(fhodid==11){
-    fZet=fZet/(9.4735+0.00233*GetHODX())*10.;
+  Double_t p0,p1;
+  switch(fhodid){
+  case 9:
+    p0=9.45996;
+    p1=0.00126335;
+    break;
+  case 10:
+    p0=9.40343;
+    p1=0.00163013;
+    break;
+  case 11:
+    p0=9.4735;
+    p1=0.00233;
+       break;
+  default:
+    p0=10;
+    p1=0;
+    break;
   }
+  fZet=fZet/(p0+p1*GetHODX())*10.;
   fZet=fZet/(9.98+1.41403e-7*pow(GetHODY(),2)+1.07601e-11*pow(GetHODY(),4.))*10.;
 }
 

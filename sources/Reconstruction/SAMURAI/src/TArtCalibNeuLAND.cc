@@ -226,7 +226,9 @@ void TArtCalibNeuLAND::ReconstructData()
     // start reconstruction
 
     for(int j=0;j<2;j++){
-      Double_t energy = QDC2Energy(pla->GetQRaw(j)-para->GetQPed(j));
+      Double_t qped = pla->GetQRaw(j)-para->GetQPed(j);
+      pla->SetQPed(j,qped);
+      Double_t energy = QDC2Energy(qped);
       Double_t energy_final = j==0 ? 
 	energy * para->GetEDiffOffset() * para->GetESyncOffset() : 
 	energy / para->GetEDiffOffset() * para->GetESyncOffset();
