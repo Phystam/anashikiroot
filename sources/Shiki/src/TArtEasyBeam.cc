@@ -286,8 +286,8 @@ void TArtEasyBeam::SetTDCDistribution(TString filename){
 
 TLorentzVector TArtEasyBeam::GetMomentumVector(Double_t p,Double_t Mass){//p,Mass is "total" momentum/mass
   TVector3 beam_direction = fBDC2Pos-fBDC1Pos;
-  //  Double_t length = beam_direction.Mag(); // Magでやると小さくしすぎる?
-  Double_t length = beam_direction.Z();
+  Double_t length = beam_direction.Mag(); // Magでやると小さくしすぎる?
+  // Double_t length = beam_direction.Z();
   TVector3 momentum3d = beam_direction*(p/length);
   TLorentzVector P;
   P.SetVectM(momentum3d,Mass);
