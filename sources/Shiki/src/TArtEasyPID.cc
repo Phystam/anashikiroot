@@ -145,10 +145,10 @@ void TArtEasyPID::ReconstructData(){
     }
   }
 
-  //  Double_t brho = fBrho0*(1+f5x/3300.);// D=3300mm
+  Double_t brho = fBrho0*(1+f5x/3300.);// D=3300mm
   //  Double_t brho = fBrho0*(1+f5x/3079.12);// D=3300mm
   //  Double_t brho0_f713 = fBrho0-0.04642;
-  Double_t brho = fBrho0*(1+f5x/3095.08);// D=3300mm
+  //  Double_t brho = fBrho0*(1+f5x/3095.08);// D=3300mm
   brho = 0.822563+0.572445*brho+0.0648057*pow(brho,2.)-0.00313776*pow(brho,3.);//fitting result
   
 
@@ -168,23 +168,25 @@ void TArtEasyPID::ReconstructData(){
 }
 
 //_____________________________________________________________________________
-
+Double_t TArtEasyPID::GetMass(){
+  return GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+}
 //Energy / Momentum calculation from TOF only
 Double_t TArtEasyPID::GetTotalEnergyFromTOF(){ 
   //total energy calc
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   return M*fGamma;
 }
 
 Double_t TArtEasyPID::GetTotalKineticEnergyFromTOF(){ 
   //total energy calc
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   return M*(fGamma-1.);
 }
 
 Double_t TArtEasyPID::GetKineticEnergyFromTOF(){
   //MeV/u
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   Double_t TKE=GetTotalKineticEnergyFromTOF();
   return TKE/u;
@@ -209,40 +211,40 @@ Double_t TArtEasyPID::GetKineticEnergyAtTgtFromTOF(){
 
 Double_t TArtEasyPID::GetTotalKineticEnergyAtTgtFromTOF(){
   Double_t KE=GetKineticEnergyAtTgtFromTOF();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   return KE*u;
 }
 
 Double_t TArtEasyPID::GetTotalEnergyAtTgtFromTOF(){
   Double_t TKE=GetTotalKineticEnergyAtTgtFromTOF();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   return TKE+M;
 }
 
 Double_t TArtEasyPID::GetTotalMomentumFromTOF(){ //overload
   //total energy calc
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   return M*fBeta*fGamma;
 }
 
 Double_t TArtEasyPID::GetMomentumFromTOF(){ //overload
   //total energy calc
   Double_t P = GetTotalMomentumFromTOF();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   return P/u;
 }
 Double_t TArtEasyPID::GetMomentumAtTgtFromTOF(){ //overload
   Double_t TKE=GetTotalKineticEnergyAtTgtFromTOF();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   Double_t p = sqrt(TKE*(TKE+2.*M));
   return p/u;
 }
 Double_t TArtEasyPID::GetTotalMomentumAtTgtFromTOF(){ //overload
   Double_t TKE=GetTotalKineticEnergyAtTgtFromTOF();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t p = sqrt(TKE*(TKE+2.*M));
   return p;
 }
@@ -257,7 +259,7 @@ Double_t TArtEasyPID::GetTotalMomentumFromBrho(){
 Double_t TArtEasyPID::GetMomentumFromBrho(){ 
   //total momentum calc
   Double_t ptot = GetZetInt()*fBrho*fclight*1e-6;
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   return ptot/u;
 }
@@ -265,7 +267,7 @@ Double_t TArtEasyPID::GetMomentumFromBrho(){
 Double_t TArtEasyPID::GetTotalEnergyFromBrho(){
   //total energy calc
   Double_t ptot = GetTotalMomentumFromBrho();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t Etot = sqrt(ptot*ptot + M*M);
   return Etot;
 }
@@ -273,13 +275,13 @@ Double_t TArtEasyPID::GetTotalEnergyFromBrho(){
 Double_t TArtEasyPID::GetTotalKineticEnergyFromBrho(){ 
   //total energy calc
   Double_t TE=GetTotalEnergyFromBrho();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   return TE-M;
 }
 
 Double_t TArtEasyPID::GetKineticEnergyFromBrho(){
   //MeV/u
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   Double_t TKE=GetTotalKineticEnergyFromBrho();
   return TKE/u;
@@ -292,26 +294,26 @@ Double_t TArtEasyPID::GetKineticEnergyAtTgtFromBrho(){
 
 Double_t TArtEasyPID::GetTotalKineticEnergyAtTgtFromBrho(){
   Double_t KE=GetKineticEnergyAtTgtFromBrho();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   return KE*u;
 }
 
 Double_t TArtEasyPID::GetTotalEnergyAtTgtFromBrho(){
   Double_t TKE=GetTotalKineticEnergyAtTgtFromBrho();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   return TKE+M;
 }
 Double_t TArtEasyPID::GetMomentumAtTgtFromBrho(){ //overload
   Double_t TKE=GetTotalKineticEnergyAtTgtFromBrho();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t u = M/famu_MeV;
   Double_t p = sqrt(TKE*(TKE+2.*M));
   return p/u;
 }
 Double_t TArtEasyPID::GetTotalMomentumAtTgtFromBrho(){ //overload
   Double_t TKE=GetTotalKineticEnergyAtTgtFromBrho();
-  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  Double_t M = GetMass();
   Double_t p = sqrt(TKE*(TKE+2.*M));
   return p;
 }

@@ -24,9 +24,10 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <vector>
 #include <algorithm>
-
+#include <string>
 TArtSAMURAIParameters* TArtSAMURAIParameters::fSAMURAIParameters = 0;
 
 //__________________________________________________________
@@ -261,7 +262,9 @@ Bool_t TArtSAMURAIParameters::LoadNeuLANDTCal(const char *csvfile)
     int plane, bar, t_type, channel;
     double ns;
     bool finalize = false;
+    std::cout << line_no <<"," << sizeof line<<std::endl;
     file.getline(line, sizeof line);
+    std::cout << line <<std::endl;
     if (!file) {
       finalize = true;
     } else {
@@ -269,7 +272,7 @@ Bool_t TArtSAMURAIParameters::LoadNeuLANDTCal(const char *csvfile)
         continue;
       }
 #define STRTOK_R(start) do {\
-    token = strtok_r(start, ", ", &p);\
+    token = strtok_r(start, ",", &p);\
     if (NULL == token) {\
       std::cerr << ERROR_PREFIX << "Unexpected EOL." << std::endl;\
       return false;\
@@ -299,7 +302,7 @@ Bool_t TArtSAMURAIParameters::LoadNeuLANDTCal(const char *csvfile)
       channel = strtol(token, NULL, 10);
       STRTOK_R(p);
       ns = strtod(token, NULL);
-      token = strtok_r(p, ", ", &p);
+      token = strtok_r(p, ",", &p);
       if (NULL != token) {
         std::cerr << ERROR_PREFIX << "Garbage after line." << std::endl;
         return false;
