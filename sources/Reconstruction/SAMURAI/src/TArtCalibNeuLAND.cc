@@ -236,7 +236,7 @@ void TArtCalibNeuLAND::ReconstructData()
       Double_t time;
       Double_t time_ref;
       //      if (para->HasTDCTCal()) {
-      if (true) {
+      if (false) {
         time = para->GetTDCTCal(j, pla->GetTac(j), false);
         time_ref = para->GetTDCTCal(j, pla->GetTacRef(j), true);
       }//  else if ( true ){ //phystam
