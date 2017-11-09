@@ -257,13 +257,13 @@ Bool_t TArtSAMURAIParameters::LoadNeuLANDTCal(const char *csvfile)
   int prev_t_type = 0, prev_bar_id = 0;
 #define ERROR_PREFIX csvfile << ':' << line_no << ": "
   for (int line_no = 1;; ++line_no) {
-    std::string line;
+    char line[256];
     bool is_start = false;
     int plane, bar, t_type, channel;
     double ns;
     bool finalize = false;
     std::cout << line_no <<"," << sizeof line<<std::endl;
-    getline(file, line);
+    file.getline(line, sizeof line);
     std::cout << line <<std::endl;
     if (!file) {
       finalize = true;
