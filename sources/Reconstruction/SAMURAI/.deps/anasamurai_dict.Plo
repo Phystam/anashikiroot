@@ -151,7 +151,9 @@ anasamurai_dict.lo: anasamurai_dict.cc /usr/include/stdc-predef.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/basic_file.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++io.h \
  /usr/include/c++/4.8.2/bits/fstream.tcc /usr/include/c++/4.8.2/iostream \
- /usr/include/c++/4.8.2/iomanip include/TArtNEBULAPla.hh \
+ /usr/include/c++/4.8.2/iomanip \
+ /usr/local/src/root_v5.34.30/include/TRandom3.h \
+ /usr/local/src/root_v5.34.30/include/TRandom.h include/TArtNEBULAPla.hh \
  include/TArtCalibNEBULAHPC.hh include/TArtNEBULAHPCPara.hh \
  ../../../sources/Core/include/TArtMap.hh \
  ../../../sources/Core/include/segidlist.hh include/MathTools.hh \
@@ -232,8 +234,6 @@ anasamurai_dict.lo: anasamurai_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TVirtualTreePlayer.h \
  ../../../sources/Core/include/TArtRawEventObject.hh \
  include/TArtSAMURAIParameters.hh include/TArtNeuLANDPla.hh \
- /usr/local/src/root_v5.34.30/include/TRandom3.h \
- /usr/local/src/root_v5.34.30/include/TRandom.h \
  include/TArtNeuLANDPlaPara.hh include/TArtCalibFDC0Hit.hh \
  include/TArtCalibFDC1Track.hh include/TArtCalibDCHit.hh \
  include/TArtTEDCsIPara.hh \
@@ -726,6 +726,10 @@ include/TArtTacquilaMap.hh:
 
 /usr/include/c++/4.8.2/iomanip:
 
+/usr/local/src/root_v5.34.30/include/TRandom3.h:
+
+/usr/local/src/root_v5.34.30/include/TRandom.h:
+
 include/TArtNEBULAPla.hh:
 
 include/TArtCalibNEBULAHPC.hh:
@@ -913,10 +917,6 @@ include/TArtCalibNeuLAND.hh:
 include/TArtSAMURAIParameters.hh:
 
 include/TArtNeuLANDPla.hh:
-
-/usr/local/src/root_v5.34.30/include/TRandom3.h:
-
-/usr/local/src/root_v5.34.30/include/TRandom.h:
 
 include/TArtNeuLANDPlaPara.hh:
 

@@ -34,7 +34,9 @@ typedef TClonesArray TArtNeuLANDPlaParaArray;
 class TArtCalibSAMURAIT0;
 
 class TString;
-
+class TFile;
+class TH1;
+class TH2;
 class TArtCalibNeuLAND : public TArtReconstruction
 {
 public:
@@ -51,7 +53,7 @@ public:
   TArtNeuLANDPla* FindNeuLANDPla(Int_t id) const;//find by id
   TArtNeuLANDPlaArray* GetNeuLANDPlaArray() const;
   TArtNeuLANDPla const *GetNeuLANDMasterStart() const;
-
+  
   Int_t GetNumNeuLANDPlaPara() const;
   TArtNeuLANDPlaPara* GetNeuLANDPlaPara(Int_t i) const;
   TArtNeuLANDPlaPara* FindNeuLANDPlaPara(Int_t id) const;//find by id
@@ -63,11 +65,11 @@ private:
   TArtNeuLANDPlaArray* fNeuLANDPlaArray;
   TArtNeuLANDPla *fNeuLANDMasterStart;
   TArtNeuLANDPlaParaArray* fNeuLANDPlaParaArray;
-
   const TArtSAMURAIParameters* fSAMURAIParameters;
 
   TArtStoreManager* fStoreManager;
-
+  Double_t tacint[401][2][4096];
+  Double_t tacrefint[401][2][4096];
   //for optimization
   std::map<int,int> fIDNPlaMap;
   std::map<int,int> fIDNPlaParaMap;
@@ -75,7 +77,10 @@ private:
   Int_t GetTac16(Int_t sam, Int_t gtb, Int_t mod) const;
   Double_t QDC2Energy(Double_t channel);
   Double_t WalkCorrection(Double_t e);
-  Double_t Tac2ns(Int_t x,Double_t const *p);
+  void SetTacDistribution(TH2*tac0,TH2*tac1,TH2*tacref0,TH2*tacref1);
+  void SetTacDistribution(const char* file);
+  //  Double_t Tac2ns(Int_t x,Double_t const *p);
+  Double_t Tac2ns(Int_t ch,Int_t id,Int_t i,bool is_ref);
   class Tac16 : public TObject {
   public:
     Tac16(){sam=-1;gtb=-1;mod=-1;tac=-1;}

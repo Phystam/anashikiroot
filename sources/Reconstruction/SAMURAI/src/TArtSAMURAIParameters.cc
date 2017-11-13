@@ -24,6 +24,8 @@
 #include <stdlib.h>
 #include <iostream>
 #include <fstream>
+#include <sstream>
+#include <string>
 #include <vector>
 #include <algorithm>
 
@@ -246,85 +248,77 @@ Bool_t TArtSAMURAIParameters::LoadNeuLANDTCal(const char *csvfile)
   TArtCore::Info(__FILE__,"Load NeuLAND tcal from %s", csvfile);
   std::ifstream file(csvfile);
   if (!file) {
-    std::cerr << csvfile << ": Could not open." << std::endl;
+    TArtCore::Warning(__FILE__,"Cannot open csv file: %s",csvfile);
     return false;
   }
-#define ARRAY_SIZE 100
-  int channel_array[ARRAY_SIZE];
-  Double_t ns_array[ARRAY_SIZE];
+  const int ARRAY_SIZE = 1000;
+  std::vector<Int_t> channel_array;
+  std::vector<Double_t> ns_array;
   size_t size = 0;
   int prev_t_type = 0, prev_bar_id = 0;
-#define ERROR_PREFIX csvfile << ':' << line_no << ": "
-  for (int line_no = 1;; ++line_no) {
-    char line[256];
+  int line_no=0;
+  while(!file.eof()){
+    line_no++;
+    std::string line;
     bool is_start = false;
     int plane, bar, t_type, channel;
     double ns;
     bool finalize = false;
-    file.getline(line, sizeof line);
-    if (!file) {
-      finalize = true;
-    } else {
-      if (1 == line_no) {
-        continue;
-      }
-#define STRTOK_R(start) do {\
-    token = strtok_r(start, ", ", &p);\
-    if (NULL == token) {\
-      std::cerr << ERROR_PREFIX << "Unexpected EOL." << std::endl;\
-      return false;\
-    }\
-  } while (0)
-      char *p, *token;
-      STRTOK_R(line);
-      if (0 == strcmp(token, "START_TCAL")) {
-        is_start = true;
-      } else if (0 != strcmp(token, "NEULAND_TCAL")) {
-        std::cerr << ERROR_PREFIX << "Expected START_TCAL or NEULAND_TCAL, "
-            "got \"" << token << "\"." << std::endl;
-        return false;
-      }
-      STRTOK_R(p);
-      plane = strtol(token, NULL, 10);
-      STRTOK_R(p);
-      bar = strtol(token, NULL, 10);
-      if (is_start && (0 != plane || 0 != bar)) {
-        std::cerr << ERROR_PREFIX << "START_TCAL should have 0 plane and bar."
-            << std::endl;
-        return false;
-      }
-      STRTOK_R(p);
-      t_type = strtol(token, NULL, 10);
-      STRTOK_R(p);
-      channel = strtol(token, NULL, 10);
-      STRTOK_R(p);
-      ns = strtod(token, NULL);
-      token = strtok_r(p, ", ", &p);
-      if (NULL != token) {
-        std::cerr << ERROR_PREFIX << "Garbage after line." << std::endl;
-        return false;
-      }
+    // std::cout << line_no <<": ";
+    getline(file, line); //1行読み込み
+    if (1 == line_no) { //1行目は読み込まない
+      continue;
     }
+    if(line==""){
+      break;
+    }
+    std::istringstream str(line);
+    std::string token;
+    getline(str,token,','); //1列目; START_TCAL or NEULAND_TCALの判別
+    if (token== "START_TCAL") {
+      is_start = true;
+    } else if (token!="NEULAND_TCAL" && token!="START_TCAL") {
+      TArtCore::Error(__FILE__,"Wrong row name in %s L:%d",csvfile,line_no);
+      return false;
+    }
+    getline(str,token,','); //2列目; plane(layer)の読み込み
+    plane = atoi(token.c_str());
+    getline(str,token,',');//3列目; barNoの読み込み
+    bar = atoi(token.c_str());
+    if (is_start && ( plane != 0 || bar != 0) ) { //startについてはplane==0,bar==0以外許可しない
+	TArtCore::Warning(__FILE__,"START_TCAL has non-zero plane/bar number!");
+      return false;
+    }
+    getline(str,token,',');//4列目; t_typeの読み込み;1,2,5,6のみ
+    t_type = atoi(token.c_str());
+    getline(str,token,',');//5列目; channelの読み込み
+    channel = atof(token.c_str());
+    getline(str,token,',');//5列目; nsの読み込み
+    ns = atof(token.c_str());
+    //    std::cout << plane<<","<<bar<<","<<t_type <<","<<channel<<","<<ns<<std::endl;
+    getline(str,token,',');//6列目; これ以降にあったら変なので終了
+    // if (NULL != token) {
+    //   TArtCore::Warning(__FILE__"There's additional 7th row: %s.",token.c_str());
+    //   return false;
+    // }
+    //終了条件など
     if ((prev_t_type && prev_t_type != t_type) || finalize) {
       std::map<int,TArtNeuLANDPlaPara*>::const_iterator it =
-          fIDNeuLANDPlaParaMap.find(prev_bar_id);
+	fIDNeuLANDPlaParaMap.find(prev_bar_id);
       if (fIDNeuLANDPlaParaMap.end() == it) {
-        std::cerr << ERROR_PREFIX << "Could not find NeuLAND para for bar "
-            << prev_bar_id << ", must be in XML parameters file." <<
-            std::endl;
-        return false;
+	return false;
       }
       TArtNeuLANDPlaPara *para = it->second;
-      para->SetTDCTCal(prev_t_type, channel_array, ns_array, size);
+      para->SetTDCTCal(prev_t_type, &channel_array[0], &ns_array[0], size);
       if (finalize) {
-        break;
+	break;
       }
       size = 0;
     }
     prev_t_type = t_type;
     prev_bar_id = is_start ? 401 : (plane - 1) * 50 + bar;
-    channel_array[size] = channel;
-    ns_array[size] = ns;
+    channel_array.push_back(channel);
+    ns_array.push_back(ns);
     ++size;
   }
   return true;

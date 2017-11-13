@@ -3,7 +3,7 @@
 
 #include <cassert>
 #include "TArtTacquilaMap.hh"
-
+#include <TRandom3.h>
 class TArtSAMURAIParameters;
 
 class TArtTacquilaPara : public TObject
@@ -158,7 +158,7 @@ public:
     Double_t d_ns = fTCalNs[k][upper_i] - lower_ns;
     int lower_channel = fTCalChannel[k][lower_i];
     int d_channel = fTCalChannel[k][upper_i] - lower_channel;
-    return (channel - lower_channel) * d_ns / d_channel + lower_ns;
+    return (channel + gRandom->Uniform(-0.5,0.5) - lower_channel) * d_ns / d_channel + lower_ns;
   }
 
   void SetTDiffOffset(Double_t val){tdiff_offset = val;} 
