@@ -68,8 +68,8 @@ private:
   const TArtSAMURAIParameters* fSAMURAIParameters;
 
   TArtStoreManager* fStoreManager;
-  Double_t tacint[401][2][4096];
-  Double_t tacrefint[401][2][4096];
+  Double_t tacint[401][2][1024];
+  Double_t tacrefint[401][2][1024];
   //for optimization
   std::map<int,int> fIDNPlaMap;
   std::map<int,int> fIDNPlaParaMap;

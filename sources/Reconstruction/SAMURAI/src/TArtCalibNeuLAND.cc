@@ -375,13 +375,21 @@ void TArtCalibNeuLAND::ClearData()
 
 Double_t TArtCalibNeuLAND::Tac2ns(Int_t ch, Int_t id, Int_t i, bool is_ref) {
   if(is_ref){
-    Double_t prev_ns=tacrefint[id-1][i][ch-1];
-    Double_t center_ns=tacrefint[id-1][i][ch];
-    return gRandom->Uniform(prev_ns,center_ns);
+    Int_t i0= ch/4;
+    Int_t i1= i0+1;
+    Double_t low_ns=tacrefint[id-1][i][i0];
+    Double_t high_ns=tacrefint[id-1][i][i1];
+    Double_t ns=(low_ns+high_ns)*(ch-i0*4)/4.;
+    Double_t delta=(high_ns-low_ns)*1./8.;
+    return gRandom->Uniform(ns-delta,ns+delta);
   }else{
-    Double_t prev_ns=tacint[id-1][i][ch-1];
-    Double_t center_ns=tacint[id-1][i][ch];
-    return gRandom->Uniform(prev_ns,center_ns);
+    Int_t i0= ch/4;
+    Int_t i1= i0+1;
+    Double_t low_ns=tacint[id-1][i][i0];
+    Double_t high_ns=tacint[id-1][i][i1];
+    Double_t ns=(low_ns+high_ns)*(ch-i0*4)/4.;
+    Double_t delta=(high_ns-low_ns)*1./8.;
+    return gRandom->Uniform(ns-delta,ns+delta);
   }
 }
 
@@ -392,11 +400,11 @@ void TArtCalibNeuLAND::SetTacDistribution(TH2* tac0,TH2* tac1,TH2* tacref0,TH2* 
     Double_t normfactor1=tac1->Integral(id+1,id+1,1000.,3500);
     Double_t normfactorref0=tacref0->Integral(id+1,id+1,1000,3500);
     Double_t normfactorref1=tacref1->Integral(id+1,id+1,1000,3500);
-    for(int ch=1000;ch<3500;ch++){
-      tacint[id][0][ch]= (Double_t)tac0->Integral(id+1,id+1,1000,ch)/normfactor0*25.;
-      tacint[id][1][ch]= (Double_t)tac1->Integral(id+1,id+1,1000,ch)/normfactor1*25.;
-      tacrefint[id][0][ch]= (Double_t)tacref0->Integral(id+1,id+1,1000,ch)/normfactorref0*25.;
-      tacrefint[id][1][ch]= (Double_t)tacref1->Integral(id+1,id+1,1000,ch)/normfactorref1*25.;
+    for(int ch=250;ch<875;ch++){
+      tacint[id][0][ch]= (Double_t)tac0->Integral(id+1,id+1,1000,ch*4)/normfactor0*25.;
+      tacint[id][1][ch]= (Double_t)tac1->Integral(id+1,id+1,1000,ch*4)/normfactor1*25.;
+      tacrefint[id][0][ch]= (Double_t)tacref0->Integral(id+1,id+1,1000,ch*4)/normfactorref0*25.;
+      tacrefint[id][1][ch]= (Double_t)tacref1->Integral(id+1,id+1,1000,ch*4)/normfactorref1*25.;
     }
   }
 }
