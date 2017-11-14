@@ -12,7 +12,7 @@ class TArtNeuLANDPla : public TArtDataObject
 public:
   TArtNeuLANDPla()
     : TArtDataObject(),
-      fLayer(-1), fBarID(-1), fPos(-1), fZPos(-1)
+      fLayer(-1), fBarID(-1), fPos(-1), fZPos(-1), fPosRaw(-1)
   {
     for(int i=0;i<2;i++){
       fQRaw[i] = -1;
@@ -50,6 +50,7 @@ public:
   }
 
   virtual void SetFired(int i) {isFired[i] = kTRUE;}
+  virtual void SetPosRaw(Double_t val){fPosRaw = val;}
   virtual void SetPos(Double_t val){fPos = val;}
   virtual void SetZPos(Double_t val){fZPos = val;}
 
@@ -64,6 +65,8 @@ public:
   virtual Double_t GetTacRefCal(Int_t i) const {return fTacRefCal[i];}
   virtual Int_t    GetTacRef(Int_t i) const {return fTacRef[i];}
   virtual Double_t GetTRaw  (Int_t i) const {return fTRaw[i];}
+  virtual Double_t GetTDiffRaw() const {return fTRaw[0]-fTRaw[1];}
+  virtual Double_t GetTDiffCal() const {return fTCal[0]-fTCal[1];}
   virtual Double_t GetTCal  (Int_t i) const {return fTCal[i];}
   virtual void     GetTacquilaID(Int_t &sam, Int_t &gtb, Int_t &mod, Int_t &ch) {
     sam = fsam;
@@ -78,7 +81,10 @@ public:
   // position in 2d, size of bar is 5x5x250 cm3
   virtual Double_t GetX() const {return fLayer%2 == 0 ? fPos : (fBarID-24.5)*50+gRandom->Uniform(-25,25);}
   virtual Double_t GetY() const {return fLayer%2 == 1 ? fPos : (fBarID-24.5)*50+gRandom->Uniform(-25,25);}
-  virtual Double_t GetZ() const {return fZPos;}
+  virtual Double_t GetZ() const {return fZPos+gRandom->Uniform(-25,25);}
+  virtual Double_t GetX_NoRandomize() const {return fLayer%2 == 0 ? fPosRaw : (fBarID-24.5)*50;}
+  virtual Double_t GetY_NoRandomize() const {return fLayer%2 == 1 ? fPosRaw : (fBarID-24.5)*50;}
+  virtual Double_t GetZ_NoRandomize() const {return fZPos;}
 
   virtual void PrintData(){
     std::cout << "Layer: "       << fLayer   << std::endl;
@@ -120,6 +126,7 @@ private:
 
   Bool_t   isFired[2];
   Double_t fPos;
+  Double_t fPosRaw;
 
   Double_t fZPos;
 
