@@ -248,8 +248,7 @@ void TArtCalibNeuLAND::ReconstructData()
       pla->SetTacCal(j,time);
       pla->SetTacRefCal(j,time_ref);
 
-      time = time + 25.*pla->GetTCycle(j) - time_ref;
-      time -= time_ms;
+      time = time + 25.*pla->GetTCycle(j) - time_ref - time_ms;
 
       pla->SetTRaw(j,time);
 

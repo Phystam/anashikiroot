@@ -153,7 +153,7 @@ anasamurai_dict.lo: anasamurai_dict.cc /usr/include/stdc-predef.h \
  /usr/include/c++/4.8.2/bits/fstream.tcc /usr/include/c++/4.8.2/iostream \
  /usr/include/c++/4.8.2/iomanip \
  /usr/local/src/root_v5.34.30/include/TRandom3.h \
- /usr/local/src/root_v5.34.30/include/TRandom.h include/TArtNEBULAPla.hh \
+ /usr/local/src/root_v5.34.30/include/TRandom.h \
  include/TArtCalibNEBULAHPC.hh include/TArtNEBULAHPCPara.hh \
  ../../../sources/Core/include/TArtMap.hh \
  ../../../sources/Core/include/segidlist.hh include/MathTools.hh \
@@ -210,6 +210,16 @@ anasamurai_dict.lo: anasamurai_dict.cc /usr/include/stdc-predef.h \
  /usr/include/c++/4.8.2/bits/stl_heap.h \
  /usr/include/c++/4.8.2/bits/stl_tempbuf.h include/TArtCalibBDC1Hit.hh \
  include/TArtHIMEPlaPara.hh include/TArtCalibBPCHit.hh \
+ include/TArtNEBULAPla.hh include/TArtCalibFDC0Hit.hh \
+ include/TArtCalibFDC1Track.hh include/TArtCalibDCHit.hh \
+ include/TArtTEDCsIPara.hh \
+ ../../Reconstruction/BigRIPS/include/TArtTKEPara.hh \
+ ../../Reconstruction/BigRIPS/include/TArtTKE.hh \
+ include/TArtCalibS1DC2Track.hh include/TArtTZero.hh \
+ ../../../sources/Core/include/TArtCore.hh include/TArtNeuLANDPla.hh \
+ include/TArtCalibS1DC1Track.hh include/SAMURAIFieldMap.hh \
+ include/TArtNeutron.hh ../../../sources/Core/include/TArtMath.hh \
+ include/TArtICF.hh ../../Reconstruction/BigRIPS/include/TArtIC.hh \
  include/TArtCalibNeuLAND.hh \
  ../../../sources/Core/include/TArtRawEventObject.hh \
  ../../../sources/Core/include/TArtRawSegmentObject.hh \
@@ -219,7 +229,6 @@ anasamurai_dict.lo: anasamurai_dict.cc /usr/include/stdc-predef.h \
  ../../../sources/Core/include/TArtCore.hh \
  ../../../sources/Core/include/TArtRawTacquilaDataObject.hh \
  ../../../sources/Core/include/TArtRawScalerObject.hh \
- ../../../sources/Core/include/TArtCore.hh \
  ../../../sources/Core/include/TArtStoreManager.hh \
  /usr/local/src/root_v5.34.30/include/TTree.h \
  /usr/local/src/root_v5.34.30/include/TBranch.h \
@@ -234,16 +243,7 @@ anasamurai_dict.lo: anasamurai_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TVirtualTreePlayer.h \
  ../../../sources/Core/include/TArtRawEventObject.hh \
  include/TArtSAMURAIParameters.hh include/TArtNeuLANDPla.hh \
- include/TArtNeuLANDPlaPara.hh include/TArtCalibFDC0Hit.hh \
- include/TArtCalibFDC1Track.hh include/TArtCalibDCHit.hh \
- include/TArtTEDCsIPara.hh \
- ../../Reconstruction/BigRIPS/include/TArtTKEPara.hh \
- ../../Reconstruction/BigRIPS/include/TArtTKE.hh \
- include/TArtCalibS1DC2Track.hh include/TArtTZero.hh \
- include/TArtNeuLANDPla.hh include/TArtCalibS1DC1Track.hh \
- include/SAMURAIFieldMap.hh include/TArtNeutron.hh \
- ../../../sources/Core/include/TArtMath.hh include/TArtICF.hh \
- ../../Reconstruction/BigRIPS/include/TArtIC.hh include/DCConfMan.hh \
+ include/TArtNeuLANDPlaPara.hh include/DCConfMan.hh \
  /usr/local/src/root_v5.34.30/include/TVector3.h \
  /usr/local/src/root_v5.34.30/include/TVector2.h \
  /usr/local/src/root_v5.34.30/include/TObject.h \
@@ -730,8 +730,6 @@ include/TArtTacquilaMap.hh:
 
 /usr/local/src/root_v5.34.30/include/TRandom.h:
 
-include/TArtNEBULAPla.hh:
-
 include/TArtCalibNEBULAHPC.hh:
 
 include/TArtNEBULAHPCPara.hh:
@@ -868,6 +866,40 @@ include/TArtHIMEPlaPara.hh:
 
 include/TArtCalibBPCHit.hh:
 
+include/TArtNEBULAPla.hh:
+
+include/TArtCalibFDC0Hit.hh:
+
+include/TArtCalibFDC1Track.hh:
+
+include/TArtCalibDCHit.hh:
+
+include/TArtTEDCsIPara.hh:
+
+../../Reconstruction/BigRIPS/include/TArtTKEPara.hh:
+
+../../Reconstruction/BigRIPS/include/TArtTKE.hh:
+
+include/TArtCalibS1DC2Track.hh:
+
+include/TArtTZero.hh:
+
+../../../sources/Core/include/TArtCore.hh:
+
+include/TArtNeuLANDPla.hh:
+
+include/TArtCalibS1DC1Track.hh:
+
+include/SAMURAIFieldMap.hh:
+
+include/TArtNeutron.hh:
+
+../../../sources/Core/include/TArtMath.hh:
+
+include/TArtICF.hh:
+
+../../Reconstruction/BigRIPS/include/TArtIC.hh:
+
 include/TArtCalibNeuLAND.hh:
 
 ../../../sources/Core/include/TArtRawEventObject.hh:
@@ -885,8 +917,6 @@ include/TArtCalibNeuLAND.hh:
 ../../../sources/Core/include/TArtRawTacquilaDataObject.hh:
 
 ../../../sources/Core/include/TArtRawScalerObject.hh:
-
-../../../sources/Core/include/TArtCore.hh:
 
 ../../../sources/Core/include/TArtStoreManager.hh:
 
@@ -919,36 +949,6 @@ include/TArtSAMURAIParameters.hh:
 include/TArtNeuLANDPla.hh:
 
 include/TArtNeuLANDPlaPara.hh:
-
-include/TArtCalibFDC0Hit.hh:
-
-include/TArtCalibFDC1Track.hh:
-
-include/TArtCalibDCHit.hh:
-
-include/TArtTEDCsIPara.hh:
-
-../../Reconstruction/BigRIPS/include/TArtTKEPara.hh:
-
-../../Reconstruction/BigRIPS/include/TArtTKE.hh:
-
-include/TArtCalibS1DC2Track.hh:
-
-include/TArtTZero.hh:
-
-include/TArtNeuLANDPla.hh:
-
-include/TArtCalibS1DC1Track.hh:
-
-include/SAMURAIFieldMap.hh:
-
-include/TArtNeutron.hh:
-
-../../../sources/Core/include/TArtMath.hh:
-
-include/TArtICF.hh:
-
-../../Reconstruction/BigRIPS/include/TArtIC.hh:
 
 include/DCConfMan.hh:
 
