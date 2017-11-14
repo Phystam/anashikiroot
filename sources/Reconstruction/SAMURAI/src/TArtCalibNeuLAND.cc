@@ -259,9 +259,13 @@ void TArtCalibNeuLAND::ReconstructData()
       time = time - para->GetTOFZero() + para->GetTOFClight();
       pla->SetTCal(j,time);
     }
-    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() * 10 /* 10 for cm -> mm)*/);
+    //    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() * 10 /* 10 for cm -> mm*/);//まじゴミ
+    //    std::cout << "VScint="<<para->GetVScint()<<", tdiffoffset="<<para->GetTDiffOffset()<<std::endl;
+    pla->SetPosRaw(pla->GetTDiffRaw() * para->GetVScint() + para->GetTDiffOffset()/* mm/ns */);
+    //    pla->SetPosCal((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() /* mm/ns */);
+    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint()/* mm/ns */);
     // std::cout << pla->GetFired(0) << "  " << pla->GetTRaw(0) << "  "  << pla->GetFired(1) << "  " << pla->GetTRaw(1) << std::endl;
-    pla->SetZPos(para->GetZPos()+gRandom->Uniform(-25,25));
+    pla->SetZPos(para->GetZPos());
   }
   
   fReconstructed = true;
@@ -374,22 +378,18 @@ void TArtCalibNeuLAND::ClearData()
 // }
 
 Double_t TArtCalibNeuLAND::Tac2ns(Int_t ch, Int_t id, Int_t i, bool is_ref) {
+  //  std::cout<<"accessing ch="<<ch<<", id="<<id<<", i="<<i<<", is_ref="<<is_ref<<std::endl;
+  if(ch<0||ch>4096||id<0||id>401||i<0||i>1){
+    return -9999;
+  }
   if(is_ref){
-    Int_t i0= ch/4;
-    Int_t i1= i0+1;
-    Double_t low_ns=tacrefint[id-1][i][i0];
-    Double_t high_ns=tacrefint[id-1][i][i1];
-    Double_t ns=(low_ns+high_ns)*(ch-i0*4)/4.;
-    Double_t delta=(high_ns-low_ns)*1./8.;
-    return gRandom->Uniform(ns-delta,ns+delta);
+    Double_t next_ns=tacrefint[id-1][i][ch+1];
+    Double_t center_ns=tacrefint[id-1][i][ch];
+    return (next_ns+center_ns)/2.;
   }else{
-    Int_t i0= ch/4;
-    Int_t i1= i0+1;
-    Double_t low_ns=tacint[id-1][i][i0];
-    Double_t high_ns=tacint[id-1][i][i1];
-    Double_t ns=(low_ns+high_ns)*(ch-i0*4)/4.;
-    Double_t delta=(high_ns-low_ns)*1./8.;
-    return gRandom->Uniform(ns-delta,ns+delta);
+    Double_t next_ns=tacint[id-1][i][ch+1];
+    Double_t center_ns=tacint[id-1][i][ch];
+    return (center_ns+next_ns)/2.;
   }
 }
 
@@ -400,11 +400,11 @@ void TArtCalibNeuLAND::SetTacDistribution(TH2* tac0,TH2* tac1,TH2* tacref0,TH2* 
     Double_t normfactor1=tac1->Integral(id+1,id+1,1000.,3500);
     Double_t normfactorref0=tacref0->Integral(id+1,id+1,1000,3500);
     Double_t normfactorref1=tacref1->Integral(id+1,id+1,1000,3500);
-    for(int ch=250;ch<875;ch++){
-      tacint[id][0][ch]= (Double_t)tac0->Integral(id+1,id+1,1000,ch*4)/normfactor0*25.;
-      tacint[id][1][ch]= (Double_t)tac1->Integral(id+1,id+1,1000,ch*4)/normfactor1*25.;
-      tacrefint[id][0][ch]= (Double_t)tacref0->Integral(id+1,id+1,1000,ch*4)/normfactorref0*25.;
-      tacrefint[id][1][ch]= (Double_t)tacref1->Integral(id+1,id+1,1000,ch*4)/normfactorref1*25.;
+    for(int ch=1000;ch<3500;ch++){
+      tacint[id][0][ch]= (Double_t)tac0->Integral(id+1,id+1,1000,ch)/normfactor0*25.;
+      tacint[id][1][ch]= (Double_t)tac1->Integral(id+1,id+1,1000,ch)/normfactor1*25.;
+      tacrefint[id][0][ch]= (Double_t)tacref0->Integral(id+1,id+1,1000,ch)/normfactorref0*25.;
+      tacrefint[id][1][ch]= (Double_t)tacref1->Integral(id+1,id+1,1000,ch)/normfactorref1*25.;
     }
   }
 }
