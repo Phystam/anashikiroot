@@ -6,32 +6,32 @@ class TString;
 class TObject;
 class TArtEasyScaler : public TObject{
 public:
-  TArtEasyScaler(Int_t g,Int_t ug,Int_t bnh,Int_t bneuh,Int_t bch, Int_t ck,Int_t cm);
+  TArtEasyScaler(ULong64_t g,ULong64_t ug,ULong64_t bnh,ULong64_t bneuh,ULong64_t bch, ULong64_t ck,ULong64_t cm);
   TArtEasyScaler(TString scrfile);
-  TArtEasyScaler(Int_t runnum);
+  TArtEasyScaler(ULong64_t runnum);
   TArtEasyScaler();
   virtual ~TArtEasyScaler(){}
   void Init();
   void SetEasyScaler(TString scrfile);
-  void SetEasyScaler(Int_t runnum);
-  Int_t GetGated(){return fgated;}
-  Int_t GetUngated(){return fungated;}
-  Int_t GetBxNEBxH(){return fBxNEBxH;}
-  Int_t GetBxNeuxH(){return fBxNeuxH;}
-  Int_t GetBxCATxH(){return fBxCATxH;}
-  Int_t GetClock1kHz(){return fclock1k;}
-  Int_t GetClock1MHz(){return fclock1M;}
+  void SetEasyScaler(ULong64_t runnum);
+  ULong64_t GetGated(){return fgated;}
+  ULong64_t GetUngated(){return fungated;}
+  ULong64_t GetBxNEBxH(){return fBxNEBxH;}
+  ULong64_t GetBxNeuxH(){return fBxNeuxH;}
+  ULong64_t GetBxCATxH(){return fBxCATxH;}
+  ULong64_t GetClock1kHz(){return fclock1k;}
+  ULong64_t GetClock1MHz(){return fclock1M;}
   Double_t GetLiveTime(){return (Double_t)fgated/(Double_t)fungated;}
   TArtEasyScaler operator+(TArtEasyScaler &scr2);
   TArtEasyScaler* operator+(TArtEasyScaler* scr2);
 private:
-  Int_t fgated;
-  Int_t fungated;
-  Int_t fBxNEBxH;
-  Int_t fBxNeuxH;
-  Int_t fBxCATxH;
-  Int_t fclock1k;
-  Int_t fclock1M;
+  ULong64_t fgated;
+  ULong64_t fungated;
+  ULong64_t fBxNEBxH;
+  ULong64_t fBxNeuxH;
+  ULong64_t fBxCATxH;
+  ULong64_t fclock1k;
+  ULong64_t fclock1M;
   ClassDef(TArtEasyScaler,1)
 };
 #endif

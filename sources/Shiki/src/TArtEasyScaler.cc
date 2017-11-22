@@ -7,7 +7,7 @@
 #include "TArtEasyScaler.hh"
 
 using namespace std;
-TArtEasyScaler::TArtEasyScaler(Int_t g,Int_t ug,Int_t bnh,Int_t bneuh,Int_t bch, Int_t ck,Int_t cm){
+TArtEasyScaler::TArtEasyScaler(ULong64_t g,ULong64_t ug,ULong64_t bnh,ULong64_t bneuh,ULong64_t bch, ULong64_t ck,ULong64_t cm){
   Init();
   fgated  =g;
   fungated=ug;
@@ -23,7 +23,7 @@ TArtEasyScaler::TArtEasyScaler(TString scrfile){
   SetEasyScaler(scrfile);
 }
 
-TArtEasyScaler::TArtEasyScaler(Int_t runnum){
+TArtEasyScaler::TArtEasyScaler(ULong64_t runnum){
   Init();
   TString scrfile=Form("scr/run%04d.scr",runnum);
   SetEasyScaler(scrfile);
@@ -80,7 +80,7 @@ void TArtEasyScaler::SetEasyScaler(TString scrfile){
   }
 }
 
-void TArtEasyScaler::SetEasyScaler(Int_t runnum){
+void TArtEasyScaler::SetEasyScaler(ULong64_t runnum){
   Init();
   TString scrfile=Form("scr/run%04d.scr",runnum);
   SetEasyScaler(scrfile);

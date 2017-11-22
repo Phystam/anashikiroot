@@ -167,6 +167,12 @@ void TArtEasyPID::ReconstructData(){
   SetAoZ(AoZ);
 }
 
+Double_t TArtEasyPID::GetMass(){ 
+  //total energy calc
+  Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
+  return M;
+}
+
 //_____________________________________________________________________________
 
 //Energy / Momentum calculation from TOF only

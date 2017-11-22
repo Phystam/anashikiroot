@@ -234,6 +234,18 @@ void TArtCalibPlastic::ReconstructData()   { // call after the raw data are load
       //fTDiff = fTL-fTR;
       fTDiff = fTRSlw-fTLSlw;
       fX = para->GetXCal0() * atan( fTDiff*para->GetXCal1() ) + para->GetXCal2();
+      Double_t corr[]={4.84429e+00,2.56768e+00,3.39064e+00,-6.97872e-02};
+      
+      fX -= corr[0] + corr[1]*sin(corr[2]+corr[3]*fX);
+      //      fX -= corr2[0] + corr2[1]*sin(corr2[2]+corr2[3]*fTDiff);
+      //F5 only
+      // Double_t f5x_para[]={-5.71224,41.8764,-0.591498,-0.264201,0.291574,-0.142484,-0.0197175,0.00793507};
+      
+      // fX = 0;
+      // //      for(int j=0;j< sizeof(f5x_para);j++){
+      // //      for(int j=0;j< 7;j++){
+      // 	fX += f5x_para[j]*pow(fTDiff,j);
+      // }
       //fX     = fDT2X[0] * pow(fTDiff,2) + fDT2X[1] * fTDiff + fDT2X[2];
     }
 

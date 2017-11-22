@@ -52,6 +52,7 @@ public:
   Double_t GetAoZ(){return fAoZ;}
   Int_t GetZetInt(){return TMath::Nint(fZ);}
   Int_t GetAInt(){return TMath::Nint(fAoZ*GetZetInt());}
+  Double_t GetMass();
   Double_t GetSBTTime(){return ff13Time;}
   //calculation of energy or momentum
   //From TOF

@@ -76,8 +76,9 @@ public:
   virtual Bool_t   GetBothFired() const {return isFired[0] && isFired[1];}
   virtual Double_t GetPos() const {return fPos;}
   // position in 2d, size of bar is 5x5x250 cm3
-  virtual Double_t GetX() const {return fLayer%2 == 0 ? fPos : (fBarID-24.5)*50+gRandom->Uniform(-25,25);}
-  virtual Double_t GetY() const {return fLayer%2 == 1 ? fPos : (fBarID-24.5)*50+gRandom->Uniform(-25,25);}
+  virtual Double_t GetX() const {return fLayer%2 == 0 ? fPos : (fBarID-24.5)*50;}
+  virtual Double_t GetY() const {return fLayer%2 == 1 ? fPos : (fBarID-24.5)*50;}
+  //  virtual Double_t GetZ() const {return fZPos+gRandom->Uniform(-25,25);}
   virtual Double_t GetZ() const {return fZPos;}
 
   virtual void PrintData(){

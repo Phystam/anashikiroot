@@ -248,8 +248,7 @@ void TArtCalibNeuLAND::ReconstructData()
       pla->SetTacCal(j,time);
       pla->SetTacRefCal(j,time_ref);
 
-      time = time + 25.*pla->GetTCycle(j) - time_ref;
-      time -= time_ms;
+      time = time + 25.*pla->GetTCycle(j) - time_ref - time_ms;
 
       pla->SetTRaw(j,time);
 
@@ -259,9 +258,11 @@ void TArtCalibNeuLAND::ReconstructData()
       time = time - para->GetTOFZero() + para->GetTOFClight();
       pla->SetTCal(j,time);
     }
-    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() * 10 /* 10 for cm -> mm)*/);
+    //    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() /* 10 for cm -> mm)*/);
+    //     std::cout<<(pla->GetTRaw(0) - pla->GetTRaw(1))<<"*"<<para->GetVScint()<<"+"<<para->GetTDiffOffset()<<"="<<(pla->GetTRaw(0) - pla->GetTRaw(1)) * para->GetVScint() + para->GetTDiffOffset()<<std::endl;
+    pla->SetPos((pla->GetTRaw(0) - pla->GetTRaw(1)) * para->GetVScint() + para->GetTDiffOffset()/* 10 for cm -> mm)*/);
     // std::cout << pla->GetFired(0) << "  " << pla->GetTRaw(0) << "  "  << pla->GetFired(1) << "  " << pla->GetTRaw(1) << std::endl;
-    pla->SetZPos(para->GetZPos()+gRandom->Uniform(-25,25));
+    pla->SetZPos(para->GetZPos());
   }
   
   fReconstructed = true;
@@ -374,22 +375,27 @@ void TArtCalibNeuLAND::ClearData()
 // }
 
 Double_t TArtCalibNeuLAND::Tac2ns(Int_t ch, Int_t id, Int_t i, bool is_ref) {
+  if(ch<0||ch>4096||id<0||id>401||i<0||i>2){
+    return -9999;
+  }
   if(is_ref){
     Int_t i0= ch/4;
     Int_t i1= i0+1;
     Double_t low_ns=tacrefint[id-1][i][i0];
     Double_t high_ns=tacrefint[id-1][i][i1];
-    Double_t ns=(low_ns+high_ns)*(ch-i0*4)/4.;
-    Double_t delta=(high_ns-low_ns)*1./8.;
-    return gRandom->Uniform(ns-delta,ns+delta);
+    Double_t ns=low_ns + (high_ns-low_ns)*(i0*4-ch+3.75)/4.;
+    //    Double_t delta=(high_ns-low_ns)*1./8.;
+    //    return gRandom->Uniform(ns-delta,ns+delta);
+    return ns;
   }else{
     Int_t i0= ch/4;
     Int_t i1= i0+1;
     Double_t low_ns=tacint[id-1][i][i0];
     Double_t high_ns=tacint[id-1][i][i1];
-    Double_t ns=(low_ns+high_ns)*(ch-i0*4)/4.;
-    Double_t delta=(high_ns-low_ns)*1./8.;
-    return gRandom->Uniform(ns-delta,ns+delta);
+    Double_t ns=low_ns + (high_ns-low_ns)*(i0*4-ch+3.75)/4.;
+    //    Double_t delta=(high_ns-low_ns)*1./8.;
+    //    return gRandom->Uniform(ns-delta,ns+delta);
+    return ns;
   }
 }
 
