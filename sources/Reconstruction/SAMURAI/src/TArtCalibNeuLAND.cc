@@ -424,4 +424,7 @@ void TArtCalibNeuLAND::SetTacDistribution(const char* file){
   // tac0->Draw("colz");
   // can->Update();
   SetTacDistribution(tac0,tac1,tacref0,tacref1);
+  tacfile->Close();
+  delete tacfile;
+  tacfile=0;
 }

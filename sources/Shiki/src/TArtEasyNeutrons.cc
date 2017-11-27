@@ -30,7 +30,7 @@ TArtEasyNeutrons::TArtEasyNeutrons(){
   feasybeam=TArtEasyBeam::Instance();
   fshikipara = TArtShikiParameters::Instance();
   ftgtz=feasybeam->GetTgtZ();
-
+  fhas_dist=false;
 }
 
 TArtEasyNeutrons::~TArtEasyNeutrons(){
@@ -62,6 +62,9 @@ void TArtEasyNeutrons::ClearData(){
 
 void TArtEasyNeutrons::LoadData(){
   fcalibnebula->ReconstructData();
+  if(!fhas_dist){
+    TArtCore::Warning(__FILE__,"No Tac informations. Use TArtEasyNeutrons::SetTacDistribution(TFile* file)");
+  }
   fcalibneuland->ReconstructData();
   fcalibneulandveto->ReconstructData();
   feasybeam->ReconstructData();
@@ -165,8 +168,8 @@ void TArtEasyNeutrons::ReconstructData(){
     easyneut->SetT2Slw(pla->GetTCal(1));
     easyneut->SetQ1Raw(pla->GetQRaw(0));
     easyneut->SetQ2Raw(pla->GetQRaw(1));
-    easyneut->SetQ1Ped(0);
-    easyneut->SetQ2Ped(0);
+    easyneut->SetQ1Ped(pla->GetQPed(0));
+    easyneut->SetQ2Ped(pla->GetQPed(1));
     easyneut->SetQ1Cal(pla->GetQCal(0));
     easyneut->SetQ2Cal(pla->GetQCal(1));
     easyneut->SetQAveCal(sqrt(pla->GetQCal(0)*pla->GetQCal(1)));

@@ -58,6 +58,7 @@ public:
   TArtNeuLANDPlaPara* GetNeuLANDPlaPara(Int_t i) const;
   TArtNeuLANDPlaPara* FindNeuLANDPlaPara(Int_t id) const;//find by id
   TArtNeuLANDPlaParaArray* GetNeuLANDPlaParaArray() const;
+  void SetTacDistribution(const char* file);
 
 private:
   //  TArtCalibSAMURAIT0* fCalibSAMURAIT0;
@@ -78,11 +79,11 @@ private:
   Double_t QDC2Energy(Double_t channel);
   Double_t WalkCorrection(Double_t e);
   void SetTacDistribution(TH2*tac0,TH2*tac1,TH2*tacref0,TH2*tacref1);
-  void SetTacDistribution(const char* file);
   //  Double_t Tac2ns(Int_t x,Double_t const *p);
   Double_t Tac2ns(Int_t ch,Int_t id,Int_t i,bool is_ref);
   class Tac16 : public TObject {
   public:
+
     Tac16(){sam=-1;gtb=-1;mod=-1;tac=-1;}
     ~Tac16(){}
     Int_t sam;

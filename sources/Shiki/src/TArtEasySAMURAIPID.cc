@@ -422,6 +422,8 @@ void TArtEasySAMURAIPID::SetTDCDistribution(TString filename){
       hist = NULL;
     }
   }
+  file->Close();
+  delete file;
   return;
 }
 

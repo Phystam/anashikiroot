@@ -10,6 +10,7 @@
 #include "TArtReconstruction.hh"
 #include <vector>
 #include "TArtEasyNeutron.hh"
+#include "TArtCalibNeuLAND.hh"
 class TArtSAMURAIParameters;
 class TArtShikiParameters;
 class TArtStoreManager;
@@ -32,6 +33,10 @@ class TArtEasyNeutrons : public TArtReconstruction{
   void ClearData();
   void LoadData();
   void ReconstructData();
+  void SetTacDistribution(const char* file){
+    fhas_dist=true;
+    fcalibneuland->SetTacDistribution(file);
+  }
   TArtEasyBeam* GetEasyBeam(){return feasybeam;}
   TArtEasyPID* GetEasyPID(){return feasypid;}
   TArtCalibNEBULA* GetCalibNEBULA(){return fcalibnebula;}
@@ -43,7 +48,7 @@ class TArtEasyNeutrons : public TArtReconstruction{
   TArtEasyNeutron* GetEasyNeutron(Int_t i){return easyneuts[i];}
   TArtEasyNeutron* GetFastestNeutron(){return easyneuts[0];}
   std::vector<TArtEasyNeutron*> GetVectorEasyNeutron(){return easyneuts;}
-
+  
   static bool CompareForSort(const TArtEasyNeutron* left,const TArtEasyNeutron* right) {
     if(isnan(left->GetTOF())&&isnan(right->GetTOF())){
       return true;
@@ -74,6 +79,7 @@ private:
   TArtEasyPID* feasypid;
   Double_t ftgtz;
   Bool_t fisveto;
+  Bool_t fhas_dist;
   static const Double_t fclight=299.792458;// mm/ns
   //  static const Double_t fe=1.6021766208e-19;// C
   static const Double_t famu=1.660538921e-27;// kg

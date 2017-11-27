@@ -148,7 +148,7 @@ void TArtEasyPID::ReconstructData(){
   //  Double_t brho = fBrho0*(1+f5x/3300.);// D=3300mm
   //  Double_t brho = fBrho0*(1+f5x/3079.12);// D=3300mm
   //  Double_t brho0_f713 = fBrho0-0.04642;
-  Double_t brho = fBrho0*(1+f5x/3095.08);// D=3300mm
+  Double_t brho = fBrho0*(1+f5x/3300.);// D=3300mm
   brho = 0.822563+0.572445*brho+0.0648057*pow(brho,2.)-0.00313776*pow(brho,3.);//fitting result
   
 
