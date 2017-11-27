@@ -655,7 +655,7 @@ configure:16489: $? = 0
 configure:16489: result: yes
 configure:16495: checking for _doprnt
 configure:16495: gcc -o conftest -g -O2   conftest.c  >&5
-/tmp/ccbWgGd3.o: In function `main':
+/tmp/ccU4QXYm.o: In function `main':
 /home/tomai/exp/s027/anaroot/src/conftest.c:69: undefined reference to `_doprnt'
 collect2: error: ld returned 1 exit status
 configure:16495: $? = 1

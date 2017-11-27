@@ -18,10 +18,11 @@ class TArtPlasticPara : public TNamed {
 		  Double_t qpedl, Double_t qpedr, 
 		  Double_t ts_al, Double_t ts_bl, Double_t ts_cl,
 		  Double_t ts_ar, Double_t ts_br, Double_t ts_cr,
+		  Double_t ts_aav, Double_t ts_bav, Double_t ts_cav,
 		  Double_t tdc_uf, Double_t tdc_of, 
 		  Double_t z, Double_t toff,
 		  Double_t xc0, Double_t xc1, Double_t xc2) :
-    id(i), detname(n), fpl(f), tcal_left(tcl), tcal_right(tcr), qped_left(qpedl), qped_right(qpedr), tslew_left_a(ts_al), tslew_left_b(ts_bl), tslew_left_c(ts_cl), tslew_right_a(ts_ar), tslew_right_b(ts_br), tslew_right_c(ts_cr), tdc_underflow(tdc_uf), tdc_overflow(tdc_of), zoffset(z), toffset(toff), xcal0(xc0), xcal1(xc1), xcal2(xc2){ }
+    id(i), detname(n), fpl(f), tcal_left(tcl), tcal_right(tcr), qped_left(qpedl), qped_right(qpedr), tslew_left_a(ts_al), tslew_left_b(ts_bl), tslew_left_c(ts_cl), tslew_right_a(ts_ar), tslew_right_b(ts_br), tslew_right_c(ts_cr),tslew_ave_a(ts_aav), tslew_ave_b(ts_bav), tslew_ave_c(ts_cav), tdc_underflow(tdc_uf), tdc_overflow(tdc_of), zoffset(z), toffset(toff), xcal0(xc0), xcal1(xc1), xcal2(xc2){ }
   ~TArtPlasticPara() { }
 
   void SetParameters(Int_t i, TString n, Int_t f, 
@@ -29,6 +30,7 @@ class TArtPlasticPara : public TNamed {
 		     Double_t qpedl, Double_t qpedr, 
 		     Double_t ts_al, Double_t ts_bl, Double_t ts_cl,
 		     Double_t ts_ar, Double_t ts_br, Double_t ts_cr,
+		     Double_t ts_aav, Double_t ts_bav, Double_t ts_cav,
 		     Double_t tdc_uf, 
 		     Double_t tdc_of, 
 		     Double_t z,Double_t toff,
@@ -37,6 +39,7 @@ class TArtPlasticPara : public TNamed {
     tcal_left=tcl; tcal_right=tcr; qped_left=qpedl; qped_right=qpedr; 
     tslew_left_a=ts_al; tslew_left_b=ts_bl; tslew_left_c=ts_cl;
     tslew_right_a=ts_ar; tslew_right_b=ts_br; tslew_right_c=ts_cr;
+    tslew_right_a=ts_aav; tslew_right_b=ts_bav; tslew_right_c=ts_cav;
     tdc_underflow=tdc_uf; tdc_overflow=tdc_of; zoffset=z; toffset=toff; 
     xcal0=xc1;xcal1=xc1;xcal2=xc2;}
 
@@ -63,6 +66,9 @@ class TArtPlasticPara : public TNamed {
   Double_t GetTRSlewA() const { return tslew_right_a; } 
   Double_t GetTRSlewB() const { return tslew_right_b; } 
   Double_t GetTRSlewC() const { return tslew_right_c; } 
+  Double_t GetTAveSlewA() const { return tslew_ave_a; } 
+  Double_t GetTAveSlewB() const { return tslew_ave_b; } 
+  Double_t GetTAveSlewC() const { return tslew_ave_c; } 
   Double_t GetTDCUnderflow() const {return tdc_underflow;}
   Double_t GetTDCOverflow() const {return tdc_overflow;}
   Double_t GetZoffset() const { return zoffset; } 
@@ -89,6 +95,9 @@ class TArtPlasticPara : public TNamed {
     out << "Time Slewing Corr. A of Right: " << p.tslew_right_a << ", ";
     out << "Time Slewing Corr. B of Right: " << p.tslew_right_b << ", ";
     out << "Time Slewing Corr. C of Right: " << p.tslew_right_c << ", ";
+    out << "Time Slewing Corr. A of Ave: " << p.tslew_ave_a << ", ";
+    out << "Time Slewing Corr. B of Ave: " << p.tslew_ave_b << ", ";
+    out << "Time Slewing Corr. C of Ave: " << p.tslew_ave_c << ", ";
     out << "Time offset: " << p.toffset << std::endl;
     out << "Time Calib Right: " << p.tcal_right << ", ";
     out << "TDC Underflow: " << p.tdc_underflow << std::endl;
@@ -124,6 +133,9 @@ private:
   Double_t  tslew_right_a;
   Double_t  tslew_right_b;
   Double_t  tslew_right_c;
+  Double_t  tslew_ave_a;
+  Double_t  tslew_ave_b;
+  Double_t  tslew_ave_c;
   Double_t  tdc_underflow;
   Double_t  tdc_overflow;
   Double_t  zoffset;
