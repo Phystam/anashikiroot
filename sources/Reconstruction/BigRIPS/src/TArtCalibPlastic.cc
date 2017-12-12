@@ -198,21 +198,32 @@ void TArtCalibPlastic::ReconstructData()   { // call after the raw data are load
     fLFired=false;
     fRFired=false;
     
-    if(fTLRaw>para->GetTDCUnderflow() && fTLRaw<para->GetTDCOverflow()
-       && fTRRaw>para->GetTDCUnderflow() && fTRRaw<para->GetTDCOverflow()) {
+    if(fTLRaw>para->GetTDCUnderflow() && fTLRaw<para->GetTDCOverflow()) {
       fLFired = true;
-      fRFired = true;
       fTLCal = (fTLRaw + gRandom->Uniform(-0.5,0.5)) * para->GetTCalLeft();
-      fTRCal = (fTRRaw + gRandom->Uniform(-0.5,0.5)) * para->GetTCalRight();
-      fTAveCal = (fTLCal+fTRCal)/2.;
       if(fQAvePed>0){
-	fTAveSlw = fTAveCal - ( para->GetTAveSlewA() * pow(fQAvePed,para->GetTAveSlewB()) + para->GetTAveSlewC() );
+	//	fTLSlw = fTLRaw + para->GetTLSlewA()/(TMath::Sqrt(fQLRaw)) + para->GetTLSlewB();
+	//	fTLSlw = fTLSlw * para->GetTCalLeft();
+	
+	fTLSlw = fTLCal - ( para->GetTLSlewA() * pow(fQAvePed,para->GetTLSlewB()) + para->GetTLSlewC() );
       }
       else{
-	fTAveSlw = fTAveCal;
+	fTLSlw = fTLCal;
       }
     }
 
+    if(fTRRaw>para->GetTDCUnderflow() && fTRRaw<para->GetTDCOverflow()) {
+      fRFired = true;
+      fTRCal = (fTRRaw + gRandom->Uniform(-0.5,0.5)) * para->GetTCalRight();
+      if(fQAvePed>0){
+	// fTRSlw = fTRRaw + para->GetTRSlewA()/(TMath::Sqrt(fQRRaw)) + para->GetTRSlewB();
+	// fTRSlw = fTRSlw * para->GetTCalRight();
+	fTRSlw = fTRCal - ( para->GetTRSlewA() * pow(fQAvePed,para->GetTRSlewB()) + para->GetTRSlewC() );
+      }
+      else{
+        fTRSlw = fTRCal;
+      }
+    }
     if(fLFired && fRFired) fFired = true;
 
     if(fFired) {

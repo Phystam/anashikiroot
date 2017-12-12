@@ -152,6 +152,7 @@ public:
   TArtEasyTarget* feasytarget;
   TArtEasyMassExcess* feasyex;
   TArtEasyEnergyLossFunc* feasyeloss;
+
   static const Double_t fclight=2.99792458e8;// m/s
   static const Double_t fe=1.6021766208e-19;// C
   static const Double_t famu=1.660538921e-27;// kg

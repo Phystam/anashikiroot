@@ -1,5 +1,5 @@
 
-#ifdef __CINT__
+#ifdef _CINT_
 #pragma link off all globals;
 #pragma link off all classes;
 #pragma link off all functions;
@@ -20,5 +20,15 @@
 #pragma link C++ class TArtEasyMassExcess+;
 #pragma link C++ class TArtEasyEnergyLossFunc+;
 #pragma link C++ class TArtEasyEventMixing+;
+#pragma link C++ class TArtMDF_TOFSBTTgt_C+;
+#pragma link C++ class TArtMDF_Beam_Eloss_C+;
+#pragma link C++ class TArtMDF_Frag_Eloss_C+;
+#pragma link C++ class TArtMDF_TOFSBTTgt_Pb+;
+#pragma link C++ class TArtMDF_Beam_Eloss_Pb+;
+#pragma link C++ class TArtMDF_Frag_Eloss_Pb+;
+#pragma link C++ class TArtMDF_TOFSBTTgt_Emp+;
+#pragma link C++ class TArtMDF_Beam_Eloss_Emp+;
+#pragma link C++ class TArtMDF_Frag_Eloss_Emp+;
+
 //#pragma link C++ class TArtEasyConvolution+;
 #endif

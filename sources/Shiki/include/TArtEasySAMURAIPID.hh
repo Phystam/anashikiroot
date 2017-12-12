@@ -111,11 +111,18 @@ public:
   Double_t GetFDC1X(){return fFDC1X;}// unit: mm
   Double_t GetFDC1Y(){return fFDC1Y;}// unit: mm
   Double_t GetFDC1Z(){return fFDC1Z;}// unit: mm
-  TVector3 GetFDC1Pos(){return fFDC1Pos;}// unit: mm
+  TVector3 GetFDC1Pos(){// unit: mm
+    TVector3 pos(fFDC1X,fFDC1Y,fFDC1Z);
+    return pos;
+  }// unit: mm
+
   Double_t GetFDC2X(){return fFDC2X;}// unit: mm
   Double_t GetFDC2Y(){return fFDC2Y;}// unit: mm
   Double_t GetFDC2Z(){return fFDC2Z;}// unit: mm
-
+  TVector3 GetFDC2Pos(){
+    TVector3 pos(fFDC2X,fFDC2Y,fFDC2Z);
+    return pos;
+  }// unit: mm
   Double_t GetFDC1A(){return fFDC1A;}// unit: mrad
   Double_t GetFDC1B(){return fFDC1B;}// unit: mrad
   Double_t GetFDC2A(){return fFDC2A;}// unit: mrad

@@ -103,7 +103,8 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/Riosfwd.h \
  /usr/local/src/root_v5.34.30/include/TBuffer.h \
  /usr/local/src/root_v5.34.30/include/TMemberInspector.h \
- include/TArtShikiParameters.hh \
+ include/TArtMDF_Frag_Eloss_Emp.hh include/TArtMDF_TOFSBTTgt_C.hh \
+ include/TArtMDF_Beam_Eloss_C.hh include/TArtShikiParameters.hh \
  /usr/local/src/root_v5.34.30/include/TNamed.h \
  /usr/local/src/root_v5.34.30/include/TString.h \
  /usr/local/src/root_v5.34.30/include/TMathBase.h \
@@ -149,6 +150,7 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/include/c++/4.8.2/bits/stl_heap.h \
  /usr/include/c++/4.8.2/bits/stl_tempbuf.h /usr/include/c++/4.8.2/limits \
  /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/float.h \
+ include/TArtMDF_TOFSBTTgt_Emp.hh include/TArtMDF_Beam_Eloss_Emp.hh \
  include/TArtEasyNeutron.hh ../../sources/Core/include/TArtDataObject.hh \
  ../../sources/Core/include/TArtCore.hh \
  /usr/local/src/root_v5.34.30/include/TVector3.h \
@@ -169,8 +171,9 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TLorentzVector.h \
  /usr/local/src/root_v5.34.30/include/TRotation.h \
  /usr/include/c++/4.8.2/iostream include/TArtEasyMassExcess.hh \
- include/TArtMDF_s027_FlMDF.hh include/TArtEasyEnergyLossFunc.hh \
- include/TArtEasyNeutrons.hh include/TArtEasyNeutron.hh \
+ include/TArtMDF_s027_FlMDF.hh include/TArtEasyEventMixing.hh \
+ include/TArtEasyEnergyLossFunc.hh include/TArtEasyNeutrons.hh \
+ include/TArtEasyNeutron.hh \
  ../Reconstruction/SAMURAI/include/TArtCalibNeuLAND.hh \
  ../../sources/Core/include/TArtRawEventObject.hh \
  ../../sources/Core/include/TArtRawSegmentObject.hh \
@@ -214,12 +217,12 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/include/c++/4.8.2/x86_64-redhat-linux/bits/c++io.h \
  /usr/include/c++/4.8.2/bits/fstream.tcc /usr/include/c++/4.8.2/iomanip \
  include/TArtEasyBeam.hh include/TArtShikiParameters.hh \
- include/TArtEasyTarget.hh include/TArtEasyEventMixing.hh \
- include/TArtMDF_s027_TofMDF.hh include/TArtEasySAMURAIPID.hh \
+ include/TArtEasyTarget.hh include/TArtMDF_s027_TofMDF.hh \
+ include/TArtMDF_Frag_Eloss_C.hh include/TArtEasySAMURAIPID.hh \
+ include/TArtMDF_TOFSBTTgt_Pb.hh include/TArtMDF_Beam_Eloss_Pb.hh \
  include/TArtEasyTimer.hh /usr/local/src/root_v5.34.30/include/TDatime.h \
- include/TArtMDF_s027_BrhoMDF.hh include/TArtEasyScaler.hh \
- /usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h \
- /usr/local/src/root_v5.34.30/include/TClass.h \
+ include/TArtMDF_Frag_Eloss_Pb.hh include/TArtMDF_s027_BrhoMDF.hh \
+ include/TArtEasyScaler.hh /usr/local/src/root_v5.34.30/include/TClass.h \
  /usr/local/src/root_v5.34.30/include/TBuffer.h \
  /usr/local/src/root_v5.34.30/include/TInterpreter.h \
  /usr/local/src/root_v5.34.30/include/TVirtualMutex.h \
@@ -534,6 +537,12 @@ anashiki_dict.h:
 
 /usr/local/src/root_v5.34.30/include/TMemberInspector.h:
 
+include/TArtMDF_Frag_Eloss_Emp.hh:
+
+include/TArtMDF_TOFSBTTgt_C.hh:
+
+include/TArtMDF_Beam_Eloss_C.hh:
+
 include/TArtShikiParameters.hh:
 
 /usr/local/src/root_v5.34.30/include/TNamed.h:
@@ -646,6 +655,10 @@ include/TArtEasyPID.hh:
 
 /usr/lib/gcc/x86_64-redhat-linux/4.8.5/include/float.h:
 
+include/TArtMDF_TOFSBTTgt_Emp.hh:
+
+include/TArtMDF_Beam_Eloss_Emp.hh:
+
 include/TArtEasyNeutron.hh:
 
 ../../sources/Core/include/TArtDataObject.hh:
@@ -691,6 +704,8 @@ include/TArtEasyNeutron.hh:
 include/TArtEasyMassExcess.hh:
 
 include/TArtMDF_s027_FlMDF.hh:
+
+include/TArtEasyEventMixing.hh:
 
 include/TArtEasyEnergyLossFunc.hh:
 
@@ -792,21 +807,25 @@ include/TArtShikiParameters.hh:
 
 include/TArtEasyTarget.hh:
 
-include/TArtEasyEventMixing.hh:
-
 include/TArtMDF_s027_TofMDF.hh:
 
+include/TArtMDF_Frag_Eloss_C.hh:
+
 include/TArtEasySAMURAIPID.hh:
+
+include/TArtMDF_TOFSBTTgt_Pb.hh:
+
+include/TArtMDF_Beam_Eloss_Pb.hh:
 
 include/TArtEasyTimer.hh:
 
 /usr/local/src/root_v5.34.30/include/TDatime.h:
 
+include/TArtMDF_Frag_Eloss_Pb.hh:
+
 include/TArtMDF_s027_BrhoMDF.hh:
 
 include/TArtEasyScaler.hh:
-
-/usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h:
 
 /usr/local/src/root_v5.34.30/include/TClass.h:
 

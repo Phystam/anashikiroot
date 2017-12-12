@@ -15,7 +15,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <fstream>
-
+#include <TRandom3.h>
 //__________________________________________________________
 TArtCalibDCTrack::TArtCalibDCTrack(const TString indata, 
 				   const TString outdata, 
@@ -187,9 +187,16 @@ Double_t TArtCalibDCTrack::CalcDriftLength(Int_t tdc, Int_t layer_id = -1) {
     }
     else if(tdcint[layer_id]>0){ // if tdc distribution is set, calculation by using tdc distribution
       if(tdc>tdcwindow[1] || tdc<tdcwindow[0]) return -9999;
-      if(tdcwindow[0]<0) // in the case of v1190/v1290. 
-	return tdc2mm[layer_id][tdc-tdcwindow[0]];
-      return tdc2mm[layer_id][tdc];
+      if(tdcwindow[0]<0){ // in the case of v1190/v1290. 
+	Double_t length = gRandom->Uniform( (tdc2mm[layer_id][tdc-tdcwindow[0]+1]+tdc2mm[layer_id][tdc-tdcwindow[0]])/2.,
+			  (tdc2mm[layer_id][tdc-tdcwindow[0]-1]+tdc2mm[layer_id][tdc-tdcwindow[0]])/2. );
+	//	return tdc2mm[layer_id][tdc-tdcwindow[0]];
+	return length;
+      }
+      Double_t length = gRandom->Uniform( (tdc2mm[layer_id][tdc-1]+tdc2mm[layer_id][tdc])/2.,
+					  (tdc2mm[layer_id][tdc+1]+tdc2mm[layer_id][tdc])/2. );
+
+      return length;
     }
   }
 

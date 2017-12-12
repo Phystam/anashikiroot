@@ -29,6 +29,9 @@
 #include <TString.h>
 #include <TMath.h>
 #include "TArtEasyEnergyLossFunc.hh"
+#include "TArtMDF_Frag_Eloss_C.hh"
+#include "TArtMDF_Frag_Eloss_Pb.hh"
+#include "TArtMDF_Frag_Eloss_Emp.hh"
 using namespace std;
 TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   TArtCore::Info(__FILE__,"Creating SAMURAI detector objects...");
@@ -51,8 +54,14 @@ TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   fcalibfdc2track=new TArtCalibFDC2Track();
   fFDC1Z=-2888.82+168.;
   fFDC2Z=2888.82+168.;// atode
-  fFDC1Xoffset=0.185;
-  fFDC1Yoffset=1.375;
+
+
+  //  fFDC1Xoffset=0.185;
+  //  fFDC1Yoffset=1.375;
+  //  fFDC1Xoffset=-0.119;
+  fFDC1Yoffset=-0.119; //fixed
+  fFDC1Xoffset=-1.002; //fixed
+
   fTDCmode=false;
   ClearData();
 }
@@ -261,14 +270,28 @@ TLorentzVector TArtEasySAMURAIPID::GetMomentum4DAtTgt(){
   TVector3 pvects = fMomentum4D.Vect();
   Double_t m = fMomentum4D.M();
   Double_t Ts=fMomentum4D.E()-m;
-  std::vector<Double_t> para=feasyeloss->GetFragEnergyLossPara(GetAInt(),GetZetInt(),*feasytarget->GetDetectorName());
+  //  std::vector<Double_t> para=feasyeloss->GetFragEnergyLossPara(GetAInt(),GetZetInt(),*feasytarget->GetDetectorName());
   // std::cout << GetAInt() <<"  "<<GetZetInt() <<"  "<<*feasytarget->GetDetectorName()<< std::endl;
   // std::cout <<" "<< para[0] <<" "<< para[1] <<" "<< para[2] <<" "<< para[3] << std::endl;
   //Double_t* para=feasytarget->GetFragE();
   Double_t u = m/famu_MeV;
   //  Ts = (Double_t)Ts/A;//Kinetic energy as AMeV
   Ts = (Double_t)Ts/u;//Kinetic energy as MeV/u
-  Double_t Tt=para[0]+para[1]*Ts+para[2]*pow(Ts,2.)+para[3]*pow(Ts,3.);//parameter: for 31Ne or 32Ne
+  Double_t Tt=0;
+  Double_t input[]={GetAInt(),GetZetInt(),Ts};
+  if(*feasytarget->GetDetectorName()="C"){
+    Tt = TArtMDF_Frag_Eloss_C::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()="Pb"){
+    Tt = TArtMDF_Frag_Eloss_Pb::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()="Emp"){
+    Tt = TArtMDF_Frag_Eloss_Emp::MDF(input);
+  }
+  if(*feasytarget->GetDetectorName()="Al"){
+    Tt = 285.814;
+  }
+
   //  if(GetAInt()==31&&GetZetInt()==10){
     //    std::cout <<m<<" "<<Ts<<" "<<Tt<<" "<<para[0]<<" "<<para[1]<<" "<<para[2]<<" "<<para[3]<<std::endl;
   //  }
@@ -342,7 +365,7 @@ void TArtEasySAMURAIPID::FDCReconstructData(){
 	SetFDC1XChi2(chi2min[0]);
       }
       if(trackid_min[1]>-1){
-	SetFDC1Y(-ffdc1tracks[trackid_min[1]]->GetPosition(1)+fFDC1Yoffset);
+	SetFDC1Y(-ffdc1tracks[trackid_min[1]]->GetPosition(1)-fFDC1Yoffset);
 	SetFDC1B(-ffdc1tracks[trackid_min[1]]->GetAngle(1)*1000.);
 	SetFDC1YChi2(chi2min[1]);
       }

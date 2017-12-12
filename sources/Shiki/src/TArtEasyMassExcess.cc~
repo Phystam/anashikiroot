@@ -1,9 +1,0 @@
-#include "TArtEasyMassExcess.hh"
-#include <map>
-#include <utility>
-#include <TObject.h>
-using namespace std;
-
-TArtEasyMassExcess::TArtEasyMassExcess(){
-  fMassExcess[make_pair(31,10)]=30.8;
-}

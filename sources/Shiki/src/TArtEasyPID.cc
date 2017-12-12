@@ -15,6 +15,12 @@
 #include <TMath.h>
 #include "TArtEasyMassExcess.hh"
 #include "TArtEasyEnergyLossFunc.hh"
+#include "TArtMDF_TOFSBTTgt_C.hh"
+#include "TArtMDF_TOFSBTTgt_Pb.hh"
+#include "TArtMDF_TOFSBTTgt_Emp.hh"
+#include "TArtMDF_Beam_Eloss_C.hh"
+#include "TArtMDF_Beam_Eloss_Pb.hh"
+#include "TArtMDF_Beam_Eloss_Emp.hh"
 //________________________________________________________
 // TArtEasyPID::TArtEasyPID(){
 //   TArtCore::Info(__FILE__,"Creating BigRIPS detector objects...");
@@ -32,6 +38,7 @@ TArtEasyPID::TArtEasyPID(Double_t Brho0){
   feasytarget=fshikipara->FindEasyTarget(1);
   feasyex=new TArtEasyMassExcess();
   feasyeloss=new TArtEasyEnergyLossFunc();
+  
 }
 
 TArtEasyPID* TArtEasyPID::Instance(Double_t Brho0){
@@ -168,7 +175,7 @@ void TArtEasyPID::ReconstructData(){
 }
 
 Double_t TArtEasyPID::GetMass(){ 
-  //total energy calc
+  //mass calc
   Double_t M = GetAInt()*famu_MeV+feasyex->GetMassExcess(GetAInt(),GetZetInt());
   return M;
 }
@@ -197,13 +204,22 @@ Double_t TArtEasyPID::GetKineticEnergyFromTOF(){
 }
 
 Double_t TArtEasyPID::E2Tgt(Double_t E){
-  //  Double_t* para=feasytarget->GetBeamE(); legacy
+  Double_t Etgt=0;
+  Double_t input[]={GetAInt(),GetZetInt(),E};
+  if(*feasytarget->GetDetectorName()=="C"){
+    Etgt=TArtMDF_Beam_Eloss_C::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()=="Pb"){
+    Etgt=TArtMDF_Beam_Eloss_Pb::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()=="Emp"){
+    Etgt=TArtMDF_Beam_Eloss_Emp::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()=="Al"){
+    Etgt=285.814;//MeV
+  }
+  return Etgt;
 
-  std::vector<Double_t> para=feasyeloss->GetBeamEnergyLossPara(GetAInt(),GetZetInt(),*feasytarget->GetDetectorName());
-  // std::cout << GetAInt() <<"  "<<GetZetInt() <<"  "<<*feasytarget->GetDetectorName() << std::endl;
-  // std::cout << para[0] <<" "<< para[1] <<" "<< para[2] <<" "<< para[3] << std::endl;
-  E=para[0]+para[1]*E+para[2]*E*E+para[3]*E*E*E;
-  return E;
 }
 //jump
 Double_t TArtEasyPID::GetKineticEnergyAtTgtFromTOF(){
@@ -325,13 +341,21 @@ Double_t TArtEasyPID::GetTotalMomentumAtTgtFromBrho(){ //overload
 //TOF calculation
 
 Double_t TArtEasyPID::GetTOFSBTTgt(){
-  //kinetic energy Mev/u -> TOF(SBT1 - target front) (31Ne)
-  Double_t KE = GetKineticEnergy();
-  //  Double_t para[] = {11.2764,1306.94,-2.65721e-3,1.22599e-6};//no change ?
-  //  Double_t para[] = {24.1673,-0.0666612,0.000130404,-9.76461e-08}; //for gamma run
-  Double_t* para=feasytarget->GetTOF();
-  //  return (para[0]+para[1]/KE+para[2]*KE+para[3]*KE*KE);
-  return (para[0]+para[1]*KE+para[2]*KE*KE+para[3]*KE*KE*KE);
+  Double_t tofsbttgt=0;
+  Double_t input[]={GetAInt(),GetZetInt(),GetTOF713()};
+  if(*feasytarget->GetDetectorName()=="C"){
+    tofsbttgt=TArtMDF_TOFSBTTgt_C::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()=="Pb"){
+    tofsbttgt=TArtMDF_TOFSBTTgt_Pb::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()=="Emp"){
+    tofsbttgt=TArtMDF_TOFSBTTgt_Emp::MDF(input);
+  }
+  else if(*feasytarget->GetDetectorName()=="Al"){
+    tofsbttgt=13.000;//ns, fixed
+  }
+  return tofsbttgt;
 }
 
 void TArtEasyPID::SelectTarget(TString name){
