@@ -56,11 +56,13 @@ TArtEasySAMURAIPID::TArtEasySAMURAIPID(){
   fFDC2Z=2888.82+168.;// atode
 
 
-  //  fFDC1Xoffset=0.185;
-  //  fFDC1Yoffset=1.375;
+  //   fFDC1Xoffset=0.185;
+   // fFDC1Yoffset=1.375;
   //  fFDC1Xoffset=-0.119;
-  fFDC1Yoffset=-0.119; //fixed
-  fFDC1Xoffset=-1.002; //fixed
+   //   fFDC1Yoffset=-0.119; //fixed
+     fFDC1Xoffset=-0.482;
+   fFDC1Yoffset=0;
+  // fFDC1Xoffset=-1.002; //fixed
 
   fTDCmode=false;
   ClearData();
@@ -221,8 +223,8 @@ void TArtEasySAMURAIPID::ReconstructData(){
   fZet=pla_qmax->GetZet(fBeta);
 
   //Zの位置補正・ラン補正
-  //  CalcXYCorrectionOfHODF();
-  // RunCorrections();
+  RunCorrections();
+  CalcXYCorrectionOfHODF();
 
   Int_t Z=GetZetInt();
   Int_t A=GetAInt();
@@ -279,16 +281,16 @@ TLorentzVector TArtEasySAMURAIPID::GetMomentum4DAtTgt(){
   Ts = (Double_t)Ts/u;//Kinetic energy as MeV/u
   Double_t Tt=0;
   Double_t input[]={GetAInt(),GetZetInt(),Ts};
-  if(*feasytarget->GetDetectorName()="C"){
+  if(*feasytarget->GetDetectorName()=="C"){
     Tt = TArtMDF_Frag_Eloss_C::MDF(input);
   }
-  else if(*feasytarget->GetDetectorName()="Pb"){
+  else if(*feasytarget->GetDetectorName()=="Pb"){
     Tt = TArtMDF_Frag_Eloss_Pb::MDF(input);
   }
-  else if(*feasytarget->GetDetectorName()="Emp"){
+  else if(*feasytarget->GetDetectorName()=="Emp"){
     Tt = TArtMDF_Frag_Eloss_Emp::MDF(input);
   }
-  if(*feasytarget->GetDetectorName()="Al"){
+  if(*feasytarget->GetDetectorName()=="Al"){
     Tt = 285.814;
   }
 
@@ -361,14 +363,20 @@ void TArtEasySAMURAIPID::FDCReconstructData(){
       }
       if(trackid_min[0]>-1){
 	SetFDC1X(ffdc1tracks[trackid_min[0]]->GetPosition(0)+fFDC1Xoffset);
-	SetFDC1A(ffdc1tracks[trackid_min[0]]->GetAngle(0)*1000.);
+	//	SetFDC1A(ffdc1tracks[trackid_min[0]]->GetAngle(0)*1000.);
+	//FDC1A-> calculate from target position and FDC1 position
+
 	SetFDC1XChi2(chi2min[0]);
       }
       if(trackid_min[1]>-1){
 	SetFDC1Y(-ffdc1tracks[trackid_min[1]]->GetPosition(1)-fFDC1Yoffset);
-	SetFDC1B(-ffdc1tracks[trackid_min[1]]->GetAngle(1)*1000.);
+	//SetFDC1B(-ffdc1tracks[trackid_min[1]]->GetAngle(1)*1000.);
 	SetFDC1YChi2(chi2min[1]);
       }
+      //calculate FDC1A&B from target position and FDC1 position
+      Double_t fdc1a = atan((GetFDC1X()-feasybeam->GetTgtX())/(GetFDC1Z()-feasybeam->GetTgtZ())) * 1000;
+      Double_t fdc1b = atan((GetFDC1Y()-feasybeam->GetTgtY())/(GetFDC1Z()-feasybeam->GetTgtZ())) * 1000;
+      SetFDC1B(fdc1b);
     }//end of fdc1
 
     {//fdc2

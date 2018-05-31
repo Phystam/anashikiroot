@@ -60,6 +60,7 @@ class TArtHODPla : public TArtDataObject {
     //    Double_t quenting_subt=*beta;
     //   return zcoef[0]*(TMath::Sqrt(fQAveCal/de_v)*beta-quenting_subt) + zcoef[1];
     Double_t dev_corr=TMath::Sqrt(fQAveCal/de_v)*beta - zcoef[3]*beta;
+    //    Double_t dev_corr=TMath::Sqrt(fQAveCal/de_v)*beta / (zcoef[3]+zcoef[4]*beta); //should be 1
     return zcoef[2]*dev_corr*dev_corr+zcoef[1]*dev_corr + zcoef[0];
   }
  private:

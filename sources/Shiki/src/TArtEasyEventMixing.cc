@@ -44,6 +44,11 @@ Int_t TArtEasyEventMixing::GetNumVirtualPairs(){
   Int_t num = (Int_t)ffragtable.size();
   return num*(num-1);
 }
+Double_t TArtEasyEventMixing::Mix(){
+  return 1;
+}
+void TArtEasyEventMixing::DoIteration(){
+}
 
 Bool_t TArtEasyEventMixing::GetNextVirtualPair(){ 
   //もしイベント数が0だったらfalseを返す

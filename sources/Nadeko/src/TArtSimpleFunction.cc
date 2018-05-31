@@ -13,6 +13,7 @@
 #include "TH2D.h"
 #include "TH3.h"
 #include "TH3D.h"
+#include "TF1.h"
 #include "TProfile.h"
 #include "TFrame.h"
 #include "TFitResult.h"
@@ -36,6 +37,7 @@
 #include <fstream>
 #include <vector>
 #include <limits>
+
 
 TH2* TArtSimpleFunction::Shift(Double_t x0, Double_t y0, Double_t x1, Double_t y1)
 {
@@ -1552,6 +1554,133 @@ void TArtSimpleFunction::SliceFitGaussianY(TGraphErrors *&gmean, TGraphErrors *&
   }
   gmean = new TGraphErrors(mean.size(), &x[0], &mean[0], 0, &meanerr[0]);
   gsigma = new TGraphErrors(sigma.size(), &x[0], &sigma[0], 0, &sigmaerr[0]);
+}
+//Added by Tomai "ProfileXwithGaussian"
+TH1* TArtSimpleFunction::ProfileXwithGaussian(Option_t* option)
+{
+  TH1* hist = gH1;
+  if(!hist) return 0;
+  if(hist->GetDimension() != 2){
+    std::cerr << " not 2d hist" << std::endl;
+    return 0;
+  }
+
+  TH2* hist2 = static_cast<TH2*>(hist);
+  std::string name(hist2->GetName());
+  Int_t nbins = hist2->GetXaxis()->GetNbins();
+  Double_t xmin = hist2->GetXaxis()->GetXmin();
+  Double_t xmax = hist2->GetXaxis()->GetXmax();
+  name += "_pfgx";
+  name = TArtGlobal::IncrementName(name);
+  std::string title(hist2->GetTitle());
+  title += " pfgx";
+
+  TH1* prof = new TH1D(name.c_str(), title.c_str(), nbins, xmin, xmax);
+  //  hist2->ProfileX(name.c_str(), firstybin, lastybin, option);
+  TF1* gaus=new TF1("gaus","gausn");
+  for(int i=0;i<nbins;i++){
+    TH1* temphist = hist2->ProjectionY("_temp",i,i);
+    if(temphist->GetEntries()<2){
+      continue;
+    }
+    std::cout<<i<<" "<<temphist->GetEntries()<<std::endl;
+    gaus->SetParameter(0,temphist->GetEntries());
+    gaus->SetParameter(1,temphist->GetMean());
+    gaus->SetParameter(2,temphist->GetRMS());
+    temphist->Fit("gaus",option);
+    Double_t mean=gaus->GetParameter(1);
+    Double_t error=gaus->GetParError(1);
+    prof->SetBinContent(i,mean);
+    prof->SetBinError(i,error);
+    temphist->Delete();
+    temphist=NULL;
+  }
+
+  prof->SetTitle(title.c_str());
+
+  prof->SetMinimum(hist2->GetYaxis()->GetXmin());
+  prof->SetMaximum(hist2->GetYaxis()->GetXmax());
+  prof->ResetAttFill();
+  prof->SetOption("E");
+
+  if(!TArtHistManager::InsertAfterHist(hist2, prof)){
+    delete prof;
+    return 0;
+  }
+
+  TArtCanvasManager::cdNext();
+  TArtHistManager::DrawHist(prof);
+
+  return prof;
+}
+TH1* TArtSimpleFunction::ProfileXwithGaussian(TH1* hist,Option_t* option)
+{
+  gH1=hist;
+  TH1* prof = ProfileXwithGaussian(option);
+}
+TH1* TArtSimpleFunction::ProfileYwithGaussian(Option_t* option)
+{
+  TH1* hist = gH1;
+  if(!hist) return 0;
+  if(hist->GetDimension() != 2){
+    std::cerr << " not 2d hist" << std::endl;
+    return 0;
+  }
+
+  TH2* hist2 = static_cast<TH2*>(hist);
+  std::string name(hist2->GetName());
+  Int_t nbins = hist2->GetYaxis()->GetNbins();
+  Double_t xmin = hist2->GetYaxis()->GetXmin();
+  Double_t xmax = hist2->GetYaxis()->GetXmax();
+  name += "_pfgy";
+  name = TArtGlobal::IncrementName(name);
+  std::string title(hist2->GetTitle());
+  title += " pfgy";
+
+  TH1* prof = new TH1D(name.c_str(), title.c_str(), nbins, xmin, xmax);
+  //  hist2->ProfileX(name.c_str(), firstybin, lastybin, option);
+  TF1* gaus=new TF1("gaus","gausn");
+  for(int i=0;i<nbins;i++){
+    TH1* temphist = hist2->ProjectionX("_temp",i,i);
+    if(temphist->GetEntries()<2){
+      continue;
+    }
+    std::cout<<i<<" "<<temphist->GetEntries()<<std::endl;
+    gaus->SetParameter(0,temphist->GetEntries());
+    gaus->SetParameter(1,temphist->GetMean());
+    gaus->SetParameter(2,temphist->GetRMS());
+    temphist->Fit("gaus",option);
+    Double_t mean=gaus->GetParameter(1);
+    Double_t error=gaus->GetParError(1);
+    prof->SetBinContent(i,mean);
+    prof->SetBinError(i,error);
+    temphist->Delete();
+    delete temphist;
+    temphist=NULL;
+  }
+
+  prof->SetTitle(title.c_str());
+
+  prof->SetMinimum(hist2->GetYaxis()->GetXmin());
+  prof->SetMaximum(hist2->GetYaxis()->GetXmax());
+  prof->ResetAttFill();
+  prof->SetOption("E");
+
+  if(!TArtHistManager::InsertAfterHist(hist2, prof)){
+    delete prof;
+    return 0;
+  }
+
+  TArtCanvasManager::cdNext();
+  TArtHistManager::DrawHist(prof);
+
+  return prof;
+}
+
+TH1* TArtSimpleFunction::ProfileYwithGaussian(TH1* hist,Option_t* option)
+{
+  gH1=hist;
+  TH1* prof = ProfileYwithGaussian(option);
 }
 
 void TArtSimpleFunction::ReDrawFrame()

@@ -103,7 +103,8 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/Riosfwd.h \
  /usr/local/src/root_v5.34.30/include/TBuffer.h \
  /usr/local/src/root_v5.34.30/include/TMemberInspector.h \
- include/TArtMDF_Frag_Eloss_Emp.hh include/TArtMDF_TOFSBTTgt_C.hh \
+ include/TArtMDF_Acceptance_Pb.hh include/TArtMDF_Frag_Eloss_Emp.hh \
+ include/TArtMDF_Eloss_Eout_C.hh include/TArtMDF_TOFSBTTgt_C.hh \
  include/TArtMDF_Beam_Eloss_C.hh include/TArtShikiParameters.hh \
  /usr/local/src/root_v5.34.30/include/TNamed.h \
  /usr/local/src/root_v5.34.30/include/TString.h \
@@ -140,7 +141,8 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  /usr/local/src/root_v5.34.30/include/TDirectory.h \
  /usr/local/src/root_v5.34.30/include/TDatime.h \
  /usr/local/src/root_v5.34.30/include/TUUID.h \
- /usr/local/src/root_v5.34.30/include/TString.h include/TArtEasyPID.hh \
+ /usr/local/src/root_v5.34.30/include/TString.h \
+ include/TArtMDF_Eloss_Eout_Emp.hh include/TArtEasyPID.hh \
  /usr/local/src/root_v5.34.30/include/TMath.h \
  /usr/local/src/root_v5.34.30/include/TError.h \
  /usr/include/c++/4.8.2/algorithm /usr/include/c++/4.8.2/utility \
@@ -219,10 +221,13 @@ anashiki_dict.lo: anashiki_dict.cc /usr/include/stdc-predef.h \
  include/TArtEasyBeam.hh include/TArtShikiParameters.hh \
  include/TArtEasyTarget.hh include/TArtMDF_s027_TofMDF.hh \
  include/TArtMDF_Frag_Eloss_C.hh include/TArtEasySAMURAIPID.hh \
- include/TArtMDF_TOFSBTTgt_Pb.hh include/TArtMDF_Beam_Eloss_Pb.hh \
- include/TArtEasyTimer.hh /usr/local/src/root_v5.34.30/include/TDatime.h \
+ include/TArtMDF_Eloss_Eout_Pb.hh include/TArtMDF_TOFSBTTgt_Pb.hh \
+ include/TArtMDF_Beam_Eloss_Pb.hh include/TArtEasyTimer.hh \
+ /usr/local/src/root_v5.34.30/include/TDatime.h \
  include/TArtMDF_Frag_Eloss_Pb.hh include/TArtMDF_s027_BrhoMDF.hh \
- include/TArtEasyScaler.hh /usr/local/src/root_v5.34.30/include/TClass.h \
+ include/TArtEasyScaler.hh \
+ /usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h \
+ /usr/local/src/root_v5.34.30/include/TClass.h \
  /usr/local/src/root_v5.34.30/include/TBuffer.h \
  /usr/local/src/root_v5.34.30/include/TInterpreter.h \
  /usr/local/src/root_v5.34.30/include/TVirtualMutex.h \
@@ -537,7 +542,11 @@ anashiki_dict.h:
 
 /usr/local/src/root_v5.34.30/include/TMemberInspector.h:
 
+include/TArtMDF_Acceptance_Pb.hh:
+
 include/TArtMDF_Frag_Eloss_Emp.hh:
+
+include/TArtMDF_Eloss_Eout_C.hh:
 
 include/TArtMDF_TOFSBTTgt_C.hh:
 
@@ -630,6 +639,8 @@ include/TArtEasyGamma.hh:
 /usr/local/src/root_v5.34.30/include/TUUID.h:
 
 /usr/local/src/root_v5.34.30/include/TString.h:
+
+include/TArtMDF_Eloss_Eout_Emp.hh:
 
 include/TArtEasyPID.hh:
 
@@ -813,6 +824,8 @@ include/TArtMDF_Frag_Eloss_C.hh:
 
 include/TArtEasySAMURAIPID.hh:
 
+include/TArtMDF_Eloss_Eout_Pb.hh:
+
 include/TArtMDF_TOFSBTTgt_Pb.hh:
 
 include/TArtMDF_Beam_Eloss_Pb.hh:
@@ -826,6 +839,8 @@ include/TArtMDF_Frag_Eloss_Pb.hh:
 include/TArtMDF_s027_BrhoMDF.hh:
 
 include/TArtEasyScaler.hh:
+
+/usr/local/src/root_v5.34.30/include/TCollectionProxyInfo.h:
 
 /usr/local/src/root_v5.34.30/include/TClass.h:
 

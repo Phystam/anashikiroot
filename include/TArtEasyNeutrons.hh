@@ -11,7 +11,7 @@
 #include <vector>
 #include "TArtEasyNeutron.hh"
 #include "TArtCalibNeuLAND.hh"
-class TArtSAMURAIParameters;
+//class TArtSAMURAIParameters;
 class TArtShikiParameters;
 class TArtStoreManager;
 class TArtCalibNEBULA;
@@ -48,6 +48,7 @@ class TArtEasyNeutrons : public TArtReconstruction{
   TArtEasyNeutron* GetEasyNeutron(Int_t i){return easyneuts[i];}
   TArtEasyNeutron* GetFastestNeutron(){return easyneuts[0];}
   std::vector<TArtEasyNeutron*> GetVectorEasyNeutron(){return easyneuts;}
+  void AppendNeutron(TArtEasyNeutron* neut){easyneuts.push_back(neut);}
   
   static bool CompareForSort(const TArtEasyNeutron* left,const TArtEasyNeutron* right) {
     if(isnan(left->GetTOF())&&isnan(right->GetTOF())){
@@ -80,11 +81,11 @@ private:
   Double_t ftgtz;
   Bool_t fisveto;
   Bool_t fhas_dist;
-  static const Double_t fclight=299.792458;// mm/ns
+  const Double_t fclight=299.792458;// mm/ns
   //  static const Double_t fe=1.6021766208e-19;// C
-  static const Double_t famu=1.660538921e-27;// kg
-  static const Double_t famu_MeV=931.494061;//MeV
-  static const Double_t fMass=939.565;//MeV/c2
+  const Double_t famu=1.660538921e-27;// kg
+  const Double_t famu_MeV=931.494061;//MeV
+  const Double_t fMass=939.565;//MeV/c2
   ClassDef(TArtEasyNeutrons,1);
 };
 

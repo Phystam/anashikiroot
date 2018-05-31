@@ -77,7 +77,7 @@ private:
   TList *tac16_array;
   Int_t GetTac16(Int_t sam, Int_t gtb, Int_t mod) const;
   Double_t QDC2Energy(Double_t channel);
-  Double_t WalkCorrection(Double_t e);
+  Double_t WalkCorrection(const TArtNeuLANDPlaPara* para,Double_t qped);
   void SetTacDistribution(TH2*tac0,TH2*tac1,TH2*tacref0,TH2*tacref1);
   //  Double_t Tac2ns(Int_t x,Double_t const *p);
   Double_t Tac2ns(Int_t ch,Int_t id,Int_t i,bool is_ref);

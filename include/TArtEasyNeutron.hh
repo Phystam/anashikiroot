@@ -18,7 +18,7 @@ public:
       fTAveCal(-1),fTAveSlw(-1),
       fQ1Raw(-1),fQ2Raw(-1),fQ1Ped(-1),fQ2Ped(-1),fQ1Cal(-1),fQ2Cal(-1),
       fQAvePed(-1),fQAveCal(-1),
-      fDTCal(-9999),fDTSlw(-9999), fTOF(-9999),
+      fDTCal(-9999),fDTSlw(-9999), fTOF(-9999), fTOFRaw(-9999), fFL(-9999),
       fBeta(-1),fGamma(-1),fEnergy(-1),fMomentum(-1)
   {
     fPos.SetX(-1);
@@ -28,6 +28,8 @@ public:
     fMomentum4D.SetPy(-1);
     fMomentum4D.SetPz(-1);
     fMomentum4D.SetE(-1);
+    fMass = 939.565;//MeV/c^2
+    fclight = 299.792458;//mm/ns
   }
   virtual ~TArtEasyNeutron(){;}
 
@@ -55,6 +57,8 @@ public:
   void SetDTCal  (Double_t val){ fDTCal   = val;}//ns
   void SetDTSlw  (Double_t val){ fDTSlw   = val;}//ns
   void SetTOF    (Double_t val){ fTOF     = val;}
+  void SetTOFRaw (Double_t val){ fTOFRaw  = val;}
+  void SetFlightLength(Double_t val){ fFL     = val;}
   void SetBeta   (Double_t val){ fBeta    = val;}
   void SetGamma  (Double_t val){ fGamma   = val;}
   void SetEnergy (Double_t val){ fEnergy  = val;}//MeV
@@ -99,6 +103,10 @@ public:
   Double_t GetDTSlw  () const { return fDTSlw  ;}//ns
   Double_t GetBeta   () const { return fBeta   ;}
   Double_t GetTOF    () const { return fTOF    ;}
+  Double_t GetTOFRaw () const { return fTOFRaw ;}
+  Double_t GetFlightLength    () const { return fFL    ;}
+  Double_t GetTOFGamma()const { return fTOF - fFL/fclight;}//ns, for gamma-ray calibration
+  Double_t GetTOFRawGamma()const { return fTOFRaw - fFL/fclight;}//ns, for gamma-ray calibration
   Double_t GetGamma  () const { return fGamma  ;}
   Double_t GetEnergy () const { return fEnergy ;}//MeV
   Double_t GetKineticEnergy (){ return fEnergy-fMass ;}//MeV
@@ -130,6 +138,8 @@ private:
   Double_t fDTCal  ;//ns
   Double_t fDTSlw  ;//ns
   Double_t fTOF    ;//ns
+  Double_t fTOFRaw ;//ns
+  Double_t fFL    ;//mm
   Double_t fBeta   ;
   Double_t fGamma  ;
   Double_t fEnergy ;//MeV
@@ -137,8 +147,8 @@ private:
   Double_t fMomentum;//MeV/c
   TVector3 fPos;//mm
   TLorentzVector fMomentum4D;
-  static const Double_t fMass = 939.565;//MeV/c^2
-  static const Double_t fclight = 299.792458;//mm/ns
+  Double_t fMass;//MeV/c^2
+  Double_t fclight;//mm/ns
 public:
   // overriding functions for sorting based on TOF
   Bool_t IsEqual(TObject *obj) const { return fTOF == ((TArtEasyNeutron*)obj)->GetTOF();} 
@@ -161,41 +171,6 @@ public:
     std::cout <<" result-> "<< (left.fTOF < right.fTOF) <<std::endl;
     return left.fTOF < right.fTOF;
   }
-  // bool operator>(const TArtEasyNeutron& right) 
-  // {
-  //   if(isnan(right.fTOF)){
-  //     return false;
-  //   }
-  //   if(isnan(this->fTOF)){
-  //     return true;
-  //   }
-  //   std::cout <<"comparing> "<<this->fTOF<<" and "<<right.fTOF <<std::endl;
-  //   std::cout <<" result-> "<< (this->fTOF > right.fTOF) <<std::endl;
-
-  //   return this->fTOF > right.fTOF;
-  // }
-  // bool operator<=(const TArtEasyNeutron& right)
-  // {
-  //   if(isnan(right.fTOF)){
-  //     return true;
-  //   }
-  //   return this->fTOF <= right.fTOF;
-  // }
-  // bool operator>=(const TArtEasyNeutron& right)
-  // {
-  //   if(isnan(right.fTOF)){
-  //     return false;
-  //   }
-  //   return this->fTOF >= right.fTOF;
-  // }
-  // bool operator==(const TArtEasyNeutron& right)
-  // {
-  //   return this->fTOF == right.fTOF;
-  // }
-  // bool operator!=(const TArtEasyNeutron& right)
-  // {
-  //   return !(*this == right);
-  // }
 
   ClassDef(TArtEasyNeutron,1);
 

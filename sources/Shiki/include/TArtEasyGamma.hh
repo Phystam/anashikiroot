@@ -36,29 +36,27 @@ public:
   // void SetTgtX(Double_t val){ftgtx=val;}
   // void SetTgtY(Double_t val){ftgty=val;}
   // void SetTgtZ(Double_t val){ftgtz=val;}
+  TVector3 GetPos(){return fpos;}
+  Double_t GetEnergy(){return fEnergy;}
+  Double_t GetQRaw(){return fQRaw;}
+  Double_t GetTRaw(){return fQRaw;}
+  Double_t GetTCal(){return fTCal;}
+  Double_t GetTSlw(){return fTSlw;}
+  void SetQRaw(Double_t val){fQRaw=val;}
+  void SetTRaw(Double_t val){fTRaw=val;}
+  void SetTCal(Double_t val){fTCal=val;}
+  void SEtTSlw(Double_t val){fTSlw=val;}
+  void SetEnergy(Double_t val){fEnergy=val;}
+  void SetPos(TVector3 val){fpos=val;}
+
 private:
-
-  // pointer to subsystem objects used for Gamma
-  TArtCalibCATANA* fcalibcatana;
-  // TArtCATANACsI* fcsi[100];
-  // Double_t fcsix[100];
-  // Double_t fcsiy[100];
-  // Double_t fcsiz[100];
-  // Double_t ftgtx,ftgty,ftgtz;
-  // Double_t ftheta[100];
-  // Double_t fphi[100];
-  // Double_t fr[100];
-
-  // const Double_t fclight=2.99792458e8;// m/s
-  // const Double_t fe=1.6021766208e-19;// C
-  // const Double_t famu=1.660538921e-27;// kg
-  // const Double_t famu_MeV=931.494061;//MeV
-
-  // Double_t fBeta;
-  // Double_t fQraw;
+  TVector3 fpos;
+  Double_t fEnergy;
+  Double_t fQRaw;
+  Double_t fTRaw;
+  Double_t fTCal;
+  Double_t fTSlw;
   ClassDef(TArtEasyGamma,1);
-
-
 };
 
 #endif

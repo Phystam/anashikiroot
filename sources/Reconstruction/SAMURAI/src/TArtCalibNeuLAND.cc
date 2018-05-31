@@ -238,6 +238,8 @@ void TArtCalibNeuLAND::ReconstructData()
 	energy * para->GetEDiffOffset() * para->GetESyncOffset() : 
 	energy / para->GetEDiffOffset() * para->GetESyncOffset();
       pla->SetQCal(j,energy_final);
+    }
+    for(int j=0;j<2;j++){
       Double_t time;
       Double_t time_ref;
       //      if (para->HasTDCTCal()) {
@@ -248,19 +250,20 @@ void TArtCalibNeuLAND::ReconstructData()
       pla->SetTacCal(j,time);
       pla->SetTacRefCal(j,time_ref);
 
-      time = time + 25.*pla->GetTCycle(j) - time_ref - time_ms;
+      time = time + 25.*pla->GetTCycle(j) - time_ref - time_ms - para->GetTSyncOffset();
 
       pla->SetTRaw(j,time);
 
       time = j == 0 ? 
-	time - para->GetTDiffOffset()/2. - para->GetTSyncOffset() + WalkCorrection(energy) : 
-	time + para->GetTDiffOffset()/2. - para->GetTSyncOffset() + WalkCorrection(energy) ;
+	time - WalkCorrection(para,pla->GetQPed(0)): 
+	time - WalkCorrection(para,pla->GetQPed(1)) ;
       time = time - para->GetTOFZero() + para->GetTOFClight();
       pla->SetTCal(j,time);
     }
     //    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() /* 10 for cm -> mm)*/);
     //     std::cout<<(pla->GetTRaw(0) - pla->GetTRaw(1))<<"*"<<para->GetVScint()<<"+"<<para->GetTDiffOffset()<<"="<<(pla->GetTRaw(0) - pla->GetTRaw(1)) * para->GetVScint() + para->GetTDiffOffset()<<std::endl;
-    pla->SetPos((pla->GetTRaw(0) - pla->GetTRaw(1)) * para->GetVScint() + para->GetTDiffOffset()/* 10 for cm -> mm)*/);
+    
+    pla->SetPos((pla->GetTCal(0) - pla->GetTCal(1)) * para->GetVScint() + para->GetTDiffOffset()/* 10 for cm -> mm)*/);
     // std::cout << pla->GetFired(0) << "  " << pla->GetTRaw(0) << "  "  << pla->GetFired(1) << "  " << pla->GetTRaw(1) << std::endl;
     pla->SetZPos(para->GetZPos());
   }
@@ -276,14 +279,16 @@ Double_t TArtCalibNeuLAND::QDC2Energy(Double_t channel)
 }
 
 //__________________________________________________________
-Double_t TArtCalibNeuLAND::WalkCorrection(Double_t e)
+Double_t TArtCalibNeuLAND::WalkCorrection(const TArtNeuLANDPlaPara* para,Double_t ped)
 {
   Double_t y=0;
 
-  Double_t par1=1500.; // +-0.2238
-  Double_t par2=0.00075;//+-2.355e-05
+  // Double_t par1=1500.; // +-0.2238
+  // Double_t par2=0.00075;//+-2.355e-05
 
-  y=par1*pow(e,par2)-(par1*pow(400.,par2)); // Michael's
+  const Double_t* p=para->GetSlewCoef();
+  //  y=par1*pow(e,par2)-(par1*pow(400.,par2)); // Michael's
+  y=p[0]+p[1]*pow(ped,p[2]);
 
   return y;
 }

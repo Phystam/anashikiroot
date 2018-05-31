@@ -127,13 +127,16 @@ void TArtEasyNeutrons::ReconstructData(){
 
     TVector3 neutronpos(pla->GetPos(0),pla->GetPos(1),pla->GetPos(2));
     Double_t tof = pla->GetTAveSlw()-tgttime;//ns
+    Double_t tofraw = pla->GetTAveCal()-tgttime;//ns
     TVector3 flvec=neutronpos-targetpos;
 
     Double_t fl = flvec.Mag();//mm
     Double_t v = fl/tof;//mm/ns
     Double_t beta = v/fclight;
     Double_t gamma = 1./sqrt(1-beta*beta);
+    easyneut->SetFlightLength(fl);
     easyneut->SetTOF(tof);
+    easyneut->SetTOFRaw(tofraw);
     easyneut->SetBeta(beta);
     easyneut->SetGamma(gamma);
     easyneut->SetEnergy(fMass*gamma);
@@ -181,12 +184,15 @@ void TArtEasyNeutrons::ReconstructData(){
 
     TVector3 neutronpos(pla->GetX(),pla->GetY(),pla->GetZ());
     Double_t tof = (pla->GetTCal(0)+pla->GetTCal(1))/2.-tgttime;//ns
+    Double_t tofraw = (pla->GetTRaw(0)+pla->GetTRaw(1))/2.-tgttime;//ns
     TVector3 flvec=neutronpos-targetpos;
     Double_t fl = flvec.Mag();//mm
     Double_t v = fl/tof;//mm/ns
     Double_t beta = v/fclight;
     Double_t gamma = 1./sqrt(1-beta*beta);
+    easyneut->SetFlightLength(fl);
     easyneut->SetTOF(tof);
+    easyneut->SetTOFRaw(tofraw);
     easyneut->SetBeta(beta);
     easyneut->SetGamma(gamma);
     easyneut->SetEnergy(fMass*gamma);
@@ -235,12 +241,15 @@ void TArtEasyNeutrons::ReconstructData(){
 
     TVector3 neutronpos(pla->GetPos(0),pla->GetPos(1),pla->GetPos(2));
     Double_t tof = pla->GetTAveSlw()-tgttime;//ns
+    Double_t tofraw = pla->GetTAveCal()-tgttime;//ns
     TVector3 flvec=neutronpos-targetpos;
     Double_t fl = flvec.Mag();//mm
     Double_t v = fl/tof;//mm/ns
     Double_t beta = v/fclight;
     Double_t gamma = 1./sqrt(1-beta*beta);
+    easyneut->SetFlightLength(fl);
     easyneut->SetTOF(tof);
+    easyneut->SetTOFRaw(tofraw);
     easyneut->SetBeta(beta);
     easyneut->SetGamma(gamma);
     easyneut->SetEnergy(fMass*gamma);

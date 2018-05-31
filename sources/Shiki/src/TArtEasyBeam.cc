@@ -47,11 +47,15 @@ TArtEasyBeam::TArtEasyBeam(){
   cout << "tgtname="<<feasytarget->GetDetectorName()->Data()<<endl;
   //  fTgtZ =-4978.89+488.;
 
-
-  fBDC1Xoffset=-0.705;
-  fBDC1Yoffset=-0.31;
-  fBDC2Xoffset=-0.555;
-  fBDC2Yoffset=-0.66;
+  //逆方向に動かしてみる
+  // fBDC1Xoffset=-0.705;
+  // fBDC1Yoffset=-0.31;
+  // fBDC2Xoffset=-0.555;
+  // fBDC2Yoffset=-0.66;
+  fBDC1Xoffset=0.7;
+  fBDC1Yoffset=-0.3;
+  fBDC2Xoffset=0.6;
+  fBDC2Yoffset=-0.7;
 
   //  fc1 = new TCanvas("fc1","fc1");
   //  fc2 = new TCanvas("fc2","fc2");

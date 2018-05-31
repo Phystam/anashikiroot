@@ -94,6 +94,10 @@ public:
   static void SliceFitGaussianY(TGraphErrors *&gmean, TGraphErrors *&gsigma,
 				int num, double ymin = 0, double ymax = -1,
 				double smin = -2, double smax = 2, bool waitflag = false);
+  static TH1* ProfileXwithGaussian(Option_t* option = "");
+  static TH1* ProfileYwithGaussian(Option_t* option = "");
+  static TH1* ProfileXwithGaussian(TH1* hist, Option_t* option = "");
+  static TH1* ProfileYwithGaussian(TH1* hist, Option_t* option = "");
   static void ReDrawFrame();
   static void CenterTitle(TH1* hist);
   static void CenterTitle(TGraph* graph);

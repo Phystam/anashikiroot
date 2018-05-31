@@ -21,6 +21,9 @@
 #include "TArtMDF_Beam_Eloss_C.hh"
 #include "TArtMDF_Beam_Eloss_Pb.hh"
 #include "TArtMDF_Beam_Eloss_Emp.hh"
+#include "TArtMDF_Eloss_Eout_C.hh"
+#include "TArtMDF_Eloss_Eout_Pb.hh"
+#include "TArtMDF_Eloss_Eout_Emp.hh"
 //________________________________________________________
 // TArtEasyPID::TArtEasyPID(){
 //   TArtCore::Info(__FILE__,"Creating BigRIPS detector objects...");
@@ -87,7 +90,6 @@ void TArtEasyPID::ReconstructData(){
   Double_t TOF713=ff13Time-f7time;
   Double_t TOF37=f7time-f3time;
   Double_t f5x=fpla[1]->GetXposition();
-  
   //f3pla time rejection
   // {
   //   // Double_t sigma=2.645e-4;
@@ -206,14 +208,19 @@ Double_t TArtEasyPID::GetKineticEnergyFromTOF(){
 Double_t TArtEasyPID::E2Tgt(Double_t E){
   Double_t Etgt=0;
   Double_t input[]={GetAInt(),GetZetInt(),E};
+  // Double_t* prm=feasytarget->GetBeamE();
+  // Etgt=prm[0]+prm[1]*E+prm[2]*E*E+prm[3]*E*E*E;
   if(*feasytarget->GetDetectorName()=="C"){
     Etgt=TArtMDF_Beam_Eloss_C::MDF(input);
+    //Etgt=TArtMDF_Eloss_Eout_C::MDF(input);
   }
   else if(*feasytarget->GetDetectorName()=="Pb"){
     Etgt=TArtMDF_Beam_Eloss_Pb::MDF(input);
+    //Etgt=TArtMDF_Eloss_Eout_Pb::MDF(input);
   }
   else if(*feasytarget->GetDetectorName()=="Emp"){
     Etgt=TArtMDF_Beam_Eloss_Emp::MDF(input);
+    //Etgt=TArtMDF_Eloss_Eout_Emp::MDF(input);
   }
   else if(*feasytarget->GetDetectorName()=="Al"){
     Etgt=285.814;//MeV

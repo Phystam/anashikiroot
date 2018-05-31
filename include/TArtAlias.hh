@@ -158,6 +158,11 @@ void chbin(Int_t ngroupx, Int_t ngroupy = 1, Int_t ngroupz = 1);
 //profile
 void pfx();
 void pfy();
+//profile with gaussian
+void pfgx();
+void pfgy();
+void pfgx(TH1* hist);
+void pfgy(TH1* hist);
 //projection
 void prx();
 void pry();

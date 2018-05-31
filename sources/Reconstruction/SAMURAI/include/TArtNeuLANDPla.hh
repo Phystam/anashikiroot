@@ -57,6 +57,7 @@ public:
   virtual Int_t    GetBarID()         const {return fBarID;}
   virtual Int_t    GetQRaw  (Int_t i) const {return fQRaw[i];}
   virtual Double_t GetQPed  (Int_t i) const {return fQPed[i];}
+  virtual Double_t GetQAvePed() const {return (fQPed[0]+fQPed[1])/2.;}
   virtual Double_t GetQCal  (Int_t i) const {return fQCal[i];}
   virtual Int_t    GetTCycle(Int_t i) const {return fTCycle[i];}
   virtual Int_t    GetTac   (Int_t i) const {return fTac[i];}
@@ -64,7 +65,9 @@ public:
   virtual Double_t GetTacRefCal(Int_t i) const {return fTacRefCal[i];}
   virtual Int_t    GetTacRef(Int_t i) const {return fTacRef[i];}
   virtual Double_t GetTRaw  (Int_t i) const {return fTRaw[i];}
+  virtual Double_t GetTAveRaw  () const {return (fTRaw[0]+fTRaw[1])/2.;}
   virtual Double_t GetTCal  (Int_t i) const {return fTCal[i];}
+  virtual Double_t GetTAveCal  () const {return (fTCal[0]+fTCal[1])/2.;}
   virtual void     GetTacquilaID(Int_t &sam, Int_t &gtb, Int_t &mod, Int_t &ch) {
     sam = fsam;
     gtb = fgtb;

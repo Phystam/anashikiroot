@@ -47,6 +47,15 @@ public:
   Double_t GetTOF37(){return fTOF37;} 
   Double_t GetDeltaE(){return fDeltaE;} 
   Double_t GetBeta(){return fBeta;}
+  Double_t GetBetaAtTgt(){
+    return GetTotalMomentumAtTgt()/GetTotalEnergyAtTgt();
+  }
+  Double_t GetGammaAtTgt(){
+    return 1./sqrt(1-pow(GetBetaAtTgt(),2.));
+  }
+  Double_t GetBrhoAtTgt(){
+    return GetAInt()/GetZet()*GetBetaAtTgt()*GetGammaAtTgt()*fclight*famu/fe;
+  }
   Double_t GetGamma(){return fGamma;}
   Double_t GetZet(){return fZ;}
   Double_t GetAoZ(){return fAoZ;}

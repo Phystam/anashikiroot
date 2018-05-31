@@ -938,6 +938,15 @@ TArtNeuLANDPlaPara *TArtSAMURAIParameters::ParseNeuLANDPlaPara(TXMLNode *node)
     }else if(strcmp(node->GetNodeName(), "tof_clight") == 0){
       Double_t val = atof(node->GetText());
       para->SetTOFClight(val);
+    }else if(strcmp(node->GetNodeName(), "slew_coef0") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetSlewCoef(0,val);
+    }else if(strcmp(node->GetNodeName(), "slew_coef1") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetSlewCoef(1,val);
+    }else if(strcmp(node->GetNodeName(), "slew_coef2") == 0){
+      Double_t val = atof(node->GetText());
+      para->SetSlewCoef(2,val);
     }else if(strcmp(node->GetNodeName(), "zpos") == 0){
       Double_t val = atof(node->GetText());
       para->SetZPos(val);
@@ -1212,7 +1221,7 @@ TArtHODPlaPara *TArtSAMURAIParameters::ParseHODPlaPara(TXMLNode *node)
   Double_t  tslew_up_b = 0;
   Double_t  tslew_down_a = 0;
   Double_t  tslew_down_b = 0;
-  Double_t  zcoef_0 = 0, zcoef_1 = 0, zcoef_2 = 0, zcoef_3 = 0;
+  Double_t  zcoef_0 = 0, zcoef_1 = 0, zcoef_2 = 0, zcoef_3 = 0, zcoef_4 = 0;
   Int_t tdet, tup_geo, tup_ch, tdown_geo, tdown_ch;
   Int_t qdet, qup_geo, qup_ch, qdown_geo, qdown_ch;
 
@@ -1258,6 +1267,8 @@ TArtHODPlaPara *TArtSAMURAIParameters::ParseHODPlaPara(TXMLNode *node)
         zcoef_2 = (Double_t)atof(node->GetText());
       if (strcmp(node->GetNodeName(),"zcoef_3")==0)
         zcoef_3 = (Double_t)atof(node->GetText());
+      if (strcmp(node->GetNodeName(),"zcoef_4")==0)
+        zcoef_4 = (Double_t)atof(node->GetText());
 
       if (strcmp(node->GetNodeName(), "t_det") == 0)
         tdet = atoi(node->GetText());
@@ -1289,7 +1300,7 @@ TArtHODPlaPara *TArtSAMURAIParameters::ParseHODPlaPara(TXMLNode *node)
 		       tup_offset, tdown_offset, t_offset,
 		       qcal_up, qcal_down, qped_up, qped_down,
 		       tslew_up_a, tslew_up_b, tslew_down_a, tslew_down_b,
-		       zcoef_0,zcoef_1,zcoef_2,zcoef_3);
+		       zcoef_0,zcoef_1,zcoef_2,zcoef_3,zcoef_4);
   para->SetMap(tdet, tup_geo, tup_ch, tdown_geo, tdown_ch,
 	       qdet, qup_geo, qup_ch, qdown_geo, qdown_ch);
 

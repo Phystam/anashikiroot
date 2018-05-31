@@ -19,11 +19,11 @@ class TArtHODPlaPara : public TNamed {
 		 Double_t qcalu, Double_t qcald, 
 		 Double_t qpedu, Double_t qpedd, 
 		 Double_t ts_au, Double_t ts_bu, Double_t ts_ad, Double_t ts_bd,
-		 Double_t zc0, Double_t zc1, Double_t zc2, Double_t zc3)
+		 Double_t zc0, Double_t zc1, Double_t zc2, Double_t zc3, Double_t zc4)
     : id(i), detname(n), fpl(f), tcal_up(tcu), tcal_down(tcd), toff_up(tou), toff_down(tod), t_off(to),
       qcal_up(qcalu), qcal_down(qcald), qped_up(qpedu), qped_down(qpedd),
       tslew_up_a(ts_au), tslew_up_b(ts_bu), tslew_down_a(ts_ad), tslew_down_b(ts_bd),
-    zcoef_0(zc0), zcoef_1(zc1), zcoef_2(zc2), zcoef_3(zc3){ }
+    zcoef_0(zc0), zcoef_1(zc1), zcoef_2(zc2), zcoef_3(zc3), zcoef_4(zc4){ }
   ~TArtHODPlaPara(){}
 
   void SetPalameters(Int_t i, TString n, Int_t f, 
@@ -32,14 +32,14 @@ class TArtHODPlaPara : public TNamed {
 		     Double_t qpedu, Double_t qpedd, 
 		     Double_t ts_au, Double_t ts_bu, 
 		     Double_t ts_ad, Double_t ts_bd,
-		     Double_t zc0, Double_t zc1, Double_t zc2, Double_t zc3){
+		     Double_t zc0, Double_t zc1, Double_t zc2, Double_t zc3, Double_t zc4){
     id=i; detname=n; fpl=f; 
     tcal_up=tcu; tcal_down=tcd;
     toff_up=tou; toff_down=tod; t_off=to;
     qped_up=qpedu; qped_down=qpedd; 
     tslew_up_a=ts_au; tslew_up_b=ts_bu; 
     tslew_down_a=ts_ad; tslew_down_b=ts_bd; 
-    zcoef_0=zc0; zcoef_1=zc1; zcoef_2=zc2; zcoef_3=zc3;}
+    zcoef_0=zc0; zcoef_1=zc1; zcoef_2=zc2; zcoef_3=zc3; zcoef_4=zc4;}
 
   void SetMap(Int_t dt, Int_t tug, Int_t tuc, Int_t tdg, Int_t tdc, 
 	      Int_t dq, Int_t qug, Int_t quc, Int_t qdg, Int_t qdc) {
@@ -69,6 +69,7 @@ class TArtHODPlaPara : public TNamed {
   Double_t GetZCoef1() const {return zcoef_1;}
   Double_t GetZCoef2() const {return zcoef_2;}
   Double_t GetZCoef3() const {return zcoef_3;}
+  Double_t GetZCoef4() const {return zcoef_4;}
   TArtRIDFMap * GetTUMap() { return &map_tup;  }
   TArtRIDFMap * GetTDMap() { return &map_tdown; }
   TArtRIDFMap * GetQUMap() { return &map_qup;  }
@@ -96,6 +97,7 @@ class TArtHODPlaPara : public TNamed {
     out << "Z coefficient 1: " << p.zcoef_1 << std::endl;
     out << "Z coefficient 2: " << p.zcoef_2 << std::endl;
     out << "Z coefficient 3: " << p.zcoef_3 << std::endl;
+    out << "Z coefficient 4: " << p.zcoef_4 << std::endl;
     
     out << "Map of T-Up: "  << p.map_tup;
     out << "Map of T-Down: " << p.map_tdown;
@@ -130,6 +132,7 @@ private:
   Double_t  zcoef_1;
   Double_t  zcoef_2;
   Double_t  zcoef_3;
+  Double_t  zcoef_4;
 
   TArtRIDFMap map_tup;
   TArtRIDFMap map_tdown;

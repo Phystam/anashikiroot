@@ -227,8 +227,8 @@ void TArtCalibNEBULA::ReconstructData()
     }else{
       // tuslw -= para->GetTUSlw()/sqrt(quped);
       // tdslw -= para->GetTDSlw()/sqrt(qdped);
-      tuslw -= para->GetTUSlw()*pow(qucal,para->GetTSlwPow());
-      tdslw -= para->GetTDSlw()*pow(qdcal,para->GetTSlwPow());
+      tuslw -= para->GetTUSlw()*pow(qaveped,para->GetTSlwPow());
+      tdslw -= para->GetTDSlw()*pow(qaveped,para->GetTSlwPow());
     }
     Double_t dtraw = tdraw - turaw;
     Double_t dtcal = tdcal - tucal;

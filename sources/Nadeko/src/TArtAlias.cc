@@ -105,6 +105,10 @@ void chbin(Int_t ngroupx, Int_t ngroupy, Int_t ngroupz){TArtSimpleFunction::Chan
 
 void pfx(){TArtSimpleFunction::ProfileX();}
 void pfy(){TArtSimpleFunction::ProfileY();}
+void pfgx(){TArtSimpleFunction::ProfileXwithGaussian();}
+void pfgy(){TArtSimpleFunction::ProfileYwithGaussian();}
+void pfgx(TH1* hist){TArtSimpleFunction::ProfileXwithGaussian(hist);}
+void pfgy(TH1* hist){TArtSimpleFunction::ProfileYwithGaussian(hist);}
 void prx(){TArtSimpleFunction::ProjectionX();}
 void pry(){TArtSimpleFunction::ProjectionY();}
 void slx(Int_t num){TArtSimpleFunction::SliceX(num);}

@@ -59,6 +59,9 @@ public:
       fQCal[i]=0; fQPed[i]=0; 
       fTDC0ns[i]=0; fTDC25ns[i]=0; fTDC0ns_t17[i]=0; fTDC25ns_t17[i]=0;
     }
+    for(int i=0;i<3;i++){
+      slew_coef[i]=-1;
+    }
     fTCalYep[0] = false;
     fTCalYep[1] = false;
   }
@@ -169,6 +172,7 @@ public:
   void SetAtt        (Double_t val){att = val;} 
   void SetTOFZero    (Double_t val){tof_zero = val;} 
   void SetTOFClight  (Double_t val){tof_clight = val;} 
+  void SetSlewCoef   (Int_t i, Double_t val){slew_coef[i] = val;} 
   void SetZPos(Double_t val){fZPos = val;}
 
   Double_t GetTDiffOffset() const {return tdiff_offset;} 
@@ -179,6 +183,7 @@ public:
   Double_t GetAtt        () const {return att;} 
   Double_t GetTOFZero    () const {return tof_zero;}
   Double_t GetTOFClight  () const {return tof_clight;}
+  const Double_t* const GetSlewCoef  () const {return slew_coef;}
   Double_t GetZPos() const {return fZPos;}
 
   friend std::ostream& operator<<(std::ostream& out, const TArtNeuLANDPlaPara& p){
@@ -244,6 +249,7 @@ private:
   Double_t              tdiff_offset, tsync_offset, vscint;
   Double_t              ediff_offset, esync_offset, att;
   Double_t              tof_zero,tof_clight;
+  Double_t              slew_coef[3];
   Double_t              fZPos;
 
   void SetMap(Int_t pmtid, Int_t sam, Int_t gtb, Int_t mod, Int_t ch){
