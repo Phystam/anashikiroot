@@ -233,7 +233,7 @@ void TArtCalibPlastic::ReconstructData()   { // call after the raw data are load
       //TArtCore::Info(__FILE__,"ch %d: fpl: %d, tlraw: %d, trraw: %d, tl: %f, tr: %f, t:%f", i , fFocalPlane, fTLRaw,fTRRaw,(float)fTL,(float)fTR,(float)fTOF);
       //fTDiff = fTL-fTR;
       fTDiff = fTRSlw-fTLSlw;
-      fX = para->GetXCal0() * atan( fTDiff*para->GetXCal1() ) + para->GetXCal2();
+      fX = para->GetXCal0() * TMath::ATan( fTDiff * para->GetXCal1() ) + para->GetXCal2();
       Double_t corr[]={4.84429e+00,2.56768e+00,3.39064e+00,-6.97872e-02};
       
       fX -= corr[0] + corr[1]*sin(corr[2]+corr[3]*fX);
